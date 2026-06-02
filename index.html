@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clement Poon — Design Portfolio</title>
-<meta name="description" content="A rolling build log: car audio, power distribution, lighting and embedded control — by Clement Poon.">
+<title>Clement Poon — Portfolio</title>
+<meta name="description" content="Portfolio of Clement Poon — embedded systems, car audio, power distribution and electronics engineering.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -28,12 +28,12 @@ body{
   line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;
   font-size:17px;
 }
-body::before{ /* grid */
+body::before{
   content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
   background-image:linear-gradient(var(--line2) 1px,transparent 1px),linear-gradient(90deg,var(--line2) 1px,transparent 1px);
   background-size:64px 64px; mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 80%); opacity:.5;
 }
-body::after{ /* grain */
+body::after{
   content:""; position:fixed; inset:0; z-index:9999; pointer-events:none; opacity:.05;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
@@ -49,15 +49,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:.35s}
 nav .bar{max-width:var(--maxw);margin:0 auto;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid transparent;transition:.35s}
 nav.scrolled .bar{border-bottom-color:var(--line);background:rgba(10,12,16,.72);backdrop-filter:blur(14px)}
 nav.scrolled{padding:0}
-.brand{font-family:var(--mono);font-weight:700;letter-spacing:.5px;font-size:14px;display:flex;align-items:center;gap:10px}
+.brand{font-family:var(--mono);font-weight:700;letter-spacing:.5px;font-size:14px;display:flex;align-items:center;gap:10px;cursor:pointer}
 .brand .dot{width:9px;height:9px;border-radius:2px;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
 .brand b{color:var(--cyan)}
 .navlinks{display:flex;gap:26px;font-family:var(--mono);font-size:12.5px;letter-spacing:.5px;color:var(--muted)}
-.navlinks a{position:relative;transition:.25s;padding:4px 0}
+.navlinks a{position:relative;transition:.25s;padding:4px 0;cursor:pointer}
 .navlinks a:hover,.navlinks a.active{color:var(--text)}
 .navlinks a.active::after{content:"";position:absolute;left:0;bottom:-2px;width:100%;height:1.5px;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
-.menubtn{display:none}
 @media(max-width:760px){.navlinks{display:none}}
+
+/* ---------- PAGE SWITCHING ---------- */
+.page{display:none}
+.page.active{display:block}
 
 /* ---------- HERO ---------- */
 .hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:120px 0 60px}
@@ -65,7 +68,7 @@ nav.scrolled{padding:0}
 .kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:3px;color:var(--cyan);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:26px}
 .kicker::before{content:"";width:38px;height:1px;background:var(--cyan-line)}
 h1.title{font-family:var(--disp);font-weight:800;font-size:clamp(3.4rem,9vw,7rem);line-height:.92;letter-spacing:-.03em;margin-bottom:10px}
-h1.title .l2{color:var(--faint);-webkit-text-stroke:1.5px var(--muted);color:transparent}
+h1.title .l2{-webkit-text-stroke:1.5px var(--muted);color:transparent}
 .hero .sub{max-width:440px;color:var(--muted);font-size:1.05rem;margin:26px 0 32px}
 .sig{display:flex;align-items:center;gap:16px;font-family:var(--mono);font-size:13px;color:var(--text)}
 .sig .pill{border:1px solid var(--line);border-radius:100px;padding:7px 16px;letter-spacing:.5px}
@@ -77,7 +80,6 @@ h1.title .l2{color:var(--faint);-webkit-text-stroke:1.5px var(--muted);color:tra
 .eq span:nth-child(3){animation-delay:-.25s}.eq span:nth-child(4){animation-delay:-.6s}
 .eq span:nth-child(5){animation-delay:-.35s}.eq span:nth-child(6){animation-delay:-.15s}
 .eq span:nth-child(7){animation-delay:-.5s}.eq span:nth-child(8){animation-delay:-.3s}
-
 .heroart{position:relative}
 .heroart .frame{position:absolute;inset:-22px -22px auto auto;width:78%;height:78%;border:1px solid var(--cyan-line);border-radius:4px}
 .heroart .corner{position:absolute;width:14px;height:14px;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
@@ -111,7 +113,6 @@ h2{font-family:var(--disp);font-weight:700;font-size:clamp(2.1rem,5vw,3.4rem);li
 .lead{color:var(--muted);max-width:60ch;font-size:1.08rem}
 .divider{height:1px;background:var(--line);max-width:var(--maxw);margin:0 auto}
 
-/* layout: text + media */
 .split{display:grid;grid-template-columns:.92fr 1.08fr;gap:56px;align-items:center;margin-top:46px}
 .split.rev{grid-template-columns:1.08fr .92fr}
 .split.rev .copy{order:2}.split.rev .media{order:1}
@@ -122,7 +123,6 @@ h2{font-family:var(--disp);font-weight:700;font-size:clamp(2.1rem,5vw,3.4rem);li
 .figure:hover img{transform:scale(1.05)}
 .figure .tag{position:absolute;top:0;left:0;font-family:var(--mono);font-size:10.5px;letter-spacing:1px;color:var(--cyan);background:rgba(10,12,16,.78);padding:5px 10px;border-bottom-right-radius:5px;border-right:1px solid var(--cyan-line);border-bottom:1px solid var(--cyan-line)}
 
-/* image clusters */
 .cluster{display:grid;gap:14px}
 .cluster.a{grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;grid-template-areas:"big top" "big bot"}
 .cluster.a .figure:nth-child(1){grid-area:big}
@@ -140,16 +140,14 @@ h2{font-family:var(--disp);font-weight:700;font-size:clamp(2.1rem,5vw,3.4rem);li
   .cluster.stack{grid-template-columns:1fr;grid-template-areas:"hero" "s1" "s2"}
 }
 
-/* data callouts */
 .stats{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
 .stat{border:1px solid var(--line);border-radius:5px;padding:16px 20px;background:var(--surface);min-width:120px}
 .stat .n{font-family:var(--disp);font-weight:700;font-size:1.7rem;color:var(--cyan);letter-spacing:-.02em}
 .stat .k{font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-top:4px}
 
-/* ---------- PREVIOUS PROJECTS ---------- */
 .cards2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:46px}
 @media(max-width:760px){.cards2{grid-template-columns:1fr}}
-.pcard{border:1px solid var(--line);border-radius:6px;padding:34px;background:linear-gradient(160deg,var(--surface),var(--bg2));position:relative;overflow:hidden;transition:.35s}
+.pcard{border:1px solid var(--line);border-radius:6px;padding:34px;background:linear-gradient(160deg,var(--surface),var(--bg2));position:relative;overflow:hidden;transition:.35s;cursor:pointer}
 .pcard:hover{border-color:var(--cyan-line);transform:translateY(-4px)}
 .pcard::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--cyan),transparent);opacity:0;transition:.35s}
 .pcard:hover::before{opacity:1}
@@ -159,6 +157,8 @@ h2{font-family:var(--disp);font-weight:700;font-size:clamp(2.1rem,5vw,3.4rem);li
 .pcard ul{list-style:none;display:flex;flex-direction:column;gap:14px}
 .pcard li{display:flex;gap:12px;color:var(--muted);font-size:.98rem}
 .pcard li::before{content:"▸";color:var(--cyan);flex:none;margin-top:1px}
+.pcard .goto{font-family:var(--mono);font-size:11.5px;letter-spacing:1px;color:var(--cyan);margin-top:22px;display:flex;align-items:center;gap:8px;opacity:.7;transition:.25s}
+.pcard:hover .goto{opacity:1}
 
 /* ---------- FLOODLIGHT B/A ---------- */
 .ba{position:relative;width:100%;aspect-ratio:869/401;border-radius:6px;overflow:hidden;border:1px solid var(--line);user-select:none;touch-action:none;cursor:ew-resize;margin-top:14px}
@@ -205,11 +205,54 @@ footer .meta a:hover{color:var(--cyan)}
 .totop.show{opacity:1;pointer-events:auto}
 .totop:hover{background:var(--cyan);color:var(--bg)}
 
-/* reveal */
+/* ---------- REVEAL ---------- */
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
 .cluster .figure,.cards2 .pcard,.issues .icard,.gallery .figure{transition:transform .35s,border-color .35s,box-shadow .35s,opacity .6s}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* ---------- PROJECT DETAIL PAGES ---------- */
+.proj-hero{min-height:80vh;display:flex;align-items:center;padding:140px 0 80px;position:relative}
+.proj-hero .sub{max-width:520px;color:var(--muted);font-size:1.05rem;margin:26px 0 32px}
+.proj-status{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11.5px;letter-spacing:1px;color:var(--amber);border:1px solid rgba(255,138,61,.3);border-radius:100px;padding:6px 18px;background:var(--amber-soft)}
+.proj-status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber)}
+.steps{display:flex;flex-direction:column;gap:24px;margin-top:28px}
+.step{display:flex;gap:20px;align-items:flex-start}
+.step-n{font-family:var(--mono);font-size:12px;letter-spacing:1px;color:var(--cyan);border:1px solid var(--cyan-line);border-radius:4px;padding:4px 10px;white-space:nowrap;flex-shrink:0;background:var(--cyan-soft)}
+.step p{color:var(--muted);font-size:.98rem;padding-top:3px}
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:36px}
+.tech-card{border:1px solid var(--line);border-radius:6px;padding:26px;background:var(--surface);transition:.35s}
+.tech-card:hover{border-color:var(--cyan-line);transform:translateY(-3px)}
+.tech-card .tc-icon{font-size:1.6rem;margin-bottom:14px;line-height:1}
+.tech-card h4{font-family:var(--disp);font-weight:700;font-size:1.1rem;margin-bottom:8px}
+.tech-card p{font-size:.92rem;color:var(--muted)}
+.freq-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:36px}
+@media(max-width:760px){.freq-grid{grid-template-columns:1fr}}
+
+/* ---------- ABOUT PAGE ---------- */
+.about-wrap{padding:140px 0 100px;position:relative;z-index:2}
+.about-grid{display:grid;grid-template-columns:320px 1fr;gap:72px;align-items:start;margin-top:56px}
+@media(max-width:880px){.about-grid{grid-template-columns:1fr;gap:40px}}
+.about-avatar{width:100%;max-width:320px;aspect-ratio:1;border-radius:8px;background:var(--surface);border:1px solid var(--line);display:grid;place-items:center;position:relative;overflow:hidden}
+.about-avatar::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,transparent 40%,rgba(65,214,255,.08))}
+.about-avatar .av-init{font-family:var(--disp);font-weight:800;font-size:6rem;color:var(--faint);letter-spacing:-.04em;opacity:.35}
+.skills-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.skill-tag{font-family:var(--mono);font-size:11.5px;letter-spacing:.5px;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:5px 12px;background:var(--surface);transition:.25s}
+.skill-tag:hover{border-color:var(--cyan-line);color:var(--cyan)}
+.edu-block{border-left:2px solid var(--cyan-line);padding:16px 24px;margin-top:12px;background:linear-gradient(90deg,var(--cyan-soft),transparent);border-radius:0 6px 6px 0}
+.edu-block .deg{font-family:var(--disp);font-weight:700;font-size:1.05rem}
+.edu-block .school{font-family:var(--mono);font-size:12px;color:var(--cyan);letter-spacing:.5px;margin-top:4px}
+.edu-block .yr{font-family:var(--mono);font-size:11.5px;color:var(--faint);margin-top:6px}
+.section-label{font-family:var(--mono);font-size:11.5px;letter-spacing:2px;color:var(--muted);text-transform:uppercase;margin-bottom:16px}
+
+/* ---------- CONTACT PAGE ---------- */
+.contact-wrap{min-height:calc(100vh - 80px);display:flex;flex-direction:column;justify-content:center;padding:140px 0 100px;position:relative;z-index:2}
+.contact-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:48px}
+.contact-card{border:1px solid var(--line);border-radius:6px;padding:28px 30px;background:var(--surface);display:flex;align-items:center;gap:20px;transition:.35s}
+.contact-card:hover{border-color:var(--cyan-line);transform:translateY(-3px);background:linear-gradient(160deg,var(--surface),var(--bg2))}
+.contact-card .cc-icon{width:44px;height:44px;border:1px solid var(--cyan-line);border-radius:8px;display:grid;place-items:center;color:var(--cyan);background:var(--cyan-soft);flex-shrink:0}
+.contact-card .cc-label{font-family:var(--mono);font-size:11px;letter-spacing:1.5px;color:var(--faint);text-transform:uppercase;margin-bottom:4px}
+.contact-card .cc-val{font-family:var(--disp);font-weight:600;font-size:1rem}
 </style>
 <noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
 </head>
@@ -218,21 +261,22 @@ footer .meta a:hover{color:var(--cyan)}
 
 <nav id="nav">
   <div class="bar">
-    <a href="#top" class="brand"><span class="dot"></span>CLEMENT<b>POON</b><span style="color:var(--faint)">/build_log</span></a>
+    <span class="brand tab-link" data-page="car"><span class="dot"></span>CLEMENT<b>POON</b><span style="color:var(--faint)">/portfolio</span></span>
     <div class="navlinks">
-      <a href="#projects">PROJECTS</a>
-      <a href="#beginnings">BEGINNINGS</a>
-      <a href="#speakers">SPEAKERS</a>
-      <a href="#power">POWER</a>
-      <a href="#car">MODEL CAR</a>
-      <a href="#floodlights">LIGHTING</a>
-      <a href="#issues">DEBUG</a>
-      <a href="#gallery">GALLERY</a>
+      <a class="tab-link active" data-page="car">CAR AUDIO</a>
+      <a class="tab-link" data-page="fingerprint">FINGERPRINT</a>
+      <a class="tab-link" data-page="sound">SOUND LIGHTING</a>
+      <a class="tab-link" data-page="about">ABOUT</a>
+      <a class="tab-link" data-page="contact">CONTACT</a>
     </div>
   </div>
 </nav>
 
-<header class="hero" id="top">
+
+<!-- ═══════════════════════════ PAGE: CAR AUDIO ═══════════════════════════ -->
+<div id="page-car" class="page active">
+
+<header class="hero">
   <div class="wrap">
     <div class="herotext">
       <div class="kicker">Car Audio × Embedded Systems</div>
@@ -257,7 +301,7 @@ footer .meta a:hover{color:var(--cyan)}
 </header>
 
 <div class="specstrip">
-  <div class="marquee" id="marq">
+  <div class="marquee">
     <div class="grp">
       <span class="item"><b>~70A</b>&nbsp;DRAW<span class="sep">/</span></span>
       <span class="item"><b>900W</b>&nbsp;PEAK<span class="sep">/</span></span>
@@ -288,7 +332,7 @@ footer .meta a:hover{color:var(--cyan)}
     <h2 class="reveal">Where it started — small electronics experiments.</h2>
     <p class="lead reveal">Two early microcontroller builds that set the direction: identity, sound, and lighting working together.</p>
     <div class="cards2">
-      <div class="pcard reveal">
+      <div class="pcard reveal" data-page="fingerprint">
         <div class="ic" aria-hidden="true">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 11v3m0 0a8 8 0 0 1-2 5M6 8a8 8 0 0 1 11.5-.5M4.5 12a7.5 7.5 0 0 1 1-3.8M9 12a3 3 0 0 1 6 0v1a9 9 0 0 1-1 4M15.5 13a10 10 0 0 1-1 6"/></svg>
         </div>
@@ -299,8 +343,9 @@ footer .meta a:hover{color:var(--cyan)}
           <li>Pairs with a phone to remotely start the vehicle and load presets per user.</li>
           <li>Integrates directly with the existing 12V battery found in every vehicle.</li>
         </ul>
+        <div class="goto">VIEW PROJECT →</div>
       </div>
-      <div class="pcard reveal">
+      <div class="pcard reveal" data-page="sound">
         <div class="ic" aria-hidden="true">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 12h2l2-6 3 14 3-18 3 16 2-6h3"/></svg>
         </div>
@@ -310,6 +355,7 @@ footer .meta a:hover{color:var(--cyan)}
           <li>A speaker output jack feeds a computer's audio into an Arduino, which lights specific LEDs by frequency band — low, low-mids, mids, and up.</li>
           <li>Computes each band's average level and finds transient points to correct for volume offsets.</li>
         </ul>
+        <div class="goto">VIEW PROJECT →</div>
       </div>
     </div>
   </div>
@@ -388,7 +434,7 @@ footer .meta a:hover{color:var(--cyan)}
 <div class="divider"></div>
 
 <!-- 05 MODEL CAR -->
-<section class="block" id="car">
+<section class="block" id="modelcar">
   <div class="wrap">
     <div class="split rev">
       <div class="copy">
@@ -482,57 +528,428 @@ footer .meta a:hover{color:var(--cyan)}
       <div class="big">CLEMENT <span>POON</span></div>
     </div>
     <div class="meta">
-      DESIGN PORTFOLIO · BUILD LOG<br>
-      Car audio · power · lighting · embedded control<br>
-      <a href="#top">↑ BACK TO TOP</a> · <span id="yr"></span>
+      CAR AUDIO BUILD · DESIGN PORTFOLIO<br>
+      Speakers · power · lighting · embedded control<br>
+      <span id="yr-car"></span>
     </div>
   </div>
 </footer>
+
+</div><!-- /page-car -->
+
+
+<!-- ═══════════════════════════ PAGE: FINGERPRINT ═══════════════════════════ -->
+<div id="page-fingerprint" class="page">
+
+<div class="proj-hero">
+  <div class="wrap">
+    <div class="kicker">ESP32 · Automotive · BLE</div>
+    <h1 class="title">FINGERPRINT<br><span class="l2">SYSTEM</span></h1>
+    <p class="proj-hero sub">An ESP32 and optical fingerprint sensor replace the ignition button — verifying driver identity before the car starts, and syncing DSP presets per user via Bluetooth.</p>
+    <span class="proj-status">COMPLETED · EARLY PROJECT</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="shead reveal"><span class="idx">[ 01 ]</span><span class="eyebrow">How It Works</span></div>
+    <h2 class="reveal">Driver auth at the ignition.</h2>
+    <div class="steps reveal">
+      <div class="step"><span class="step-n">STEP 01</span><p>The driver places their finger on the optical sensor embedded in the ignition button surround.</p></div>
+      <div class="step"><span class="step-n">STEP 02</span><p>The ESP32 compares the scan against stored templates — up to 127 registered users, false-acceptance rate under 0.001%.</p></div>
+      <div class="step"><span class="step-n">STEP 03</span><p>On a match, a relay closes the ignition circuit. On failure the circuit stays open and an LED flashes red.</p></div>
+      <div class="step"><span class="step-n">STEP 04</span><p>The authenticated user ID is broadcast over BLE to a paired phone, which loads that driver's DSP audio presets automatically.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="shead reveal"><span class="idx">[ 02 ]</span><span class="eyebrow">Tech Stack</span></div>
+    <h2 class="reveal">Components & architecture.</h2>
+    <div class="tech-grid">
+      <div class="tech-card reveal">
+        <div class="tc-icon">⚡</div>
+        <h4>ESP32</h4>
+        <p>Dual-core MCU handling fingerprint matching, relay control, and BLE communication simultaneously without an RTOS.</p>
+      </div>
+      <div class="tech-card reveal">
+        <div class="tc-icon">◎</div>
+        <h4>R307 Optical Sensor</h4>
+        <p>250 dpi optical fingerprint module with onboard flash for template storage — up to 127 enrolled fingers.</p>
+      </div>
+      <div class="tech-card reveal">
+        <div class="tc-icon">↯</div>
+        <h4>12V Integration</h4>
+        <p>A 12V-to-3.3V buck converter and automotive relay tie the system directly to the vehicle's battery and ignition line.</p>
+      </div>
+      <div class="tech-card reveal">
+        <div class="tc-icon">⇄</div>
+        <h4>BLE 4.2</h4>
+        <p>Broadcasts the authenticated user ID to a paired Android device for preset loading and remote-start unlock.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="shead reveal"><span class="idx">[ 03 ]</span><span class="eyebrow">Specs</span></div>
+    <div class="split">
+      <div class="copy">
+        <h2 class="reveal">Wired into the 12V system.</h2>
+        <p class="lead reveal">The ESP32 runs from a buck converter tapped at the fuse box. A 5A inline fuse protects the branch circuit.</p>
+        <p class="lead reveal" style="margin-top:18px">The ignition relay is wired in series with the ignition line — if the ESP32 loses power, the relay defaults open so the car cannot start without system power.</p>
+        <div class="stats reveal">
+          <div class="stat"><div class="n">127</div><div class="k">Max Users</div></div>
+          <div class="stat"><div class="n">&lt;1s</div><div class="k">Auth Time</div></div>
+          <div class="stat"><div class="n">3.3V</div><div class="k">Logic Level</div></div>
+        </div>
+      </div>
+      <div class="media reveal">
+        <div class="icard">
+          <div class="top"><span class="num">// SYSTEM_FLOW</span><h4>Signal Path</h4></div>
+          <div class="row"><span class="lbl fix">INPUT</span><p>Finger on R307 → ESP32 via UART at 57600 baud</p></div>
+          <div class="row"><span class="lbl fix">PROCESS</span><p>Template match in onboard flash → relay drive logic</p></div>
+          <div class="row fixrow"><span class="lbl fix">OUTPUT</span><p>Relay closes ignition + BLE characteristic notify to phone</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="eq" style="height:24px;margin-bottom:20px" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="big">CLEMENT <span>POON</span></div>
+    </div>
+    <div class="meta">
+      FINGERPRINT SYSTEM · EARLY PROJECT<br>
+      ESP32 · Automotive Integration · BLE<br>
+      <span id="yr-fp"></span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page-fingerprint -->
+
+
+<!-- ═══════════════════════════ PAGE: SOUND LIGHTING ═══════════════════════════ -->
+<div id="page-sound" class="page">
+
+<div class="proj-hero">
+  <div class="wrap">
+    <div class="kicker">Arduino · FFT · LED Control</div>
+    <h1 class="title">SOUND<br><span class="l2">LIGHTING</span></h1>
+    <p class="proj-hero sub">Audio from a speaker output jack is analyzed by an Arduino running a software FFT — individual LED banks react in real time to bass, low-mids, mids, and highs.</p>
+    <span class="proj-status">COMPLETED · EARLY PROJECT</span>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="shead reveal"><span class="idx">[ 01 ]</span><span class="eyebrow">Signal Chain</span></div>
+    <h2 class="reveal">From speaker jack to light.</h2>
+    <div class="steps reveal">
+      <div class="step"><span class="step-n">STEP 01</span><p>Audio from a computer's speaker output is fed into the Arduino's analog input via a 3.5mm jack and a voltage divider to center the signal at 2.5V.</p></div>
+      <div class="step"><span class="step-n">STEP 02</span><p>The Arduino samples the signal and runs a 64-point software FFT to split the spectrum into four frequency bands.</p></div>
+      <div class="step"><span class="step-n">STEP 03</span><p>Each band's running average is computed. Transient detection corrects for overall volume so the display stays reactive at any level.</p></div>
+      <div class="step"><span class="step-n">STEP 04</span><p>PWM-controlled transistors drive each LED strip independently — brightness tracks the energy of its band in real time.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="shead reveal"><span class="idx">[ 02 ]</span><span class="eyebrow">Frequency Bands</span></div>
+    <h2 class="reveal">Four bands, four colors.</h2>
+    <div class="freq-grid">
+      <div class="icard reveal">
+        <div class="top"><span class="num" style="color:var(--cyan)">20 Hz – 300 Hz</span><h4>Bass</h4></div>
+        <div class="row fixrow"><span class="lbl fix">OUTPUT · BLUE</span><p>Kicks and sub-bass produce a strong, sustained pulse. Highest energy band in most music.</p></div>
+      </div>
+      <div class="icard reveal">
+        <div class="top"><span class="num" style="color:var(--cyan)">300 Hz – 1 kHz</span><h4>Low-Mids</h4></div>
+        <div class="row fixrow"><span class="lbl fix">OUTPUT · GREEN</span><p>Body of guitars, piano, and male vocals. Warm, sustained energy between beats.</p></div>
+      </div>
+      <div class="icard reveal">
+        <div class="top"><span class="num" style="color:var(--amber)">1 kHz – 5 kHz</span><h4>Mids</h4></div>
+        <div class="row fixrow"><span class="lbl fix">OUTPUT · AMBER</span><p>Presence and attack — snare cracks, vocal consonants, pick transients live here.</p></div>
+      </div>
+      <div class="icard reveal">
+        <div class="top"><span class="num" style="color:var(--amber)">5 kHz – 20 kHz</span><h4>Highs</h4></div>
+        <div class="row fixrow"><span class="lbl fix">OUTPUT · WHITE</span><p>Air and shimmer — cymbals, hi-hats, reverb tails and upper harmonics.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="block">
+  <div class="wrap">
+    <div class="shead reveal"><span class="idx">[ 03 ]</span><span class="eyebrow">Tech Stack</span></div>
+    <h2 class="reveal">Hardware & software.</h2>
+    <div class="tech-grid">
+      <div class="tech-card reveal">
+        <div class="tc-icon">⚡</div>
+        <h4>Arduino Uno</h4>
+        <p>10-bit ADC samples audio at ~8 kHz. Handles FFT computation and four-channel PWM output in a tight main loop.</p>
+      </div>
+      <div class="tech-card reveal">
+        <div class="tc-icon">◎</div>
+        <h4>Software FFT</h4>
+        <p>64-point FFT bins mapped into the four target frequency ranges. No external DSP chip — all computed on the Uno's ATmega328P.</p>
+      </div>
+      <div class="tech-card reveal">
+        <div class="tc-icon">↯</div>
+        <h4>Volume Normalization</h4>
+        <p>Running average per band with transient peak detection prevents the display from flattening at low volumes or clipping at high ones.</p>
+      </div>
+      <div class="tech-card reveal">
+        <div class="tc-icon">⇄</div>
+        <h4>LED Driver Stage</h4>
+        <p>PWM-controlled NPN transistors drive each LED strip at up to 1A. No LED controller IC — direct PWM from Arduino digital pins.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="eq" style="height:24px;margin-bottom:20px" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="big">CLEMENT <span>POON</span></div>
+    </div>
+    <div class="meta">
+      SOUND LIGHTING · EARLY PROJECT<br>
+      Arduino · Spectrum Analysis · LED Control<br>
+      <span id="yr-sl"></span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page-sound -->
+
+
+<!-- ═══════════════════════════ PAGE: ABOUT ═══════════════════════════ -->
+<div id="page-about" class="page">
+
+<div class="about-wrap">
+  <div class="wrap">
+    <div class="kicker">Engineer · Builder</div>
+    <h1 class="title">ABOUT<br><span class="l2">ME</span></h1>
+    <div class="about-grid">
+      <div class="reveal">
+        <div class="about-avatar">
+          <div class="av-init">CP</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="lead">I build things that live at the edge of hardware and software — fingerprint-secured ignitions, DSP-tuned speaker arrays, microcontroller-driven lighting, and automotive power systems engineered from scratch.</p>
+        <p class="lead" style="margin-top:18px">The work starts with something that bugs me, and ends when the solution is cleaner than I expected it to be.</p>
+
+        <div style="margin-top:40px">
+          <div class="section-label">Education</div>
+          <div class="edu-block">
+            <div class="deg">B.S. Electrical &amp; Computer Engineering</div>
+            <div class="school">UNIVERSITY OF TEXAS AT AUSTIN</div>
+            <div class="yr">In progress</div>
+          </div>
+        </div>
+
+        <div style="margin-top:36px">
+          <div class="section-label">Skills &amp; Tools</div>
+          <div class="skills-grid">
+            <span class="skill-tag">ESP32</span>
+            <span class="skill-tag">Arduino</span>
+            <span class="skill-tag">C / C++</span>
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Embedded Systems</span>
+            <span class="skill-tag">12V Automotive</span>
+            <span class="skill-tag">Power Distribution</span>
+            <span class="skill-tag">DSP Tuning</span>
+            <span class="skill-tag">BLE / WiFi</span>
+            <span class="skill-tag">Relay Logic</span>
+            <span class="skill-tag">FFT / Signal Processing</span>
+            <span class="skill-tag">PCB Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="eq" style="height:24px;margin-bottom:20px" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="big">CLEMENT <span>POON</span></div>
+    </div>
+    <div class="meta">
+      PORTFOLIO · BUILD LOG<br>
+      Embedded Systems · Car Audio · Electronics<br>
+      <span id="yr-ab"></span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page-about -->
+
+
+<!-- ═══════════════════════════ PAGE: CONTACT ═══════════════════════════ -->
+<div id="page-contact" class="page">
+
+<div class="wrap">
+  <div class="contact-wrap">
+    <div class="kicker">Let's Connect</div>
+    <h1 class="title">GET IN<br><span class="l2">TOUCH</span></h1>
+    <p class="lead" style="margin-top:26px;max-width:52ch">Whether it's a project collab, a technical question, or just to say hello — reach me through any of these channels.</p>
+
+    <div class="contact-links">
+      <a href="mailto:[YOUR EMAIL]" class="contact-card reveal">
+        <div class="cc-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 8.5 6a3 3 0 0 0 3 0L22 7"/></svg>
+        </div>
+        <div>
+          <div class="cc-label">Email</div>
+          <div class="cc-val">[YOUR EMAIL]</div>
+        </div>
+      </a>
+      <a href="https://github.com/[YOUR GITHUB]" target="_blank" rel="noopener" class="contact-card reveal">
+        <div class="cc-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+        </div>
+        <div>
+          <div class="cc-label">GitHub</div>
+          <div class="cc-val">[YOUR GITHUB]</div>
+        </div>
+      </a>
+      <a href="https://linkedin.com/in/[YOUR LINKEDIN]" target="_blank" rel="noopener" class="contact-card reveal">
+        <div class="cc-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <div>
+          <div class="cc-label">LinkedIn</div>
+          <div class="cc-val">Clement Poon</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="eq" style="height:24px;margin-bottom:20px" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="big">CLEMENT <span>POON</span></div>
+    </div>
+    <div class="meta">
+      PORTFOLIO · CONTACT<br>
+      <span id="yr-ct"></span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page-contact -->
+
 
 <div class="totop" id="totop" title="Back to top">↑</div>
 
 <script>
 (function(){
-  var nav=document.getElementById('nav'),totop=document.getElementById('totop');
-  function onScroll(){
-    var y=window.scrollY;
-    nav.classList.toggle('scrolled',y>40);
-    totop.classList.toggle('show',y>700);
+  var nav = document.getElementById('nav');
+  var totop = document.getElementById('totop');
+
+  function onScroll() {
+    var y = window.scrollY;
+    nav.classList.toggle('scrolled', y > 40);
+    totop.classList.toggle('show', y > 700);
   }
-  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
-  totop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
-  document.getElementById('yr').textContent=new Date().getFullYear();
+  window.addEventListener('scroll', onScroll, {passive: true});
+  onScroll();
+  totop.addEventListener('click', function() { window.scrollTo({top: 0, behavior: 'smooth'}); });
 
-  // reveal
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
-  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  var yr = new Date().getFullYear();
+  ['yr-car','yr-fp','yr-sl','yr-ab','yr-ct'].forEach(function(id) {
+    var el = document.getElementById(id);
+    if (el) el.textContent = yr;
+  });
 
-  // active nav
-  var links=Array.prototype.slice.call(document.querySelectorAll('.navlinks a'));
-  var map={};links.forEach(function(a){var id=a.getAttribute('href').slice(1);var s=document.getElementById(id);if(s)map[id]=a;});
-  var so=new IntersectionObserver(function(es){
-    es.forEach(function(e){
-      if(e.isIntersecting){links.forEach(function(a){a.classList.remove('active')});var a=map[e.target.id];if(a)a.classList.add('active');}
+  // Reveal observer
+  var io = new IntersectionObserver(function(es) {
+    es.forEach(function(e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     });
-  },{threshold:.4,rootMargin:'-30% 0px -50% 0px'});
-  Object.keys(map).forEach(function(id){so.observe(document.getElementById(id))});
+  }, {threshold: .12, rootMargin: '0px 0px -8% 0px'});
 
-  // before/after slider
-  var ba=document.getElementById('ba');
-  if(ba){
-    var after=document.getElementById('baAfter'),afterImg=document.getElementById('baAfterImg'),handle=document.getElementById('baHandle');
-    var dragging=false;
-    function size(){var w=ba.clientWidth;afterImg.style.width=w+'px';}
-    function setPct(p){p=Math.max(0,Math.min(100,p));after.style.width=p+'%';handle.style.left=p+'%';}
-    function fromEvent(ev){var r=ba.getBoundingClientRect();var x=(ev.touches?ev.touches[0].clientX:ev.clientX)-r.left;setPct(x/r.width*100);}
-    ba.addEventListener('pointerdown',function(ev){dragging=true;ba.setPointerCapture&&ba.setPointerCapture(ev.pointerId);fromEvent(ev);});
-    ba.addEventListener('pointermove',function(ev){if(dragging)fromEvent(ev);});
-    window.addEventListener('pointerup',function(){dragging=false;});
-    window.addEventListener('resize',size);
-    var ri=new ResizeObserver(size);ri.observe(ba);
-    size();setPct(50);
+  function observePage(pageEl) {
+    pageEl.querySelectorAll('.reveal:not(.in)').forEach(function(el) { io.observe(el); });
+  }
+
+  // Tab switching
+  var allTabs = document.querySelectorAll('.tab-link');
+  var allPages = document.querySelectorAll('.page');
+
+  function showPage(id) {
+    allPages.forEach(function(p) { p.classList.remove('active'); });
+    allTabs.forEach(function(t) { t.classList.remove('active'); });
+    var page = document.getElementById('page-' + id);
+    if (page) {
+      page.classList.add('active');
+      observePage(page);
+    }
+    allTabs.forEach(function(t) {
+      if (t.getAttribute('data-page') === id) t.classList.add('active');
+    });
+    window.scrollTo(0, 0);
+  }
+
+  allTabs.forEach(function(t) {
+    t.addEventListener('click', function(e) {
+      e.preventDefault();
+      showPage(this.getAttribute('data-page'));
+    });
+  });
+
+  // Project cards on car audio page link to their tabs
+  document.querySelectorAll('.pcard[data-page]').forEach(function(card) {
+    card.addEventListener('click', function() {
+      showPage(this.getAttribute('data-page'));
+    });
+  });
+
+  // Initial observe for the active page
+  var activePage = document.querySelector('.page.active');
+  if (activePage) observePage(activePage);
+
+  // Before/after slider
+  var ba = document.getElementById('ba');
+  if (ba) {
+    var after = document.getElementById('baAfter');
+    var afterImg = document.getElementById('baAfterImg');
+    var handle = document.getElementById('baHandle');
+    var dragging = false;
+    function size() { afterImg.style.width = ba.clientWidth + 'px'; }
+    function setPct(p) { p = Math.max(0, Math.min(100, p)); after.style.width = p + '%'; handle.style.left = p + '%'; }
+    function fromEvent(ev) { var r = ba.getBoundingClientRect(); setPct(((ev.touches ? ev.touches[0].clientX : ev.clientX) - r.left) / r.width * 100); }
+    ba.addEventListener('pointerdown', function(ev) { dragging = true; ba.setPointerCapture && ba.setPointerCapture(ev.pointerId); fromEvent(ev); });
+    ba.addEventListener('pointermove', function(ev) { if (dragging) fromEvent(ev); });
+    window.addEventListener('pointerup', function() { dragging = false; });
+    window.addEventListener('resize', size);
+    new ResizeObserver(size).observe(ba);
+    size(); setPct(50);
   }
 })();
 </script>
