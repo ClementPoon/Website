@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clement Poon — Design Portfolio</title>
+<meta name="description" content="A rolling build log: car audio, power distribution, lighting and embedded control — by Clement Poon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Hanken+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0c10; --bg2:#0d1015; --surface:#14181f; --surface2:#1a202a;
+  --line:rgba(255,255,255,.09); --line2:rgba(255,255,255,.05);
+  --text:#eef2f6; --muted:#9aa4af; --faint:#5a636d;
+  --cyan:#41d6ff; --cyan-soft:rgba(65,214,255,.14); --cyan-line:rgba(65,214,255,.35);
+  --amber:#ff8a3d; --amber-soft:rgba(255,138,61,.14);
+  --red:#ff5c6c;
+  --maxw:1180px;
+  --mono:"Space Mono",ui-monospace,monospace;
+  --disp:"Bricolage Grotesque",sans-serif;
+  --body:"Hanken Grotesk",sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg); color:var(--text); font-family:var(--body);
+  line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  font-size:17px;
+}
+body::before{ /* grid */
+  content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image:linear-gradient(var(--line2) 1px,transparent 1px),linear-gradient(90deg,var(--line2) 1px,transparent 1px);
+  background-size:64px 64px; mask-image:radial-gradient(circle at 50% 30%,#000 0%,transparent 80%); opacity:.5;
+}
+body::after{ /* grain */
+  content:""; position:fixed; inset:0; z-index:9999; pointer-events:none; opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.glow{position:fixed;border-radius:50%;filter:blur(120px);z-index:0;pointer-events:none;opacity:.5}
+.glow.a{width:560px;height:560px;background:var(--cyan-soft);top:-180px;right:-120px}
+.glow.b{width:520px;height:520px;background:var(--amber-soft);bottom:10%;left:-180px}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;position:relative;z-index:2}
+
+/* ---------- NAV ---------- */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:.35s}
+nav .bar{max-width:var(--maxw);margin:0 auto;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid transparent;transition:.35s}
+nav.scrolled .bar{border-bottom-color:var(--line);background:rgba(10,12,16,.72);backdrop-filter:blur(14px)}
+nav.scrolled{padding:0}
+.brand{font-family:var(--mono);font-weight:700;letter-spacing:.5px;font-size:14px;display:flex;align-items:center;gap:10px}
+.brand .dot{width:9px;height:9px;border-radius:2px;background:var(--cyan);box-shadow:0 0 12px var(--cyan)}
+.brand b{color:var(--cyan)}
+.navlinks{display:flex;gap:26px;font-family:var(--mono);font-size:12.5px;letter-spacing:.5px;color:var(--muted)}
+.navlinks a{position:relative;transition:.25s;padding:4px 0}
+.navlinks a:hover,.navlinks a.active{color:var(--text)}
+.navlinks a.active::after{content:"";position:absolute;left:0;bottom:-2px;width:100%;height:1.5px;background:var(--cyan);box-shadow:0 0 8px var(--cyan)}
+.menubtn{display:none}
+@media(max-width:760px){.navlinks{display:none}}
+
+/* ---------- HERO ---------- */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:120px 0 60px}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
+.kicker{font-family:var(--mono);font-size:12.5px;letter-spacing:3px;color:var(--cyan);text-transform:uppercase;display:flex;align-items:center;gap:12px;margin-bottom:26px}
+.kicker::before{content:"";width:38px;height:1px;background:var(--cyan-line)}
+h1.title{font-family:var(--disp);font-weight:800;font-size:clamp(3.4rem,9vw,7rem);line-height:.92;letter-spacing:-.03em;margin-bottom:10px}
+h1.title .l2{color:var(--faint);-webkit-text-stroke:1.5px var(--muted);color:transparent}
+.hero .sub{max-width:440px;color:var(--muted);font-size:1.05rem;margin:26px 0 32px}
+.sig{display:flex;align-items:center;gap:16px;font-family:var(--mono);font-size:13px;color:var(--text)}
+.sig .pill{border:1px solid var(--line);border-radius:100px;padding:7px 16px;letter-spacing:.5px}
+.sig .pill b{color:var(--cyan)}
+.eq{display:flex;align-items:flex-end;gap:4px;height:30px}
+.eq span{width:4px;background:linear-gradient(to top,var(--cyan),var(--amber));border-radius:2px;animation:eq 1.1s ease-in-out infinite}
+@keyframes eq{0%,100%{height:18%}50%{height:100%}}
+.eq span:nth-child(1){animation-delay:-.1s}.eq span:nth-child(2){animation-delay:-.45s}
+.eq span:nth-child(3){animation-delay:-.25s}.eq span:nth-child(4){animation-delay:-.6s}
+.eq span:nth-child(5){animation-delay:-.35s}.eq span:nth-child(6){animation-delay:-.15s}
+.eq span:nth-child(7){animation-delay:-.5s}.eq span:nth-child(8){animation-delay:-.3s}
+
+.heroart{position:relative}
+.heroart .frame{position:absolute;inset:-22px -22px auto auto;width:78%;height:78%;border:1px solid var(--cyan-line);border-radius:4px}
+.heroart .corner{position:absolute;width:14px;height:14px;background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
+.heroart .corner.tr{top:-22px;right:-22px}
+.heroart .corner.bl{bottom:-14px;left:-14px;background:var(--amber);box-shadow:0 0 14px var(--amber)}
+.heroart .photo{position:relative;border-radius:4px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.heroart .photo img{width:100%;aspect-ratio:1;object-fit:cover;filter:grayscale(.25) contrast(1.05)}
+.heroart .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(160deg,transparent 40%,rgba(65,214,255,.12))}
+.heroart .cap{position:absolute;bottom:10px;left:10px;font-family:var(--mono);font-size:11px;letter-spacing:1px;color:#fff;background:rgba(0,0,0,.55);padding:4px 9px;border-radius:3px;backdrop-filter:blur(4px)}
+.scrolldown{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:2px;color:var(--faint);display:flex;flex-direction:column;align-items:center;gap:8px}
+.scrolldown .ln{width:1px;height:38px;background:linear-gradient(var(--faint),transparent);animation:drop 1.8s infinite}
+@keyframes drop{0%{opacity:.2;transform:scaleY(.4)}50%{opacity:1}100%{opacity:.2;transform:scaleY(1) translateY(8px)}}
+@media(max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:60px}.heroart{max-width:380px}}
+
+/* ---------- MARQUEE ---------- */
+.specstrip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg2);overflow:hidden;position:relative;z-index:2}
+.marquee{display:flex;white-space:nowrap;will-change:transform;animation:slide 32s linear infinite}
+.marquee:hover{animation-play-state:paused}
+.marquee .grp{display:flex}
+.marquee .item{font-family:var(--mono);font-size:13px;letter-spacing:1px;color:var(--muted);padding:16px 0;display:flex;align-items:center}
+.marquee .item b{color:var(--text)}
+.marquee .item .sep{color:var(--cyan);margin:0 26px;opacity:.6}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* ---------- SECTIONS ---------- */
+section.block{padding:110px 0;position:relative;z-index:2}
+.shead{display:flex;align-items:baseline;gap:18px;margin-bottom:14px}
+.idx{font-family:var(--mono);font-size:13px;color:var(--cyan);letter-spacing:1px}
+.eyebrow{font-family:var(--mono);font-size:12.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted)}
+h2{font-family:var(--disp);font-weight:700;font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.02;letter-spacing:-.025em;margin-bottom:24px;max-width:18ch}
+.lead{color:var(--muted);max-width:60ch;font-size:1.08rem}
+.divider{height:1px;background:var(--line);max-width:var(--maxw);margin:0 auto}
+
+/* layout: text + media */
+.split{display:grid;grid-template-columns:.92fr 1.08fr;gap:56px;align-items:center;margin-top:46px}
+.split.rev{grid-template-columns:1.08fr .92fr}
+.split.rev .copy{order:2}.split.rev .media{order:1}
+@media(max-width:880px){.split,.split.rev{grid-template-columns:1fr;gap:36px}.split.rev .copy{order:1}.split.rev .media{order:2}}
+
+.figure{position:relative;border-radius:5px;overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+.figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.figure:hover img{transform:scale(1.05)}
+.figure .tag{position:absolute;top:0;left:0;font-family:var(--mono);font-size:10.5px;letter-spacing:1px;color:var(--cyan);background:rgba(10,12,16,.78);padding:5px 10px;border-bottom-right-radius:5px;border-right:1px solid var(--cyan-line);border-bottom:1px solid var(--cyan-line)}
+
+/* image clusters */
+.cluster{display:grid;gap:14px}
+.cluster.a{grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;grid-template-areas:"big top" "big bot"}
+.cluster.a .figure:nth-child(1){grid-area:big}
+.cluster.a .figure:nth-child(2){grid-area:top}
+.cluster.a .figure:nth-child(3){grid-area:bot}
+.cluster.a .figure{min-height:150px}
+.cluster.a .figure:nth-child(1){min-height:330px}
+.cluster.stack{grid-template-columns:1fr 1fr;grid-template-rows:auto auto;grid-template-areas:"hero hero" "s1 s2"}
+.cluster.stack .figure:nth-child(1){grid-area:hero;aspect-ratio:16/8}
+.cluster.stack .figure:nth-child(2){grid-area:s1}
+.cluster.stack .figure:nth-child(3){grid-area:s2}
+@media(max-width:560px){
+  .cluster.a{grid-template-columns:1fr;grid-template-rows:none;grid-template-areas:"big" "top" "bot"}
+  .cluster.a .figure:nth-child(1){min-height:240px}
+  .cluster.stack{grid-template-columns:1fr;grid-template-areas:"hero" "s1" "s2"}
+}
+
+/* data callouts */
+.stats{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.stat{border:1px solid var(--line);border-radius:5px;padding:16px 20px;background:var(--surface);min-width:120px}
+.stat .n{font-family:var(--disp);font-weight:700;font-size:1.7rem;color:var(--cyan);letter-spacing:-.02em}
+.stat .k{font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--muted);text-transform:uppercase;margin-top:4px}
+
+/* ---------- PREVIOUS PROJECTS ---------- */
+.cards2{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:46px}
+@media(max-width:760px){.cards2{grid-template-columns:1fr}}
+.pcard{border:1px solid var(--line);border-radius:6px;padding:34px;background:linear-gradient(160deg,var(--surface),var(--bg2));position:relative;overflow:hidden;transition:.35s}
+.pcard:hover{border-color:var(--cyan-line);transform:translateY(-4px)}
+.pcard::before{content:"";position:absolute;top:0;left:0;width:100%;height:2px;background:linear-gradient(90deg,var(--cyan),transparent);opacity:0;transition:.35s}
+.pcard:hover::before{opacity:1}
+.pcard .ic{width:46px;height:46px;border:1px solid var(--cyan-line);border-radius:8px;display:grid;place-items:center;color:var(--cyan);margin-bottom:22px;background:var(--cyan-soft)}
+.pcard h3{font-family:var(--disp);font-weight:700;font-size:1.5rem;letter-spacing:-.01em;margin-bottom:6px}
+.pcard .meta{font-family:var(--mono);font-size:11.5px;letter-spacing:1px;color:var(--amber);text-transform:uppercase;margin-bottom:18px}
+.pcard ul{list-style:none;display:flex;flex-direction:column;gap:14px}
+.pcard li{display:flex;gap:12px;color:var(--muted);font-size:.98rem}
+.pcard li::before{content:"▸";color:var(--cyan);flex:none;margin-top:1px}
+
+/* ---------- FLOODLIGHT B/A ---------- */
+.ba{position:relative;width:100%;aspect-ratio:869/401;border-radius:6px;overflow:hidden;border:1px solid var(--line);user-select:none;touch-action:none;cursor:ew-resize;margin-top:14px}
+.ba img{position:absolute;top:0;left:0;height:100%;object-fit:cover;pointer-events:none}
+.ba .base{width:100%}
+.ba-after{position:absolute;top:0;left:0;height:100%;width:50%;overflow:hidden}
+.ba-handle{position:absolute;top:0;left:50%;width:2px;height:100%;background:var(--cyan);box-shadow:0 0 14px var(--cyan);transform:translateX(-1px);z-index:3}
+.ba-handle .grip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:var(--bg);border:2px solid var(--cyan);display:grid;place-items:center;box-shadow:0 0 18px rgba(65,214,255,.6);font-family:var(--mono);font-size:13px;color:var(--cyan)}
+.ba .ba-lbl{position:absolute;bottom:12px;font-family:var(--mono);font-size:11px;letter-spacing:2px;color:#fff;background:rgba(0,0,0,.55);padding:5px 11px;border-radius:4px;z-index:2;backdrop-filter:blur(4px)}
+.ba .ba-lbl.l{left:12px;color:var(--cyan)}
+.ba .ba-lbl.r{right:12px;color:var(--muted)}
+
+/* ---------- ISSUES ---------- */
+.issues{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:46px}
+@media(max-width:880px){.issues{grid-template-columns:1fr}}
+.icard{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:var(--surface)}
+.icard .top{padding:22px 24px 18px;border-bottom:1px dashed var(--line)}
+.icard .num{font-family:var(--mono);font-size:11px;color:var(--faint);letter-spacing:1px}
+.icard h4{font-family:var(--disp);font-weight:700;font-size:1.25rem;margin-top:6px}
+.icard .row{padding:18px 24px}
+.icard .lbl{font-family:var(--mono);font-size:10.5px;letter-spacing:1.5px;display:inline-block;padding:3px 9px;border-radius:3px;margin-bottom:9px}
+.icard .lbl.bug{color:var(--red);background:rgba(255,92,108,.12);border:1px solid rgba(255,92,108,.3)}
+.icard .lbl.fix{color:var(--cyan);background:var(--cyan-soft);border:1px solid var(--cyan-line)}
+.icard .row p{color:var(--muted);font-size:.95rem}
+.icard .row.fixrow{background:linear-gradient(180deg,rgba(65,214,255,.05),transparent)}
+
+/* ---------- GALLERY ---------- */
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:230px;gap:14px;margin-top:46px}
+.gallery .figure{grid-row:span 1}
+.gallery .figure.tall{grid-row:span 2}
+.gallery .figure.wide{grid-column:span 2}
+@media(max-width:880px){.gallery{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}.gallery .figure.wide{grid-column:span 2}.gallery .figure.tall{grid-row:span 2}}
+@media(max-width:560px){.gallery{grid-template-columns:1fr;grid-auto-rows:240px}.gallery .figure.wide,.gallery .figure.tall{grid-column:auto;grid-row:auto}}
+
+/* ---------- FOOTER ---------- */
+footer{border-top:1px solid var(--line);padding:70px 0 50px;position:relative;z-index:2;background:var(--bg2)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:30px}
+footer .big{font-family:var(--disp);font-weight:800;font-size:clamp(2rem,6vw,3.4rem);letter-spacing:-.03em;line-height:1}
+footer .big span{color:var(--cyan)}
+footer .meta{font-family:var(--mono);font-size:12.5px;color:var(--faint);letter-spacing:.5px;text-align:right}
+footer .meta a{color:var(--muted);transition:.25s}
+footer .meta a:hover{color:var(--cyan)}
+.totop{position:fixed;right:24px;bottom:24px;width:46px;height:46px;border-radius:50%;border:1px solid var(--cyan-line);background:rgba(10,12,16,.8);backdrop-filter:blur(8px);color:var(--cyan);display:grid;place-items:center;z-index:900;opacity:0;pointer-events:none;transition:.3s;cursor:pointer;font-size:18px}
+.totop.show{opacity:1;pointer-events:auto}
+.totop:hover{background:var(--cyan);color:var(--bg)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.cluster .figure,.cards2 .pcard,.issues .icard,.gallery .figure{transition:transform .35s,border-color .35s,box-shadow .35s,opacity .6s}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+<noscript><style>.reveal{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+<div class="glow a"></div><div class="glow b"></div>
+
+<nav id="nav">
+  <div class="bar">
+    <a href="#top" class="brand"><span class="dot"></span>CLEMENT<b>POON</b><span style="color:var(--faint)">/build_log</span></a>
+    <div class="navlinks">
+      <a href="#projects">PROJECTS</a>
+      <a href="#beginnings">BEGINNINGS</a>
+      <a href="#speakers">SPEAKERS</a>
+      <a href="#power">POWER</a>
+      <a href="#car">MODEL CAR</a>
+      <a href="#floodlights">LIGHTING</a>
+      <a href="#issues">DEBUG</a>
+      <a href="#gallery">GALLERY</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <div class="herotext">
+      <div class="kicker">Car Audio × Embedded Systems</div>
+      <h1 class="title">DESIGN<br><span class="l2">PORTFOLIO</span></h1>
+      <p class="sub">A rolling build log of one car — speakers, amplifiers, power distribution, custom lighting and microcontroller-driven details, engineered piece by piece.</p>
+      <div class="sig">
+        <span class="pill">by <b>Clement Poon</b></span>
+        <div class="eq" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      </div>
+    </div>
+    <div class="heroart">
+      <div class="frame"></div>
+      <div class="corner tr"></div>
+      <div class="photo">
+        <img src="./assets/img/img-000.jpg" alt="Reviewing a build blueprint">
+        <span class="cap">// FIG.00 — ON THE BENCH</span>
+      </div>
+      <div class="corner bl"></div>
+    </div>
+  </div>
+  <div class="scrolldown"><span>SCROLL</span><span class="ln"></span></div>
+</header>
+
+<div class="specstrip">
+  <div class="marquee" id="marq">
+    <div class="grp">
+      <span class="item"><b>~70A</b>&nbsp;DRAW<span class="sep">/</span></span>
+      <span class="item"><b>900W</b>&nbsp;PEAK<span class="sep">/</span></span>
+      <span class="item"><b>4-GAUGE</b>&nbsp;WIRING<span class="sep">/</span></span>
+      <span class="item"><b>5V</b>&nbsp;CONVERTER<span class="sep">/</span></span>
+      <span class="item"><b>~80A</b>&nbsp;DC-DC LIMIT<span class="sep">/</span></span>
+      <span class="item"><b>DSP</b>&nbsp;TUNED<span class="sep">/</span></span>
+      <span class="item"><b>ESP32</b>&nbsp;+ ARDUINO<span class="sep">/</span></span>
+      <span class="item"><b>12V</b>&nbsp;PLATFORM<span class="sep">/</span></span>
+    </div>
+    <div class="grp" aria-hidden="true">
+      <span class="item"><b>~70A</b>&nbsp;DRAW<span class="sep">/</span></span>
+      <span class="item"><b>900W</b>&nbsp;PEAK<span class="sep">/</span></span>
+      <span class="item"><b>4-GAUGE</b>&nbsp;WIRING<span class="sep">/</span></span>
+      <span class="item"><b>5V</b>&nbsp;CONVERTER<span class="sep">/</span></span>
+      <span class="item"><b>~80A</b>&nbsp;DC-DC LIMIT<span class="sep">/</span></span>
+      <span class="item"><b>DSP</b>&nbsp;TUNED<span class="sep">/</span></span>
+      <span class="item"><b>ESP32</b>&nbsp;+ ARDUINO<span class="sep">/</span></span>
+      <span class="item"><b>12V</b>&nbsp;PLATFORM<span class="sep">/</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- 01 PREVIOUS PROJECTS -->
+<section class="block" id="projects">
+  <div class="wrap">
+    <div class="shead reveal"><span class="idx">[ 01 ]</span><span class="eyebrow">Previous Projects</span></div>
+    <h2 class="reveal">Where it started — small electronics experiments.</h2>
+    <p class="lead reveal">Two early microcontroller builds that set the direction: identity, sound, and lighting working together.</p>
+    <div class="cards2">
+      <div class="pcard reveal">
+        <div class="ic" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 11v3m0 0a8 8 0 0 1-2 5M6 8a8 8 0 0 1 11.5-.5M4.5 12a7.5 7.5 0 0 1 1-3.8M9 12a3 3 0 0 1 6 0v1a9 9 0 0 1-1 4M15.5 13a10 10 0 0 1-1 6"/></svg>
+        </div>
+        <h3>Vehicle Fingerprint Recognition</h3>
+        <div class="meta">ESP32 · 12V Integration</div>
+        <ul>
+          <li>An ESP32 and a fingerprint reader module on the ignition button verify the identity of the user before start.</li>
+          <li>Pairs with a phone to remotely start the vehicle and load presets per user.</li>
+          <li>Integrates directly with the existing 12V battery found in every vehicle.</li>
+        </ul>
+      </div>
+      <div class="pcard reveal">
+        <div class="ic" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 12h2l2-6 3 14 3-18 3 16 2-6h3"/></svg>
+        </div>
+        <h3>Sound-Frequency-Dependent Lighting</h3>
+        <div class="meta">Arduino · Spectrum Analysis</div>
+        <ul>
+          <li>A speaker output jack feeds a computer's audio into an Arduino, which lights specific LEDs by frequency band — low, low-mids, mids, and up.</li>
+          <li>Computes each band's average level and finds transient points to correct for volume offsets.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- 02 BEGINNINGS -->
+<section class="block" id="beginnings">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <div class="shead reveal"><span class="idx">[ 02 ]</span><span class="eyebrow">The Build Begins</span></div>
+        <h2 class="reveal">Beginnings</h2>
+        <p class="lead reveal">It started with a simple six-speaker setup — upgrading the two front woofers and tweeters first.</p>
+        <p class="lead reveal" style="margin-top:18px">The amplifier for those speakers went under the passenger seat, and the DSP (Digital Signal Processor) lived in the center console for fine sound adjustments.</p>
+      </div>
+      <div class="media reveal">
+        <div class="cluster a">
+          <div class="figure"><span class="tag">DSP · CENTER CONSOLE</span><img src="./assets/img/img-001.jpg" alt="DSP installed in the center console with blue lighting"></div>
+          <div class="figure"><span class="tag">FRONT DOOR</span><img src="./assets/img/img-002.jpg" alt="Front speaker install in progress"></div>
+          <div class="figure"><span class="tag">AMP · UNDER SEAT</span><img src="./assets/img/img-003.jpg" alt="Amplifier mounted under the passenger seat"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- 03 ADDITIONAL SPEAKERS -->
+<section class="block" id="speakers">
+  <div class="wrap">
+    <div class="split rev">
+      <div class="copy">
+        <div class="shead reveal"><span class="idx">[ 03 ]</span><span class="eyebrow">Expanding the Stage</span></div>
+        <h2 class="reveal">Additional Speakers</h2>
+        <p class="lead reveal">The system grew with three mid speakers up front and coaxial speakers in the rear.</p>
+        <p class="lead reveal" style="margin-top:18px">To fix stereo-image issues, two relays toggle the center speaker between the left and right channels.</p>
+      </div>
+      <div class="media reveal">
+        <div class="cluster a">
+          <div class="figure"><span class="tag">A-PILLAR MID</span><img src="./assets/img/img-005.jpg" alt="Dash-mounted mid speaker on the A-pillar"></div>
+          <div class="figure"><span class="tag">RELAY TEST</span><img src="./assets/img/img-006.jpg" alt="Bench test of a mid speaker with relays"></div>
+          <div class="figure"><span class="tag">DASH HARNESS</span><img src="./assets/img/img-004.jpg" alt="Wiring run across the dash under the windshield"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- 04 POWER -->
+<section class="block" id="power">
+  <div class="wrap">
+    <div class="split">
+      <div class="copy">
+        <div class="shead reveal"><span class="idx">[ 04 ]</span><span class="eyebrow">Feeding the System</span></div>
+        <h2 class="reveal">Power Distribution</h2>
+        <p class="lead reveal">With the added amplifiers and mods, the battery was pushing nearly 70A at peaks of 900W.</p>
+        <p class="lead reveal" style="margin-top:18px">Most components run on 4-gauge wire through the firewall, with a 5V converter at the center console powering the microcontrollers and three rear amplifiers.</p>
+        <div class="stats reveal">
+          <div class="stat"><div class="n">~70A</div><div class="k">Peak Draw</div></div>
+          <div class="stat"><div class="n">900W</div><div class="k">Peak Power</div></div>
+          <div class="stat"><div class="n">4 AWG</div><div class="k">Main Runs</div></div>
+        </div>
+      </div>
+      <div class="media reveal">
+        <div class="cluster stack">
+          <div class="figure"><span class="tag">FUSE BLOCK + AMPS</span><img src="./assets/img/img-007.jpg" alt="Recoil and Kicker amplifiers with fuse distribution block"></div>
+          <div class="figure"><span class="tag">INSTALL</span><img src="./assets/img/img-008.jpg" alt="Power wiring during install"></div>
+          <div class="figure"><span class="tag">5V / 12V MAP</span><img src="./assets/img/img-009.jpg" alt="Diagram of 5V and 12V power routing through the vehicle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- 05 MODEL CAR -->
+<section class="block" id="car">
+  <div class="wrap">
+    <div class="split rev">
+      <div class="copy">
+        <div class="shead reveal"><span class="idx">[ 05 ]</span><span class="eyebrow">A Detail That Reacts</span></div>
+        <h2 class="reveal">Dashboard Model Car</h2>
+        <p class="lead reveal">A miniature car sits on the dashboard and mirrors the driver's inputs — turn signals, headlights, brake lights and more.</p>
+        <p class="lead reveal" style="margin-top:18px">Each component of the model is wire-tapped to relays under its base, acting as toggles for the LEDs.</p>
+      </div>
+      <div class="media reveal">
+        <div class="cluster a">
+          <div class="figure"><span class="tag">THE MODEL</span><img src="./assets/img/img-011.jpg" alt="Lit model car on its base beside a smaller model"></div>
+          <div class="figure"><span class="tag">SOURCE TAPS</span><img src="./assets/img/img-012.jpg" alt="Rear of the car opened to tap lighting signals"></div>
+          <div class="figure"><span class="tag">RELAY BASE</span><img src="./assets/img/img-010.jpg" alt="Relay board mounted under the model car base"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- 06 FLOODLIGHTS -->
+<section class="block" id="floodlights">
+  <div class="wrap">
+    <div class="shead reveal"><span class="idx">[ 06 ]</span><span class="eyebrow">Seeing in the Dark</span></div>
+    <h2 class="reveal">Side Floodlights</h2>
+    <p class="lead reveal">For a dark neighborhood, a separate microcontroller cycles the floodlights through their modes via relays until the right one is set. Each light sits diagonally from the headlights to cover the spots the high beams miss.</p>
+    <div class="split rev" style="margin-top:40px">
+      <div class="copy media reveal" style="align-self:stretch">
+        <div class="figure" style="height:100%;min-height:280px"><span class="tag">CONTROL WIRING</span><img src="./assets/img/img-013.jpg" alt="Microcontroller and relay wiring for the floodlights" style="height:100%"></div>
+      </div>
+      <div class="media reveal">
+        <p style="font-family:var(--mono);font-size:12px;letter-spacing:1px;color:var(--muted);margin-bottom:4px">DRAG TO COMPARE — BEFORE / AFTER</p>
+        <div class="ba" id="ba">
+          <img class="base" src="./assets/img/img-015.jpg" alt="Before: stock high beams only" id="baBase">
+          <div class="ba-after" id="baAfter"><img src="./assets/img/img-014.jpg" alt="After: with side floodlights" id="baAfterImg"></div>
+          <span class="ba-lbl l">AFTER</span>
+          <span class="ba-lbl r">BEFORE</span>
+          <div class="ba-handle" id="baHandle"><span class="grip">⇆</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- 07 ISSUES -->
+<section class="block" id="issues">
+  <div class="wrap">
+    <div class="shead reveal"><span class="idx">[ 07 ]</span><span class="eyebrow">Debug Log</span></div>
+    <h2 class="reveal">Issues While Building</h2>
+    <p class="lead reveal">Every system threw problems. Here are three that mattered — and how each was solved.</p>
+    <div class="issues">
+      <div class="icard reveal">
+        <div class="top"><span class="num">// ISSUE_01</span><h4>Battery Size</h4></div>
+        <div class="row"><span class="lbl bug">PROBLEM</span><p>The hybrid's DC-DC converter only delivered ~80A to charge the 12V battery — pull more than that and it drains over time.</p></div>
+        <div class="row fixrow"><span class="lbl fix">FIX · CLASS-D + BASS REFLEX</span><p>Switched to a more efficient Class-D amp and cut larger holes in the woofer baffles to use the full door cavity.</p></div>
+      </div>
+      <div class="icard reveal">
+        <div class="top"><span class="num">// ISSUE_02</span><h4>RCA vs Power Wires</h4></div>
+        <div class="row"><span class="lbl bug">PROBLEM</span><p>RCAs from the DSP ran too close to the power wires, causing a large buildup of noise through the speakers.</p></div>
+        <div class="row fixrow"><span class="lbl fix">FIX · ISOLATED RUNS</span><p>Power wires routed through the right door sills, RCAs through the left — isolating both regions and killing the interference.</p></div>
+      </div>
+      <div class="icard reveal">
+        <div class="top"><span class="num">// ISSUE_03</span><h4>Parasitic Draw</h4></div>
+        <div class="row"><span class="lbl bug">PROBLEM</span><p>Some DC-to-DC converters and relays kept drawing power even with the car switched off.</p></div>
+        <div class="row fixrow"><span class="lbl fix">FIX · KILL SWITCHES</span><p>Added five center-console switches to manually cut power to specific components.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="divider"></div>
+
+<!-- 08 GALLERY -->
+<section class="block" id="gallery">
+  <div class="wrap">
+    <div class="shead reveal"><span class="idx">[ 08 ]</span><span class="eyebrow">The Finished Look</span></div>
+    <h2 class="reveal">Gallery</h2>
+    <div class="gallery">
+      <div class="figure tall reveal"><span class="tag">AMBIENT · DOOR</span><img src="./assets/img/img-016.jpg" alt="Blue fiber-optic ambient lighting along the door"></div>
+      <div class="figure wide reveal"><span class="tag">CABIN · NIGHT</span><img src="./assets/img/img-017.jpg" alt="Red and blue ambient lighting across the dashboard"></div>
+      <div class="figure reveal"><span class="tag">EXTERIOR</span><img src="./assets/img/img-018.jpg" alt="The car parked on a rooftop at dusk"></div>
+      <div class="figure reveal"><span class="tag">CITY · LIGHTS</span><img src="./assets/img/img-019.jpg" alt="Cabin ambient lighting against a city skyline at night"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="eq" style="height:24px;margin-bottom:20px" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <div class="big">CLEMENT <span>POON</span></div>
+    </div>
+    <div class="meta">
+      DESIGN PORTFOLIO · BUILD LOG<br>
+      Car audio · power · lighting · embedded control<br>
+      <a href="#top">↑ BACK TO TOP</a> · <span id="yr"></span>
+    </div>
+  </div>
+</footer>
+
+<div class="totop" id="totop" title="Back to top">↑</div>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav'),totop=document.getElementById('totop');
+  function onScroll(){
+    var y=window.scrollY;
+    nav.classList.toggle('scrolled',y>40);
+    totop.classList.toggle('show',y>700);
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  totop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'})});
+  document.getElementById('yr').textContent=new Date().getFullYear();
+
+  // reveal
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+
+  // active nav
+  var links=Array.prototype.slice.call(document.querySelectorAll('.navlinks a'));
+  var map={};links.forEach(function(a){var id=a.getAttribute('href').slice(1);var s=document.getElementById(id);if(s)map[id]=a;});
+  var so=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting){links.forEach(function(a){a.classList.remove('active')});var a=map[e.target.id];if(a)a.classList.add('active');}
+    });
+  },{threshold:.4,rootMargin:'-30% 0px -50% 0px'});
+  Object.keys(map).forEach(function(id){so.observe(document.getElementById(id))});
+
+  // before/after slider
+  var ba=document.getElementById('ba');
+  if(ba){
+    var after=document.getElementById('baAfter'),afterImg=document.getElementById('baAfterImg'),handle=document.getElementById('baHandle');
+    var dragging=false;
+    function size(){var w=ba.clientWidth;afterImg.style.width=w+'px';}
+    function setPct(p){p=Math.max(0,Math.min(100,p));after.style.width=p+'%';handle.style.left=p+'%';}
+    function fromEvent(ev){var r=ba.getBoundingClientRect();var x=(ev.touches?ev.touches[0].clientX:ev.clientX)-r.left;setPct(x/r.width*100);}
+    ba.addEventListener('pointerdown',function(ev){dragging=true;ba.setPointerCapture&&ba.setPointerCapture(ev.pointerId);fromEvent(ev);});
+    ba.addEventListener('pointermove',function(ev){if(dragging)fromEvent(ev);});
+    window.addEventListener('pointerup',function(){dragging=false;});
+    window.addEventListener('resize',size);
+    var ri=new ResizeObserver(size);ri.observe(ba);
+    size();setPct(50);
+  }
+})();
+</script>
+</body>
+</html>
