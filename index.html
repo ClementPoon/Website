@@ -206,115 +206,10 @@
     </div>
     <p class="lede">Selected builds across embedded firmware, power hardware, and digital logic. Each one lists the hardware, what I did, and where it got hard.</p>
 
-    <!-- ===== 4.1 ARCADE  (to add a project, copy one <article class="project"> block) ===== -->
-    <article class="project" id="arcade" aria-labelledby="arcade-h">
-      <header class="project__head">
-        <span class="project__num">4.1</span>
-        <div class="project__titles">
-          <h3 class="project__title" id="arcade-h">DOOM-Inspired Arcade Machine</h3>
-          <p class="project__meta">Course project · Intro to Embedded Systems</p>
-        </div>
-        <div class="project__aside">
-          <span class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2L12 17l-5.6 3 1.1-6.2-4.6-4.4 6.3-.9z" fill="currentColor"/></svg>Best project, in-class competition</span>
-          <a class="plink" href="https://www.youtube.com/watch?v=bRI7dZDsyjc" target="_blank" rel="noopener noreferrer">Demo video <span aria-hidden="true">↗</span></a>
-        </div>
-        <ul class="chips">
-          <li>C++</li><li>MSPM0G3507</li><li>Cortex-M0+</li><li>SPI</li><li>12-bit DAC</li><li>3D printing</li>
-        </ul>
-      </header>
-      <div class="project__body">
-        <div class="project__fig">
-          <div class="fig-stack">
-            <figure class="figure">
-              <div class="video" data-youtube="bRI7dZDsyjc" data-title="DOOM-inspired arcade machine demo">
-                <a class="video__link" href="https://www.youtube.com/watch?v=bRI7dZDsyjc" target="_blank" rel="noopener noreferrer">
-                  <img src="https://i.ytimg.com/vi/bRI7dZDsyjc/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
-                  <span class="video__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
-                  <span class="video__tag">Demo · YouTube</span><span class="visually-hidden">: play the arcade machine demo video</span>
-                </a>
-              </div>
-              <figcaption class="figcap"><b>Figure 4-1.</b> Gameplay demo. Click to play.</figcaption>
-            </figure>
-            <figure class="figure">
-              <div class="figure__frame">
-                <svg class="dg" viewBox="0 0 440 282" role="img" aria-labelledby="f42t f42d">
-                  <title id="f42t">Arcade machine block diagram</title>
-                  <desc id="f42d">An MSPM0G3507 microcontroller loads assets and audio from an SD card over SPI, drives an ST7735 TFT over SPI, reads player inputs, and streams double-buffered audio to a 12-bit DAC that feeds an amplifier and speaker. A 5 V external battery powers the system inside a 3D-printed cabinet.</desc>
-                  <rect class="bound" x="4" y="4" width="432" height="274" rx="6"/>
-                  <text class="lbl" x="14" y="22">3D-PRINTED CABINET</text>
-                  <rect class="bx" x="165" y="16" width="110" height="38"/>
-                  <text class="t" x="220" y="33" text-anchor="middle">5 V battery</text>
-                  <text class="s" x="220" y="47" text-anchor="middle">external</text>
-                  <rect class="bx" x="14" y="76" width="104" height="46"/>
-                  <text class="t" x="66" y="96" text-anchor="middle">SD card</text>
-                  <text class="s" x="66" y="111" text-anchor="middle">assets · audio</text>
-                  <rect class="bx" x="322" y="76" width="104" height="46"/>
-                  <text class="t" x="374" y="96" text-anchor="middle">ST7735 TFT</text>
-                  <text class="s" x="374" y="111" text-anchor="middle">display</text>
-                  <rect class="bx hi" x="142" y="76" width="156" height="120"/>
-                  <text class="t" x="220" y="98" text-anchor="middle">MSPM0G3507</text>
-                  <text class="s" x="220" y="113" text-anchor="middle">Cortex-M0+ · 80 MHz</text>
-                  <text class="s2" x="220" y="136" text-anchor="middle">raycasting renderer</text>
-                  <text class="s2" x="220" y="151" text-anchor="middle">depth-sorted sprites</text>
-                  <rect class="buf" x="154" y="164" width="58" height="22"/>
-                  <rect class="buf" x="228" y="164" width="58" height="22"/>
-                  <text class="s" x="183" y="179" text-anchor="middle">buf A</text>
-                  <text class="s" x="257" y="179" text-anchor="middle">buf B</text>
-                  <path class="w" d="M213 172h14M227 178h-14"/>
-                  <rect class="bx" x="14" y="150" width="104" height="46"/>
-                  <text class="t sm" x="66" y="170" text-anchor="middle">Player inputs</text>
-                  <text class="s" x="66" y="185" text-anchor="middle">controls</text>
-                  <rect class="bx" x="142" y="222" width="96" height="40"/>
-                  <text class="t" x="190" y="246" text-anchor="middle">12-bit DAC</text>
-                  <rect class="bx" x="258" y="222" width="78" height="40"/>
-                  <text class="t" x="297" y="246" text-anchor="middle">Amplifier</text>
-                  <rect class="bx" x="356" y="222" width="70" height="40"/>
-                  <text class="t" x="391" y="246" text-anchor="middle">Speaker</text>
-                  <path class="pw" d="M220 54V76" marker-end="url(#ah-p)"/>
-                  <text class="lbl lbl--p" x="228" y="69">5 V</text>
-                  <path class="w" d="M118 99H142" marker-end="url(#ah)"/>
-                  <text class="lbl" x="130" y="92" text-anchor="middle">SPI</text>
-                  <path class="w" d="M298 99H322" marker-end="url(#ah)"/>
-                  <text class="lbl" x="310" y="92" text-anchor="middle">SPI</text>
-                  <path class="w" d="M118 173H142" marker-end="url(#ah)"/>
-                  <path class="w" d="M190 196V222" marker-end="url(#ah)"/>
-                  <path class="w" d="M238 242H258" marker-end="url(#ah)"/>
-                  <path class="w" d="M336 242H356" marker-end="url(#ah)"/>
-                  <g transform="translate(16 232)">
-                    <path class="pw" d="M0 0H22"/><text class="lbl" x="28" y="4">power</text>
-                    <path class="w" d="M0 18H22"/><text class="lbl" x="28" y="22">data</text>
-                  </g>
-                </svg>
-              </div>
-              <figcaption class="figcap"><b>Figure 4-2.</b> Block diagram. Audio is double-buffered: one buffer fills from the SD card while the other streams to the DAC.</figcaption>
-            </figure>
-          </div>
-        </div>
-        <div class="project__text">
-          <p class="project__lede">A first-person shooter written from scratch in C++ for a 32-bit microcontroller, built into a 3D-printed arcade cabinet.</p>
-          <table class="specs">
-            <caption>Key specifications</caption>
-            <tbody>
-              <tr><th scope="row">MCU</th><td>TI MSPM0G3507, Arm Cortex-M0+ at 80 MHz</td></tr>
-              <tr><th scope="row">Graphics</th><td>Raycasting 3D renderer with depth-sorted animated sprites on an ST7735 TFT (SPI)</td></tr>
-              <tr><th scope="row">Audio</th><td>Double-buffered streaming from an SD card to a 12-bit DAC, driving a separate amplifier</td></tr>
-              <tr><th scope="row">Enclosure</th><td>Self-designed 3D-printed cabinet with a speaker enclosure, powered by a 5 V external battery</td></tr>
-            </tbody>
-          </table>
-          <h4 class="mini-h">What I did</h4>
-          <ul class="blist">
-            <li>Wrote the rendering system: a raycaster plus depth-sorted, animated sprites.</li>
-            <li>Built the audio engine: one buffer fills from the SD card while the other plays, getting enough throughput out of the 80 MHz clock for glitch-free music, footsteps, and effects.</li>
-            <li>Integrated the TFT and SD-card asset loading over SPI, and designed and printed the cabinet.</li>
-          </ul>
-        </div>
-      </div>
-    </article>
-
-    <!-- ===== 4.2 ROCKETRY ===== -->
+    <!-- ===== 4.1 ROCKETRY  (to add a project, copy one <article class="project"> block) ===== -->
     <article class="project" id="rocketry" aria-labelledby="rocketry-h">
       <header class="project__head">
-        <span class="project__num">4.2</span>
+        <span class="project__num">4.1</span>
         <div class="project__titles">
           <h3 class="project__title" id="rocketry-h">Payload Power &amp; Sensor Board</h3>
           <p class="project__meta">Longhorn Rocketry Association · Payload subteam · Aug 2025 – present</p>
@@ -330,7 +225,7 @@
               <a class="zoom photo" href="assets/img/rocketry-pcb.jpg" data-caption="KiCad layout of the payload power board: TPS62933 buck converter, AO3400A MOSFET, USB-C, and screw terminals.">
                 <img src="assets/img/rocketry-pcb.jpg" width="1047" height="1162" alt="KiCad PCB layout of the payload power board with a TPS62933 buck converter, an AO3400A MOSFET, a USB-C connector, screw terminals, and a 5 V test point" loading="lazy" decoding="async">
               </a>
-              <figcaption class="figcap"><b>Figure 4-3.</b> KiCad layout of the payload power board.</figcaption>
+              <figcaption class="figcap"><b>Figure 4-1.</b> KiCad layout of the payload power board.</figcaption>
             </figure>
             <ul class="gallery gallery--2">
               <li><figure><a class="zoom" href="assets/img/rocketry-stack.jpg" data-caption="The payload electronics stack: cell holders on a custom board, with the Raspberry Pi on top."><img src="assets/img/rocketry-stack-sm.jpg" width="390" height="520" alt="3D-printed payload frame on threaded rods holding battery cells in black holders on a green circuit board, with more electronics stacked above" loading="lazy" decoding="async"></a><figcaption>Payload electronics stack</figcaption></figure></li>
@@ -411,91 +306,17 @@
                     </g>
                   </svg>
                 </div>
-                <figcaption class="figcap"><b>Figure 4-4.</b> Payload power and sensing architecture (simplified). TP marks the board's 5&nbsp;V test point.</figcaption>
+                <figcaption class="figcap"><b>Figure 4-2.</b> Payload power and sensing architecture (simplified). TP marks the board's 5&nbsp;V test point.</figcaption>
               </figure>
           </details>
         </div>
       </div>
     </article>
 
-    <!-- ===== 4.3 VEHICLE ===== -->
-    <article class="project" id="vehicle" aria-labelledby="vehicle-h">
-      <header class="project__head">
-        <span class="project__num">4.3</span>
-        <div class="project__titles">
-          <h3 class="project__title" id="vehicle-h">Vehicle Power, Electrical &amp; Audio System</h3>
-          <p class="project__meta">Personal build · my Toyota Corolla Hybrid · ongoing</p>
-        </div>
-        <ul class="chips">
-          <li>12 V distribution</li><li>Relays</li><li>Buck converters</li><li>ESP32</li><li>BLE</li><li>Sensors</li><li>Harnessing</li>
-        </ul>
-      </header>
-      <div class="project__body">
-        <div class="project__fig">
-          <div class="fig-stack">
-            <figure class="figure">
-              <div class="photo-pair photo-pair--wide-left">
-                <a class="zoom photo" href="assets/img/vehicle-rack-bench.jpg" data-caption="The amp rack on the bench before install: fused power distribution, three amplifiers, an ESP32 controller above a fuse box, and an 8-channel relay board.">
-                  <img src="assets/img/vehicle-rack-bench-sm.jpg" width="640" height="480" alt="Black mounting board on a garage floor holding a fused distribution block, three car amplifiers, an ESP32 board above a blade fuse box, and a red 8-channel relay board, with tools around it" loading="lazy" decoding="async">
-                </a>
-                <a class="zoom photo" href="assets/img/vehicle-rack-trunk.jpg" data-caption="The amp rack installed in the trunk.">
-                  <img src="assets/img/vehicle-rack-trunk-sm.jpg" width="480" height="640" alt="The amplifier rack mounted in the car's trunk, with three amplifiers, fuse blocks, relay modules, and bundles of red and black wiring" loading="lazy" decoding="async">
-                </a>
-              </div>
-              <figcaption class="figcap"><b>Figure 4-5.</b> The trunk amp rack on the bench (left) and installed in the car (right).</figcaption>
-            </figure>
-            <ul class="gallery gallery--2">
-              <li><figure><a class="zoom" href="assets/img/vehicle-amp-rack.jpg" data-caption="An earlier layout of the amp rack: DSP, two amplifiers, and a fused power distribution block."><img src="assets/img/vehicle-amp-rack-sm.jpg" width="390" height="520" alt="Mounting board with a sound processor, two car amplifiers, a fused distribution block, and red and black power cables" loading="lazy" decoding="async"></a><figcaption>Earlier layout: DSP, 2 amps, fused distribution</figcaption></figure></li>
-              <li><figure><a class="zoom" href="assets/img/vehicle-dash-wiring.jpg" data-caption="Behind the dash: distribution strips and control wiring."><img src="assets/img/vehicle-dash-wiring-sm.jpg" width="520" height="516" alt="Open dashboard with barrier-strip terminal blocks and bundles of control wiring under the head unit" loading="lazy" decoding="async"></a><figcaption>Behind the dash: distribution strips</figcaption></figure></li>
-              <li><figure><a class="zoom" href="assets/img/vehicle-model-car-relays.jpg" data-caption="Model-car base with its relay board."><img src="assets/img/vehicle-model-car-relays-sm.jpg" width="390" height="520" alt="Underside of the model car's display base with a red multi-channel relay board and wiring" loading="lazy" decoding="async"></a><figcaption>Model-car base and relay board</figcaption></figure></li>
-              <li><figure><a class="zoom" href="assets/img/vehicle-model-car.jpg" data-caption="The dashboard model car mirroring the real car's lights."><img src="assets/img/vehicle-model-car-sm.jpg" width="520" height="276" alt="Black model sedan on a display base with its headlights lit" loading="lazy" decoding="async"></a><figcaption>Model car mirroring the lights</figcaption></figure></li>
-            </ul>
-          </div>
-        </div>
-        <div class="project__text">
-          <p class="project__lede">A long-running build on my own car: a 12-speaker audio system, a dashboard model car that mirrors the real car's lights, and the 12 V power and protection to run it all.</p>
-          <table class="specs">
-            <caption>Key specifications</caption>
-            <tbody>
-              <tr><th scope="row">Audio</th><td>12 speakers on 3 amplifiers, with a DSP in the center console</td></tr>
-              <tr><th scope="row">Power</th><td>4 AWG feed through the firewall to distribution blocks; peaks near 70 A (≈900 W)</td></tr>
-              <tr><th scope="row">Control</th><td>8 relays, buck converters (12 V → 5 V) for the microcontrollers, and a BLE link from the trunk amp rack to a front-mounted controller that drives the displays</td></tr>
-              <tr><th scope="row">Protection</th><td>Temperature, humidity, vibration, and sound sensors; automatic power-off on overheating, high humidity, or sudden movement</td></tr>
-              <tr><th scope="row">Status</th><td>Ongoing: rebuilding the ESP32 relay controller after a board failure</td></tr>
-            </tbody>
-          </table>
-          <h4 class="mini-h">What I did</h4>
-          <ul class="blist">
-            <li>Planned the power distribution and wired the system myself, from the 4 AWG battery feed to the relay boards.</li>
-            <li>Wired a dashboard model car to mirror the real car's turn signals, headlights, and brake lights in real time through 8 relays.</li>
-            <li>Tracked down and fixed battery drain, speaker noise, and parasitic draw (below).</li>
-          </ul>
-          <details class="notes" open>
-            <summary>Engineering notes: problems &amp; fixes</summary>
-            <table class="dtable dtable--stack">
-              <caption>Problems found during the build</caption>
-              <thead><tr><th scope="col">Symptom</th><th scope="col">Root cause</th><th scope="col">Fix</th></tr></thead>
-              <tbody>
-                <tr><td data-label="Symptom">Battery drained over time</td><td data-label="Root cause">The hybrid's DC-DC converter supplies only ~80 A to the 12 V battery, and the audio system peaks near 70 A, leaving little headroom</td><td data-label="Fix">Switched to a more efficient Class D amplifier and opened up the woofer baffles to use the full door cavity</td></tr>
-                <tr><td data-label="Symptom">Noise through the speakers</td><td data-label="Root cause">RCA signal cables ran too close to the power wires</td><td data-label="Fix">Power runs down the right door sills and RCAs down the left, isolating the two</td></tr>
-                <tr><td data-label="Symptom">Parasitic draw with the car off</td><td data-label="Root cause">DC-DC converters and relays drew power continuously</td><td data-label="Fix">Added 5 center-console switches to cut power to individual components</td></tr>
-              </tbody>
-            </table>
-            <figure class="figure notes__fig">
-              <a class="zoom photo" href="assets/img/vehicle-interior.jpg" data-caption="Finished interior at night.">
-                <img src="assets/img/vehicle-interior.jpg" width="664" height="373" alt="Car interior at night with blue ambient lighting and a city skyline through the windshield" loading="lazy" decoding="async">
-              </a>
-              <figcaption class="figcap"><b>Figure 4-6.</b> Finished interior at night.</figcaption>
-            </figure>
-          </details>
-        </div>
-      </div>
-    </article>
-
-    <!-- ===== 4.4 MINTALITY ===== -->
+    <!-- ===== 4.2 MINTALITY ===== -->
     <article class="project" id="mintality" aria-labelledby="mintality-h">
       <header class="project__head">
-        <span class="project__num">4.4</span>
+        <span class="project__num">4.2</span>
         <div class="project__titles">
           <h3 class="project__title" id="mintality-h">Mintality Smart Planter</h3>
           <p class="project__meta">Texas Convergent · IoT subteam · Co-founder &amp; hardware lead · Jan 2026 – Apr 2026</p>
@@ -515,7 +336,7 @@
               <a class="zoom photo" href="assets/img/mintality-planter.jpg" data-caption="The finished Mintality planter, showing one of its three animated faces.">
                 <img src="assets/img/mintality-planter.jpg" width="1200" height="900" alt="White 3D-printed round planter with a brown rim and a small screen showing a smiling face and the words Great job!" loading="lazy" decoding="async">
               </a>
-              <figcaption class="figcap"><b>Figure 4-7.</b> The finished planter, showing one of its three animated faces.</figcaption>
+              <figcaption class="figcap"><b>Figure 4-3.</b> The finished planter, showing one of its three animated faces.</figcaption>
             </figure>
             <ul class="gallery gallery--3">
               <li><figure><a class="zoom" href="assets/img/mintality-internals.jpg" data-caption="Inside the base: ESP32, Li-ion cell with a TP4056 USB charging board, and the water pump."><img src="assets/img/mintality-internals-sm.jpg" width="390" height="520" alt="Open planter base with an ESP32 board, a blue lithium-ion cell, a small charging board, a pump in a central cup, and colored jumper wires" loading="lazy" decoding="async"></a><figcaption>Inside the base</figcaption></figure></li>
@@ -591,17 +412,17 @@
                   <path class="w" d="M164 191H122" marker-end="url(#ah)"/>
                 </svg>
               </div>
-              <figcaption class="figcap"><b>Figure 4-8.</b> Mintality block diagram.</figcaption>
+              <figcaption class="figcap"><b>Figure 4-4.</b> Mintality block diagram.</figcaption>
             </figure>
           </details>
         </div>
       </div>
     </article>
 
-    <!-- ===== 4.5 FPGA ===== -->
+    <!-- ===== 4.3 FPGA ===== -->
     <article class="project" id="fpga" aria-labelledby="fpga-h">
       <header class="project__head">
-        <span class="project__num">4.5</span>
+        <span class="project__num">4.3</span>
         <div class="project__titles">
           <h3 class="project__title" id="fpga-h">FPGA Taiko Drumming Game</h3>
           <p class="project__meta">Digital design project · Basys3 board</p>
@@ -617,7 +438,7 @@
               <a class="zoom photo" href="assets/img/fpga-board.jpg" data-caption="The drumming game running on the Basys3 board, showing “done” on the seven-segment display.">
                 <img src="assets/img/fpga-board.jpg" width="1200" height="899" alt="Basys3 FPGA board with its green switch LEDs lit and the red seven-segment display reading done" loading="lazy" decoding="async">
               </a>
-              <figcaption class="figcap"><b>Figure 4-9.</b> The game running on the Basys3, showing “done” on the seven-segment display.</figcaption>
+              <figcaption class="figcap"><b>Figure 4-5.</b> The game running on the Basys3, showing “done” on the seven-segment display.</figcaption>
             </figure>
           </div>
         </div>
@@ -677,9 +498,188 @@
                     <path class="w" d="M326 131H354" marker-end="url(#ah)"/>
                   </svg>
                 </div>
-                <figcaption class="figcap"><b>Figure 4-10.</b> Simplified functional view. The full design has 10 Verilog modules.</figcaption>
+                <figcaption class="figcap"><b>Figure 4-6.</b> Simplified functional view. The full design has 10 Verilog modules.</figcaption>
               </figure>
           </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== 4.4 VEHICLE ===== -->
+    <article class="project" id="vehicle" aria-labelledby="vehicle-h">
+      <header class="project__head">
+        <span class="project__num">4.4</span>
+        <div class="project__titles">
+          <h3 class="project__title" id="vehicle-h">Vehicle Power, Electrical &amp; Audio System</h3>
+          <p class="project__meta">Personal build · my Toyota Corolla Hybrid · ongoing</p>
+        </div>
+        <ul class="chips">
+          <li>12 V distribution</li><li>Relays</li><li>Buck converters</li><li>ESP32</li><li>BLE</li><li>Sensors</li><li>Harnessing</li>
+        </ul>
+      </header>
+      <div class="project__body">
+        <div class="project__fig">
+          <div class="fig-stack">
+            <figure class="figure">
+              <div class="photo-pair photo-pair--wide-left">
+                <a class="zoom photo" href="assets/img/vehicle-rack-bench.jpg" data-caption="The amp rack on the bench before install: fused power distribution, three amplifiers, an ESP32 controller above a fuse box, and an 8-channel relay board.">
+                  <img src="assets/img/vehicle-rack-bench-sm.jpg" width="640" height="480" alt="Black mounting board on a garage floor holding a fused distribution block, three car amplifiers, an ESP32 board above a blade fuse box, and a red 8-channel relay board, with tools around it" loading="lazy" decoding="async">
+                </a>
+                <a class="zoom photo" href="assets/img/vehicle-rack-trunk.jpg" data-caption="The amp rack installed in the trunk.">
+                  <img src="assets/img/vehicle-rack-trunk-sm.jpg" width="480" height="640" alt="The amplifier rack mounted in the car's trunk, with three amplifiers, fuse blocks, relay modules, and bundles of red and black wiring" loading="lazy" decoding="async">
+                </a>
+              </div>
+              <figcaption class="figcap"><b>Figure 4-7.</b> The trunk amp rack on the bench (left) and installed in the car (right).</figcaption>
+            </figure>
+            <ul class="gallery gallery--2">
+              <li><figure><a class="zoom" href="assets/img/vehicle-amp-rack.jpg" data-caption="An earlier layout of the amp rack: DSP, two amplifiers, and a fused power distribution block."><img src="assets/img/vehicle-amp-rack-sm.jpg" width="390" height="520" alt="Mounting board with a sound processor, two car amplifiers, a fused distribution block, and red and black power cables" loading="lazy" decoding="async"></a><figcaption>Earlier layout: DSP, 2 amps, fused distribution</figcaption></figure></li>
+              <li><figure><a class="zoom" href="assets/img/vehicle-dash-wiring.jpg" data-caption="Behind the dash: distribution strips and control wiring."><img src="assets/img/vehicle-dash-wiring-sm.jpg" width="520" height="516" alt="Open dashboard with barrier-strip terminal blocks and bundles of control wiring under the head unit" loading="lazy" decoding="async"></a><figcaption>Behind the dash: distribution strips</figcaption></figure></li>
+              <li><figure><a class="zoom" href="assets/img/vehicle-model-car-relays.jpg" data-caption="Model-car base with its relay board."><img src="assets/img/vehicle-model-car-relays-sm.jpg" width="390" height="520" alt="Underside of the model car's display base with a red multi-channel relay board and wiring" loading="lazy" decoding="async"></a><figcaption>Model-car base and relay board</figcaption></figure></li>
+              <li><figure><a class="zoom" href="assets/img/vehicle-model-car.jpg" data-caption="The dashboard model car mirroring the real car's lights."><img src="assets/img/vehicle-model-car-sm.jpg" width="520" height="276" alt="Black model sedan on a display base with its headlights lit" loading="lazy" decoding="async"></a><figcaption>Model car mirroring the lights</figcaption></figure></li>
+            </ul>
+          </div>
+        </div>
+        <div class="project__text">
+          <p class="project__lede">A long-running build on my own car: a 12-speaker audio system, a dashboard model car that mirrors the real car's lights, and the 12 V power and protection to run it all.</p>
+          <table class="specs">
+            <caption>Key specifications</caption>
+            <tbody>
+              <tr><th scope="row">Audio</th><td>12 speakers on 3 amplifiers, with a DSP in the center console</td></tr>
+              <tr><th scope="row">Power</th><td>4 AWG feed through the firewall to distribution blocks; peaks near 70 A (≈900 W)</td></tr>
+              <tr><th scope="row">Control</th><td>8 relays, buck converters (12 V → 5 V) for the microcontrollers, and a BLE link from the trunk amp rack to a front-mounted controller that drives the displays</td></tr>
+              <tr><th scope="row">Protection</th><td>Temperature, humidity, vibration, and sound sensors; automatic power-off on overheating, high humidity, or sudden movement</td></tr>
+              <tr><th scope="row">Status</th><td>Ongoing: rebuilding the ESP32 relay controller after a board failure</td></tr>
+            </tbody>
+          </table>
+          <h4 class="mini-h">What I did</h4>
+          <ul class="blist">
+            <li>Planned the power distribution and wired the system myself, from the 4 AWG battery feed to the relay boards.</li>
+            <li>Wired a dashboard model car to mirror the real car's turn signals, headlights, and brake lights in real time through 8 relays.</li>
+            <li>Tracked down and fixed battery drain, speaker noise, and parasitic draw (below).</li>
+          </ul>
+          <details class="notes" open>
+            <summary>Engineering notes: problems &amp; fixes</summary>
+            <table class="dtable dtable--stack">
+              <caption>Problems found during the build</caption>
+              <thead><tr><th scope="col">Symptom</th><th scope="col">Root cause</th><th scope="col">Fix</th></tr></thead>
+              <tbody>
+                <tr><td data-label="Symptom">Battery drained over time</td><td data-label="Root cause">The hybrid's DC-DC converter supplies only ~80 A to the 12 V battery, and the audio system peaks near 70 A, leaving little headroom</td><td data-label="Fix">Switched to a more efficient Class D amplifier and opened up the woofer baffles to use the full door cavity</td></tr>
+                <tr><td data-label="Symptom">Noise through the speakers</td><td data-label="Root cause">RCA signal cables ran too close to the power wires</td><td data-label="Fix">Power runs down the right door sills and RCAs down the left, isolating the two</td></tr>
+                <tr><td data-label="Symptom">Parasitic draw with the car off</td><td data-label="Root cause">DC-DC converters and relays drew power continuously</td><td data-label="Fix">Added 5 center-console switches to cut power to individual components</td></tr>
+              </tbody>
+            </table>
+            <figure class="figure notes__fig">
+              <a class="zoom photo" href="assets/img/vehicle-interior.jpg" data-caption="Finished interior at night.">
+                <img src="assets/img/vehicle-interior.jpg" width="664" height="373" alt="Car interior at night with blue ambient lighting and a city skyline through the windshield" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="figcap"><b>Figure 4-8.</b> Finished interior at night.</figcaption>
+            </figure>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== 4.5 ARCADE ===== -->
+    <article class="project" id="arcade" aria-labelledby="arcade-h">
+      <header class="project__head">
+        <span class="project__num">4.5</span>
+        <div class="project__titles">
+          <h3 class="project__title" id="arcade-h">DOOM-Inspired Arcade Machine</h3>
+          <p class="project__meta">Course project · Intro to Embedded Systems</p>
+        </div>
+        <div class="project__aside">
+          <span class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2L12 17l-5.6 3 1.1-6.2-4.6-4.4 6.3-.9z" fill="currentColor"/></svg>Best project, in-class competition</span>
+          <a class="plink" href="https://www.youtube.com/watch?v=bRI7dZDsyjc" target="_blank" rel="noopener noreferrer">Demo video <span aria-hidden="true">↗</span></a>
+        </div>
+        <ul class="chips">
+          <li>C++</li><li>MSPM0G3507</li><li>Cortex-M0+</li><li>SPI</li><li>12-bit DAC</li><li>3D printing</li>
+        </ul>
+      </header>
+      <div class="project__body">
+        <div class="project__fig">
+          <div class="fig-stack">
+            <figure class="figure">
+              <div class="video" data-youtube="bRI7dZDsyjc" data-title="DOOM-inspired arcade machine demo">
+                <a class="video__link" href="https://www.youtube.com/watch?v=bRI7dZDsyjc" target="_blank" rel="noopener noreferrer">
+                  <img src="https://i.ytimg.com/vi/bRI7dZDsyjc/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
+                  <span class="video__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+                  <span class="video__tag">Demo · YouTube</span><span class="visually-hidden">: play the arcade machine demo video</span>
+                </a>
+              </div>
+              <figcaption class="figcap"><b>Figure 4-9.</b> Gameplay demo. Click to play.</figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__frame">
+                <svg class="dg" viewBox="0 0 440 282" role="img" aria-labelledby="f42t f42d">
+                  <title id="f42t">Arcade machine block diagram</title>
+                  <desc id="f42d">An MSPM0G3507 microcontroller loads assets and audio from an SD card over SPI, drives an ST7735 TFT over SPI, reads player inputs, and streams double-buffered audio to a 12-bit DAC that feeds an amplifier and speaker. A 5 V external battery powers the system inside a 3D-printed cabinet.</desc>
+                  <rect class="bound" x="4" y="4" width="432" height="274" rx="6"/>
+                  <text class="lbl" x="14" y="22">3D-PRINTED CABINET</text>
+                  <rect class="bx" x="165" y="16" width="110" height="38"/>
+                  <text class="t" x="220" y="33" text-anchor="middle">5 V battery</text>
+                  <text class="s" x="220" y="47" text-anchor="middle">external</text>
+                  <rect class="bx" x="14" y="76" width="104" height="46"/>
+                  <text class="t" x="66" y="96" text-anchor="middle">SD card</text>
+                  <text class="s" x="66" y="111" text-anchor="middle">assets · audio</text>
+                  <rect class="bx" x="322" y="76" width="104" height="46"/>
+                  <text class="t" x="374" y="96" text-anchor="middle">ST7735 TFT</text>
+                  <text class="s" x="374" y="111" text-anchor="middle">display</text>
+                  <rect class="bx hi" x="142" y="76" width="156" height="120"/>
+                  <text class="t" x="220" y="98" text-anchor="middle">MSPM0G3507</text>
+                  <text class="s" x="220" y="113" text-anchor="middle">Cortex-M0+ · 80 MHz</text>
+                  <text class="s2" x="220" y="136" text-anchor="middle">raycasting renderer</text>
+                  <text class="s2" x="220" y="151" text-anchor="middle">depth-sorted sprites</text>
+                  <rect class="buf" x="154" y="164" width="58" height="22"/>
+                  <rect class="buf" x="228" y="164" width="58" height="22"/>
+                  <text class="s" x="183" y="179" text-anchor="middle">buf A</text>
+                  <text class="s" x="257" y="179" text-anchor="middle">buf B</text>
+                  <path class="w" d="M213 172h14M227 178h-14"/>
+                  <rect class="bx" x="14" y="150" width="104" height="46"/>
+                  <text class="t sm" x="66" y="170" text-anchor="middle">Player inputs</text>
+                  <text class="s" x="66" y="185" text-anchor="middle">controls</text>
+                  <rect class="bx" x="142" y="222" width="96" height="40"/>
+                  <text class="t" x="190" y="246" text-anchor="middle">12-bit DAC</text>
+                  <rect class="bx" x="258" y="222" width="78" height="40"/>
+                  <text class="t" x="297" y="246" text-anchor="middle">Amplifier</text>
+                  <rect class="bx" x="356" y="222" width="70" height="40"/>
+                  <text class="t" x="391" y="246" text-anchor="middle">Speaker</text>
+                  <path class="pw" d="M220 54V76" marker-end="url(#ah-p)"/>
+                  <text class="lbl lbl--p" x="228" y="69">5 V</text>
+                  <path class="w" d="M118 99H142" marker-end="url(#ah)"/>
+                  <text class="lbl" x="130" y="92" text-anchor="middle">SPI</text>
+                  <path class="w" d="M298 99H322" marker-end="url(#ah)"/>
+                  <text class="lbl" x="310" y="92" text-anchor="middle">SPI</text>
+                  <path class="w" d="M118 173H142" marker-end="url(#ah)"/>
+                  <path class="w" d="M190 196V222" marker-end="url(#ah)"/>
+                  <path class="w" d="M238 242H258" marker-end="url(#ah)"/>
+                  <path class="w" d="M336 242H356" marker-end="url(#ah)"/>
+                  <g transform="translate(16 232)">
+                    <path class="pw" d="M0 0H22"/><text class="lbl" x="28" y="4">power</text>
+                    <path class="w" d="M0 18H22"/><text class="lbl" x="28" y="22">data</text>
+                  </g>
+                </svg>
+              </div>
+              <figcaption class="figcap"><b>Figure 4-10.</b> Block diagram. Audio is double-buffered: one buffer fills from the SD card while the other streams to the DAC.</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="project__text">
+          <p class="project__lede">A first-person shooter written from scratch in C++ for a 32-bit microcontroller, built into a 3D-printed arcade cabinet.</p>
+          <table class="specs">
+            <caption>Key specifications</caption>
+            <tbody>
+              <tr><th scope="row">MCU</th><td>TI MSPM0G3507, Arm Cortex-M0+ at 80 MHz</td></tr>
+              <tr><th scope="row">Graphics</th><td>Raycasting 3D renderer with depth-sorted animated sprites on an ST7735 TFT (SPI)</td></tr>
+              <tr><th scope="row">Audio</th><td>Double-buffered streaming from an SD card to a 12-bit DAC, driving a separate amplifier</td></tr>
+              <tr><th scope="row">Enclosure</th><td>Self-designed 3D-printed cabinet with a speaker enclosure, powered by a 5 V external battery</td></tr>
+            </tbody>
+          </table>
+          <h4 class="mini-h">What I did</h4>
+          <ul class="blist">
+            <li>Wrote the rendering system: a raycaster plus depth-sorted, animated sprites.</li>
+            <li>Built the audio engine: one buffer fills from the SD card while the other plays, getting enough throughput out of the 80 MHz clock for glitch-free music, footsteps, and effects.</li>
+            <li>Integrated the TFT and SD-card asset loading over SPI, and designed and printed the cabinet.</li>
+          </ul>
         </div>
       </div>
     </article>
