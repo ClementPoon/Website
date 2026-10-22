@@ -88,7 +88,7 @@ Edit files directly on GitHub (open a file → pencil icon → **Commit changes*
 
 ## Before you share the link
 
-- **Check every detail.** Interviewers will ask about anything on here. Most text comes from your Tech résumé; a few details came from earlier notes and are worth a second look: the TPS62933 part number on the payload board, and the 12-speaker, BLE, and ESP32 details on the vehicle project.
+- **Check every detail.** Interviewers will ask about anything on here. Most text comes from your Tech résumé; a few details came from earlier notes and are worth a second look: the 12-speaker, BLE, and ESP32 details on the vehicle project.
 - **Your résumé PDF includes your phone number.** Once the site is live, anyone can download it.
 - **The arcade demo video is on another YouTube channel.** If it was a team project, consider crediting your partner, or upload your own copy and swap the video ID (`bRI7dZDsyjc`) in `index.html`.
 - **Fix your résumé's "Portfolio" link.** On the vehicle project it points to an old LinkedIn URL; point it at `https://clementpoon.com/#vehicle` instead.

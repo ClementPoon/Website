@@ -375,6 +375,7 @@ sup { font-size: 0.65em; }
   .fig-stack { position: sticky; top: 66px; }
 }
 .gallery.gallery--2 { grid-template-columns: 1fr 1fr; }
+.gallery.gallery--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
 .notes__fig { margin-top: 4px; max-width: 520px; }
 .project__text { padding: 18px 20px 20px; min-width: 0; }
 .project__lede { font-size: 1rem; color: var(--ink); }
@@ -468,6 +469,7 @@ sup { font-size: 0.65em; }
 .dg .w { fill: none; stroke: var(--ink); stroke-width: 1.5; }
 .dg .pw { fill: none; stroke: var(--accent); stroke-width: 2.25; }
 .dg .c { fill: none; stroke: var(--ink-2); stroke-width: 1.4; stroke-dasharray: 4 3; }
+.dg .tp { fill: var(--box); stroke: var(--accent); stroke-width: 1.75; }
 
 /* pin diagram */
 .dg--pins { max-width: 460px; margin-inline: auto; }
