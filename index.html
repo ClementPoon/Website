@@ -1,0 +1,869 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clement Poon — Electrical &amp; Computer Engineering Portfolio</title>
+<meta name="description" content="Clement Poon is an Electrical and Computer Engineering student at UT Austin (B.S. expected May 2028) working in embedded systems, PCB and power design, and digital logic. Seeking Summer 2027 internships and co-ops.">
+<meta name="author" content="Clement Poon">
+<!-- If you host somewhere other than https://clementpoon.github.io/, update the URLs in these 4 tags. -->
+<link rel="canonical" href="https://clementpoon.github.io/">
+<meta property="og:url" content="https://clementpoon.github.io/">
+<meta property="og:image" content="https://clementpoon.github.io/assets/img/og-image.png">
+<meta name="twitter:image" content="https://clementpoon.github.io/assets/img/og-image.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Clement Poon">
+<meta property="og:title" content="Clement Poon — Electrical &amp; Computer Engineering">
+<meta property="og:description" content="Embedded systems, PCB and power design, and digital logic at UT Austin. Seeking Summer 2027 internships and co-ops.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Clement Poon's portfolio, laid out like a component datasheet">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0e1115" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<script>(function(){try{var t=localStorage.getItem("cp-theme");if(t==="dark"||t==="light"){document.documentElement.setAttribute("data-theme",t);}}catch(e){}})();</script>
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Clement Poon",
+  "url": "https://clementpoon.github.io/",
+  "email": "mailto:ClementP@utexas.edu",
+  "description": "Electrical and Computer Engineering student at The University of Texas at Austin focused on embedded systems, hardware, and digital design.",
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "The University of Texas at Austin" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Austin", "addressRegion": "TX", "addressCountry": "US" },
+  "knowsAbout": ["Embedded systems", "PCB design", "Power electronics", "Verilog", "FPGA", "C++"],
+  "sameAs": ["https://www.linkedin.com/in/clement-poon/", "https://github.com/ClementPoon"]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- Shared arrowheads for the block diagrams -->
+<svg class="svg-defs" aria-hidden="true" focusable="false">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="ah" d="M0 0L10 5L0 10z"/></marker>
+    <marker id="ah-p" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="ah-p" d="M0 0L10 5L0 10z"/></marker>
+    <marker id="ah-c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path class="ah-c" d="M0 0L10 5L0 10z"/></marker>
+  </defs>
+</svg>
+
+<header class="masthead">
+  <div class="wrap masthead__row">
+    <a class="brand" href="#top" aria-label="Clement Poon, back to top">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><g class="brand__pins"><rect x="3" y="6" width="5" height="3"/><rect x="3" y="12" width="5" height="3"/><rect x="3" y="18" width="5" height="3"/><rect x="3" y="24" width="5" height="3"/><rect x="24" y="6" width="5" height="3"/><rect x="24" y="12" width="5" height="3"/><rect x="24" y="18" width="5" height="3"/><rect x="24" y="24" width="5" height="3"/></g><rect class="brand__body" x="8" y="3" width="16" height="27" rx="2"/><circle class="brand__dot" cx="12.5" cy="8" r="1.9"/></svg>
+      <span>Clement Poon</span>
+    </a>
+    <p class="docno">CP-2028 – Portfolio datasheet – Revised October 2026</p>
+  </div>
+  <nav class="tabs" aria-label="Sections">
+    <div class="wrap tabs__row">
+      <div class="tabs__links">
+        <a class="tab" href="#projects"><span class="tab__n">4</span>Projects</a>
+        <a class="tab" href="#experience"><span class="tab__n">5</span>Experience</a>
+        <a class="tab" href="#skills"><span class="tab__n">6</span>Skills</a>
+        <a class="tab" href="#education"><span class="tab__n">7</span>Education</a>
+        <a class="tab" href="#contact"><span class="tab__n">8</span>Contact</a>
+      </div>
+      <div class="tabs__actions">
+        <a class="btn btn--sm" href="assets/Clement_Poon_Resume.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l5 5v15H6z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M14 2v5h5M9 13h7M9 17h7" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          <span>Résumé<span class="hide-sm"> (PDF)</span></span>
+        </a>
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch color theme" aria-pressed="false">
+          <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+
+  <!-- ================================ HERO ================================ -->
+  <section class="wrap hero" id="top" aria-labelledby="name">
+    <div class="hero__text">
+      <p class="overline">CP-2028</p>
+      <h1 id="name">Clement Poon</h1>
+      <p class="dtitle">Electrical &amp; Computer Engineering Student for Embedded, Hardware, and Digital-Design Roles, in a UT&nbsp;Austin Package</p>
+      <p class="status"><span class="led" aria-hidden="true"></span>Seeking Summer 2027 internships &amp; co-ops</p>
+      <div class="cta">
+        <a class="btn btn--primary" href="assets/Clement_Poon_Resume.pdf" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download résumé
+        </a>
+        <a class="btn" href="mailto:ClementP@utexas.edu?subject=Internship%20%2F%20co-op%20opportunity">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M3.5 6l8.5 7 8.5-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+          Email me
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/clement-poon/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a>
+        <a class="btn" href="https://github.com/ClementPoon" target="_blank" rel="noopener noreferrer">GitHub <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+
+    <figure class="hero__fig figure">
+      <div class="figure__frame figure__frame--pins">
+        <svg class="dg dg--pins" viewBox="44 4 352 302" role="group" aria-labelledby="f1t">
+          <title id="f1t">CP-2028 pin configuration. Pins 1 to 7 list skills; pins 11 to 15 are links.</title>
+          <rect class="chip" x="160" y="20" width="120" height="262" rx="4"/>
+          <path class="notch" d="M206 20a14 14 0 0 0 28 0"/>
+          <circle class="pin1" cx="176" cy="31" r="2.6"/>
+          <text class="chip-pn" x="220" y="144" text-anchor="middle">CP-2028</text>
+          <text class="chip-sub" x="220" y="162" text-anchor="middle">ECE</text>
+          <text class="chip-sub" x="220" y="176" text-anchor="middle">UT AUSTIN</text>
+          <!-- left side: pins 1–8 -->
+          <g class="pinrow">
+            <rect class="lead" x="136" y="38" width="24" height="8"/><text class="pin-no" x="168" y="45.5">1</text><text class="pin-name" x="128" y="46" text-anchor="end">C/C++</text>
+            <rect class="lead" x="136" y="69" width="24" height="8"/><text class="pin-no" x="168" y="76.5">2</text><text class="pin-name" x="128" y="77" text-anchor="end">VERILOG</text>
+            <rect class="lead" x="136" y="100" width="24" height="8"/><text class="pin-no" x="168" y="107.5">3</text><text class="pin-name" x="128" y="108" text-anchor="end">PYTHON</text>
+            <rect class="lead" x="136" y="131" width="24" height="8"/><text class="pin-no" x="168" y="138.5">4</text><text class="pin-name" x="128" y="139" text-anchor="end">KICAD</text>
+            <rect class="lead" x="136" y="162" width="24" height="8"/><text class="pin-no" x="168" y="169.5">5</text><text class="pin-name" x="128" y="170" text-anchor="end">ALTIUM</text>
+            <rect class="lead" x="136" y="193" width="24" height="8"/><text class="pin-no" x="168" y="200.5">6</text><text class="pin-name" x="128" y="201" text-anchor="end">LTSPICE</text>
+            <rect class="lead" x="136" y="224" width="24" height="8"/><text class="pin-no" x="168" y="231.5">7</text><text class="pin-name" x="128" y="232" text-anchor="end">FUSION360</text>
+            <rect class="lead" x="136" y="255" width="24" height="8"/><text class="pin-no" x="168" y="262.5">8</text><text class="pin-name pin-name--pwr" x="128" y="263" text-anchor="end">GND</text>
+          </g>
+          <!-- right side: pins 16 (top) to 9 (bottom) -->
+          <g class="pinrow">
+            <rect class="lead" x="280" y="38" width="24" height="8"/><text class="pin-no" x="272" y="45.5" text-anchor="end">16</text><text class="pin-name pin-name--pwr" x="312" y="46">VCC</text>
+            <a class="pin-link" href="assets/Clement_Poon_Resume.pdf" target="_blank" rel="noopener"><rect class="hit" x="280" y="60" width="116" height="26"/><rect class="lead" x="280" y="69" width="24" height="8"/><text class="pin-name" x="312" y="77">RESUME</text></a><text class="pin-no" x="272" y="76.5" text-anchor="end">15</text>
+            <a class="pin-link" href="mailto:ClementP@utexas.edu"><rect class="hit" x="280" y="91" width="116" height="26"/><rect class="lead" x="280" y="100" width="24" height="8"/><text class="pin-name" x="312" y="108">EMAIL</text></a><text class="pin-no" x="272" y="107.5" text-anchor="end">14</text>
+            <a class="pin-link" href="https://www.linkedin.com/in/clement-poon/" target="_blank" rel="noopener noreferrer"><rect class="hit" x="280" y="122" width="116" height="26"/><rect class="lead" x="280" y="131" width="24" height="8"/><text class="pin-name" x="312" y="139">LINKEDIN</text></a><text class="pin-no" x="272" y="138.5" text-anchor="end">13</text>
+            <a class="pin-link" href="https://github.com/ClementPoon" target="_blank" rel="noopener noreferrer"><rect class="hit" x="280" y="153" width="116" height="26"/><rect class="lead" x="280" y="162" width="24" height="8"/><text class="pin-name" x="312" y="170">GITHUB</text></a><text class="pin-no" x="272" y="169.5" text-anchor="end">12</text>
+            <a class="pin-link" href="#projects"><rect class="hit" x="280" y="184" width="116" height="26"/><rect class="lead" x="280" y="193" width="24" height="8"/><text class="pin-name" x="312" y="201">PROJECTS</text></a><text class="pin-no" x="272" y="200.5" text-anchor="end">11</text>
+            <rect class="lead" x="280" y="224" width="24" height="8"/><text class="pin-no" x="272" y="231.5" text-anchor="end">10</text><text class="pin-name" x="312" y="232">EN</text>
+            <rect class="lead" x="280" y="255" width="24" height="8"/><text class="pin-no" x="272" y="262.5" text-anchor="end">9</text><text class="pin-name pin-name--nc" x="312" y="263">NC</text>
+          </g>
+          <text class="chip-sub" x="220" y="301" text-anchor="middle">(TOP VIEW)</text>
+        </svg>
+      </div>
+      <figcaption class="figcap"><b>Figure 1.</b> CP-2028 pin configuration, DIP-16. Pins 11–15 are live links.</figcaption>
+    </figure>
+  </section>
+
+  <!-- ========================== SECTIONS 1–3 ========================== -->
+  <section class="wrap first" aria-label="Summary">
+    <div class="col col--feat">
+      <h2 class="dh"><span class="n">1</span>Features</h2>
+      <p class="dh-sub">What I bring</p>
+      <ul class="blist">
+        <li>Embedded C/C++ on Arm Cortex-M0+ (MSPM0) and ESP32; Python on Raspberry Pi</li>
+        <li>Custom power PCB design: 4S LiFePO₄ pack, BMS, buck regulation, MOSFET load switching</li>
+        <li>Digital design in Verilog on an Artix-7 FPGA, verified in Vivado simulation</li>
+        <li>12 V automotive power distribution with relays and sensor-based shutdown</li>
+        <li>Bench-ready: oscilloscope, multimeter, bench supply, SMD &amp; through-hole soldering, reflow</li>
+        <li>Two award-winning builds, including Best Overall Project out of 9 teams</li>
+      </ul>
+    </div>
+    <div class="col col--app">
+      <h2 class="dh"><span class="n">2</span>Applications</h2>
+      <p class="dh-sub">Roles I'm targeting</p>
+      <ul class="blist">
+        <li>Summer 2027 internships</li>
+        <li>Co-op terms in 2027</li>
+        <li>Embedded systems &amp; firmware</li>
+        <li>Hardware &amp; PCB design</li>
+        <li>Digital logic &amp; FPGA</li>
+        <li>Power electronics &amp; systems</li>
+      </ul>
+    </div>
+    <div class="col col--desc">
+      <h2 class="dh"><span class="n">3</span>Description</h2>
+      <p class="dh-sub">About me</p>
+      <p>I'm an Electrical and Computer Engineering student at UT Austin. Most of my experience is in embedded systems, hardware, and digital design: I designed a LiFePO₄ power board for a rocketry payload, co-founded an ESP32 smart planter that won Best Overall Project, and wrote a DOOM-style shooter from scratch for a Cortex-M0+ microcontroller.</p>
+      <p>I'm looking for an internship or co-op where I can apply those skills to real engineering problems.</p>
+      <p class="notice"><b>Important notice:</b> every project on this page is a real build. The part number is made up.</p>
+    </div>
+    <div class="col col--info">
+      <table class="dtable dtable--info dtable--stack">
+        <caption>Device Information<sup>(1)</sup></caption>
+        <thead><tr><th scope="col">Program</th><th scope="col">School</th><th scope="col">Expected graduation</th><th scope="col">GPA</th><th scope="col">Location</th><th scope="col">Availability</th><th scope="col">Low-power modes</th></tr></thead>
+        <tbody>
+          <tr>
+            <td data-label="Program">B.S. Electrical &amp; Computer Engineering</td>
+            <td data-label="School">The University of Texas at Austin</td>
+            <td data-label="Expected graduation">May 2028</td>
+            <td data-label="GPA">3.68 / 4.00</td>
+            <td data-label="Location">Austin, TX</td>
+            <td data-label="Availability">Summer 2027 · 2027 co-ops</td>
+            <td data-label="Low-power modes">Photography, car builds, running</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="footnote">(1) Full details in the <a href="assets/Clement_Poon_Resume.pdf" target="_blank" rel="noopener">résumé (PDF)</a>.</p>
+    </div>
+  </section>
+
+  <!-- ============================ 4 PROJECTS =========================== -->
+  <section class="wrap section" id="projects" aria-labelledby="projects-h">
+    <div class="sh">
+      <span class="sh__n">4</span>
+      <h2 id="projects-h">Projects</h2>
+      <span class="sh__aka">Application &amp; implementation</span>
+    </div>
+    <p class="lede">Selected builds across embedded firmware, power hardware, and digital logic. Each one lists the hardware, what I did, and where it got hard.</p>
+
+    <!-- ===== 4.1 ARCADE  (to add a project, copy one <article class="project"> block) ===== -->
+    <article class="project" id="arcade" aria-labelledby="arcade-h">
+      <header class="project__head">
+        <span class="project__num">4.1</span>
+        <div class="project__titles">
+          <h3 class="project__title" id="arcade-h">DOOM-Inspired Arcade Machine</h3>
+          <p class="project__meta">Course project · Intro to Embedded Systems</p>
+        </div>
+        <div class="project__aside">
+          <span class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2L12 17l-5.6 3 1.1-6.2-4.6-4.4 6.3-.9z" fill="currentColor"/></svg>Best project, in-class competition</span>
+          <a class="plink" href="https://www.youtube.com/watch?v=bRI7dZDsyjc" target="_blank" rel="noopener noreferrer">Demo video <span aria-hidden="true">↗</span></a>
+        </div>
+        <ul class="chips">
+          <li>C++</li><li>MSPM0G3507</li><li>Cortex-M0+</li><li>SPI</li><li>12-bit DAC</li><li>3D printing</li>
+        </ul>
+      </header>
+      <div class="project__body">
+        <div class="project__fig">
+          <div class="fig-stack">
+            <figure class="figure">
+              <div class="video" data-youtube="bRI7dZDsyjc" data-title="DOOM-inspired arcade machine demo">
+                <a class="video__link" href="https://www.youtube.com/watch?v=bRI7dZDsyjc" target="_blank" rel="noopener noreferrer">
+                  <img src="https://i.ytimg.com/vi/bRI7dZDsyjc/hqdefault.jpg" alt="" width="480" height="360" loading="lazy" decoding="async">
+                  <span class="video__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z"/></svg></span>
+                  <span class="video__tag">Demo · YouTube</span><span class="visually-hidden">: play the arcade machine demo video</span>
+                </a>
+              </div>
+              <figcaption class="figcap"><b>Figure 4-1.</b> Gameplay demo. Click to play.</figcaption>
+            </figure>
+            <figure class="figure">
+              <div class="figure__frame">
+                <svg class="dg" viewBox="0 0 440 282" role="img" aria-labelledby="f42t f42d">
+                  <title id="f42t">Arcade machine block diagram</title>
+                  <desc id="f42d">An MSPM0G3507 microcontroller loads assets and audio from an SD card over SPI, drives an ST7735 TFT over SPI, reads player inputs, and streams double-buffered audio to a 12-bit DAC that feeds an amplifier and speaker. A 5 V external battery powers the system inside a 3D-printed cabinet.</desc>
+                  <rect class="bound" x="4" y="4" width="432" height="274" rx="6"/>
+                  <text class="lbl" x="14" y="22">3D-PRINTED CABINET</text>
+                  <rect class="bx" x="165" y="16" width="110" height="38"/>
+                  <text class="t" x="220" y="33" text-anchor="middle">5 V battery</text>
+                  <text class="s" x="220" y="47" text-anchor="middle">external</text>
+                  <rect class="bx" x="14" y="76" width="104" height="46"/>
+                  <text class="t" x="66" y="96" text-anchor="middle">SD card</text>
+                  <text class="s" x="66" y="111" text-anchor="middle">assets · audio</text>
+                  <rect class="bx" x="322" y="76" width="104" height="46"/>
+                  <text class="t" x="374" y="96" text-anchor="middle">ST7735 TFT</text>
+                  <text class="s" x="374" y="111" text-anchor="middle">display</text>
+                  <rect class="bx hi" x="142" y="76" width="156" height="120"/>
+                  <text class="t" x="220" y="98" text-anchor="middle">MSPM0G3507</text>
+                  <text class="s" x="220" y="113" text-anchor="middle">Cortex-M0+ · 80 MHz</text>
+                  <text class="s2" x="220" y="136" text-anchor="middle">raycasting renderer</text>
+                  <text class="s2" x="220" y="151" text-anchor="middle">depth-sorted sprites</text>
+                  <rect class="buf" x="154" y="164" width="58" height="22"/>
+                  <rect class="buf" x="228" y="164" width="58" height="22"/>
+                  <text class="s" x="183" y="179" text-anchor="middle">buf A</text>
+                  <text class="s" x="257" y="179" text-anchor="middle">buf B</text>
+                  <path class="w" d="M213 172h14M227 178h-14"/>
+                  <rect class="bx" x="14" y="150" width="104" height="46"/>
+                  <text class="t sm" x="66" y="170" text-anchor="middle">Player inputs</text>
+                  <text class="s" x="66" y="185" text-anchor="middle">controls</text>
+                  <rect class="bx" x="142" y="222" width="96" height="40"/>
+                  <text class="t" x="190" y="246" text-anchor="middle">12-bit DAC</text>
+                  <rect class="bx" x="258" y="222" width="78" height="40"/>
+                  <text class="t" x="297" y="246" text-anchor="middle">Amplifier</text>
+                  <rect class="bx" x="356" y="222" width="70" height="40"/>
+                  <text class="t" x="391" y="246" text-anchor="middle">Speaker</text>
+                  <path class="pw" d="M220 54V76" marker-end="url(#ah-p)"/>
+                  <text class="lbl lbl--p" x="228" y="69">5 V</text>
+                  <path class="w" d="M118 99H142" marker-end="url(#ah)"/>
+                  <text class="lbl" x="130" y="92" text-anchor="middle">SPI</text>
+                  <path class="w" d="M298 99H322" marker-end="url(#ah)"/>
+                  <text class="lbl" x="310" y="92" text-anchor="middle">SPI</text>
+                  <path class="w" d="M118 173H142" marker-end="url(#ah)"/>
+                  <path class="w" d="M190 196V222" marker-end="url(#ah)"/>
+                  <path class="w" d="M238 242H258" marker-end="url(#ah)"/>
+                  <path class="w" d="M336 242H356" marker-end="url(#ah)"/>
+                  <g transform="translate(16 232)">
+                    <path class="pw" d="M0 0H22"/><text class="lbl" x="28" y="4">power</text>
+                    <path class="w" d="M0 18H22"/><text class="lbl" x="28" y="22">data</text>
+                  </g>
+                </svg>
+              </div>
+              <figcaption class="figcap"><b>Figure 4-2.</b> Block diagram. Audio is double-buffered: one buffer fills from the SD card while the other streams to the DAC.</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="project__text">
+          <p class="project__lede">A first-person shooter written from scratch in C++ for a 32-bit microcontroller, built into a 3D-printed arcade cabinet.</p>
+          <table class="specs">
+            <caption>Key specifications</caption>
+            <tbody>
+              <tr><th scope="row">MCU</th><td>TI MSPM0G3507, Arm Cortex-M0+ at 80 MHz</td></tr>
+              <tr><th scope="row">Graphics</th><td>Raycasting 3D renderer with depth-sorted animated sprites on an ST7735 TFT (SPI)</td></tr>
+              <tr><th scope="row">Audio</th><td>Double-buffered streaming from an SD card to a 12-bit DAC, driving a separate amplifier</td></tr>
+              <tr><th scope="row">Enclosure</th><td>Self-designed 3D-printed cabinet with a speaker enclosure, powered by a 5 V external battery</td></tr>
+            </tbody>
+          </table>
+          <h4 class="mini-h">What I did</h4>
+          <ul class="blist">
+            <li>Wrote the rendering system: a raycaster plus depth-sorted, animated sprites.</li>
+            <li>Built the audio engine: one buffer fills from the SD card while the other plays, getting enough throughput out of the 80 MHz clock for glitch-free music, footsteps, and effects.</li>
+            <li>Integrated the TFT and SD-card asset loading over SPI, and designed and printed the cabinet.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== 4.2 ROCKETRY ===== -->
+    <article class="project" id="rocketry" aria-labelledby="rocketry-h">
+      <header class="project__head">
+        <span class="project__num">4.2</span>
+        <div class="project__titles">
+          <h3 class="project__title" id="rocketry-h">Payload Power &amp; Sensor Board</h3>
+          <p class="project__meta">Longhorn Rocketry Association · Payload subteam · Aug 2025 – present</p>
+        </div>
+        <ul class="chips">
+          <li>PCB design</li><li>LiFePO₄ + BMS</li><li>Buck converter</li><li>MOSFETs</li><li>I²C / SPI</li><li>Python</li>
+        </ul>
+      </header>
+      <div class="project__body">
+        <div class="project__fig">
+          <div class="fig-stack">
+            <figure class="figure">
+              <div class="figure__frame">
+                <svg class="dg" viewBox="0 0 440 356" role="img" aria-labelledby="f43t f43d">
+                  <title id="f43t">Payload power and sensing architecture</title>
+                  <desc id="f43d">A 4S LiFePO4 pack feeds a BMS. The battery rail powers a buck converter that supplies 5 V to a Raspberry Pi 4, and MOSFET switches that drive nitinol actuators. The Pi controls the MOSFETs with a low-current GPIO signal, reads an IMU and a thermocouple over I2C/SPI, and runs a Python data logger.</desc>
+                  <rect class="bx" x="64" y="16" width="150" height="44"/>
+                  <text class="t" x="139" y="35" text-anchor="middle">4S LiFePO₄ pack</text>
+                  <text class="s" x="139" y="50" text-anchor="middle">12.8 V nominal</text>
+                  <rect class="bx" x="64" y="82" width="150" height="44"/>
+                  <text class="t" x="139" y="101" text-anchor="middle">BMS</text>
+                  <text class="s" x="139" y="116" text-anchor="middle">battery management</text>
+                  <rect class="bx hi" x="64" y="148" width="150" height="44"/>
+                  <text class="t" x="139" y="167" text-anchor="middle">Buck converter</text>
+                  <text class="s" x="139" y="182" text-anchor="middle">TPS62933 · 5 V out</text>
+                  <rect class="bx hi" x="64" y="214" width="150" height="44"/>
+                  <text class="t" x="139" y="233" text-anchor="middle">MOSFET switches</text>
+                  <text class="s" x="139" y="248" text-anchor="middle">on the custom PCB</text>
+                  <rect class="bx" x="64" y="280" width="150" height="44"/>
+                  <text class="t" x="139" y="299" text-anchor="middle">Nitinol actuators</text>
+                  <text class="s" x="139" y="314" text-anchor="middle">high-current load</text>
+                  <rect class="bx" x="236" y="16" width="92" height="44"/>
+                  <text class="t sm" x="282" y="35" text-anchor="middle">BerryIMU</text>
+                  <text class="s" x="282" y="50" text-anchor="middle">motion · alt.</text>
+                  <rect class="bx" x="336" y="16" width="94" height="44"/>
+                  <text class="t sm" x="383" y="35" text-anchor="middle">Thermocouple</text>
+                  <text class="s" x="383" y="50" text-anchor="middle">temperature</text>
+                  <rect class="bx" x="236" y="148" width="194" height="44"/>
+                  <text class="t" x="333" y="167" text-anchor="middle">Raspberry Pi 4</text>
+                  <text class="s" x="333" y="182" text-anchor="middle">payload computer</text>
+                  <rect class="bx" x="236" y="280" width="194" height="44"/>
+                  <text class="t" x="333" y="299" text-anchor="middle">Python data logger</text>
+                  <text class="s" x="333" y="314" text-anchor="middle">launch → recovery</text>
+                  <path class="pw" d="M139 60V82" marker-end="url(#ah-p)"/>
+                  <path class="pw" d="M139 126V148" marker-end="url(#ah-p)"/>
+                  <path class="pw" d="M64 104H36V236H64" marker-end="url(#ah-p)"/>
+                  <path class="pw" d="M139 258V280" marker-end="url(#ah-p)"/>
+                  <path class="pw" d="M214 170H236" marker-end="url(#ah-p)"/>
+                  <text class="lbl lbl--p" x="26" y="170" text-anchor="middle" transform="rotate(-90 26 170)">VBAT</text>
+                  <text class="lbl lbl--p" x="225" y="163" text-anchor="middle">5 V</text>
+                  <path class="w" d="M282 60V96H383V60"/>
+                  <path class="w" d="M333 96V148" marker-end="url(#ah)"/>
+                  <text class="lbl" x="340" y="126">I²C / SPI</text>
+                  <path class="w" d="M333 192V280" marker-end="url(#ah)"/>
+                  <path class="c" d="M262 192V236H214" marker-end="url(#ah-c)"/>
+                  <text class="lbl" x="238" y="229" text-anchor="middle">GPIO</text>
+                  <g transform="translate(16 343)">
+                    <path class="pw" d="M0 0H22"/><text class="lbl" x="28" y="4">power</text>
+                    <path class="w" d="M84 0H106"/><text class="lbl" x="112" y="4">data</text>
+                    <path class="c" d="M160 0H182"/><text class="lbl" x="188" y="4">control</text>
+                  </g>
+                </svg>
+              </div>
+              <figcaption class="figcap"><b>Figure 4-3.</b> Payload power and sensing architecture (simplified).</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="project__text">
+          <p class="project__lede">Power and sensing hardware for the rocket's payload: a custom board that keeps the payload's Raspberry Pi on regulated 5 V while switching high-current actuators straight off the battery.</p>
+          <table class="specs">
+            <caption>Key specifications</caption>
+            <tbody>
+              <tr><th scope="row">Source</th><td>Four LiFePO₄ cells (4S, 12.8 V nominal) with a BMS</td></tr>
+              <tr><th scope="row">Regulation</th><td>Buck converter supplying regulated 5 V to a Raspberry Pi 4</td></tr>
+              <tr><th scope="row">Load switching</th><td>Nitinol actuators powered from the battery through on-board MOSFETs</td></tr>
+              <tr><th scope="row">Sensing</th><td>BerryIMU and thermocouple over I²C/SPI, logged in Python</td></tr>
+            </tbody>
+          </table>
+          <h4 class="mini-h">What I did</h4>
+          <ul class="blist">
+            <li>Designed the power schematic and PCB: battery pack, BMS, and buck converter for stable 5 V through flight.</li>
+            <li>Routed actuator power through MOSFETs on the board so the Pi's GPIO only sends a low-current control signal.</li>
+            <li>Interfaced the IMU and thermocouple and wrote the Python logger that records motion, altitude, and temperature from launch through landing and recovery.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== 4.3 VEHICLE ===== -->
+    <article class="project" id="vehicle" aria-labelledby="vehicle-h">
+      <header class="project__head">
+        <span class="project__num">4.3</span>
+        <div class="project__titles">
+          <h3 class="project__title" id="vehicle-h">Vehicle Power, Electrical &amp; Audio System</h3>
+          <p class="project__meta">Personal build · my Toyota Corolla Hybrid · ongoing</p>
+        </div>
+        <ul class="chips">
+          <li>12 V distribution</li><li>Relays</li><li>Buck converters</li><li>ESP32</li><li>BLE</li><li>Sensors</li><li>Harnessing</li>
+        </ul>
+      </header>
+      <div class="project__body">
+        <div class="project__fig">
+          <div class="fig-stack">
+            <figure class="figure">
+              <a class="zoom photo" href="assets/img/vehicle-console.jpg" data-caption="Center console: DSP, battery monitor, and the 5-switch cut-off panel.">
+                <img src="assets/img/vehicle-console.jpg" width="1125" height="747" alt="Car center console at night with a digital audio processor, a battery monitor reading 13.9 volts, and a panel of lit switches" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="figcap"><b>Figure 4-4.</b> Center console: DSP, battery monitor, and the 5-switch cut-off panel.</figcaption>
+            </figure>
+            <ul class="gallery gallery--2">
+              <li><figure><a class="zoom" href="assets/img/vehicle-amp-rack.jpg" data-caption="Amp rack with fused power distribution."><img src="assets/img/vehicle-amp-rack-sm.jpg" width="520" height="450" alt="Two car amplifiers on a mounting board with a fuse distribution block and red power cables" loading="lazy" decoding="async"></a><figcaption>Amp rack with fused distribution</figcaption></figure></li>
+              <li><figure><a class="zoom" href="assets/img/vehicle-dash-wiring.jpg" data-caption="Behind the dash: distribution strips and control wiring."><img src="assets/img/vehicle-dash-wiring-sm.jpg" width="520" height="516" alt="Open dashboard with barrier-strip terminal blocks and bundles of control wiring under the head unit" loading="lazy" decoding="async"></a><figcaption>Behind the dash: distribution strips</figcaption></figure></li>
+              <li><figure><a class="zoom" href="assets/img/vehicle-model-car-relays.jpg" data-caption="Model-car base with its relay board."><img src="assets/img/vehicle-model-car-relays-sm.jpg" width="390" height="520" alt="Underside of the model car's display base with a red multi-channel relay board and wiring" loading="lazy" decoding="async"></a><figcaption>Model-car base and relay board</figcaption></figure></li>
+              <li><figure><a class="zoom" href="assets/img/vehicle-model-car.jpg" data-caption="The dashboard model car mirroring the real car's lights."><img src="assets/img/vehicle-model-car-sm.jpg" width="520" height="276" alt="Black model sedan on a display base with its headlights lit" loading="lazy" decoding="async"></a><figcaption>Model car mirroring the lights</figcaption></figure></li>
+            </ul>
+          </div>
+        </div>
+        <div class="project__text">
+          <p class="project__lede">A long-running build on my own car: a 12-speaker audio system, a dashboard model car that mirrors the real car's lights, and the 12 V power and protection to run it all.</p>
+          <table class="specs">
+            <caption>Key specifications</caption>
+            <tbody>
+              <tr><th scope="row">Audio</th><td>12 speakers on 3 amplifiers, with a DSP in the center console</td></tr>
+              <tr><th scope="row">Power</th><td>4 AWG feed through the firewall to distribution blocks; peaks near 70 A (≈900 W)</td></tr>
+              <tr><th scope="row">Control</th><td>8 relays, buck converters (12 V → 5 V) for the microcontrollers, and a BLE link from the trunk amp rack to a front-mounted controller that drives the displays</td></tr>
+              <tr><th scope="row">Protection</th><td>Temperature, humidity, vibration, and sound sensors; automatic power-off on overheating, high humidity, or sudden movement</td></tr>
+              <tr><th scope="row">Status</th><td>Ongoing: rebuilding the ESP32 relay controller after a board failure</td></tr>
+            </tbody>
+          </table>
+          <h4 class="mini-h">What I did</h4>
+          <ul class="blist">
+            <li>Planned the power distribution and wired the system myself, from the 4 AWG battery feed to the relay boards.</li>
+            <li>Wired a dashboard model car to mirror the real car's turn signals, headlights, and brake lights in real time through 8 relays.</li>
+            <li>Tracked down and fixed battery drain, speaker noise, and parasitic draw (below).</li>
+          </ul>
+          <details class="notes">
+            <summary>Engineering notes: problems &amp; fixes</summary>
+            <table class="dtable dtable--stack">
+              <caption>Problems found during the build</caption>
+              <thead><tr><th scope="col">Symptom</th><th scope="col">Root cause</th><th scope="col">Fix</th></tr></thead>
+              <tbody>
+                <tr><td data-label="Symptom">Battery drained over time</td><td data-label="Root cause">The hybrid's DC-DC converter supplies only ~80 A to the 12 V battery, and the audio system peaks near 70 A, leaving little headroom</td><td data-label="Fix">Switched to a more efficient Class D amplifier and opened up the woofer baffles to use the full door cavity</td></tr>
+                <tr><td data-label="Symptom">Noise through the speakers</td><td data-label="Root cause">RCA signal cables ran too close to the power wires</td><td data-label="Fix">Power runs down the right door sills and RCAs down the left, isolating the two</td></tr>
+                <tr><td data-label="Symptom">Parasitic draw with the car off</td><td data-label="Root cause">DC-DC converters and relays drew power continuously</td><td data-label="Fix">Added 5 center-console switches to cut power to individual components</td></tr>
+              </tbody>
+            </table>
+            <figure class="figure notes__fig">
+              <a class="zoom photo" href="assets/img/vehicle-interior.jpg" data-caption="Finished interior at night.">
+                <img src="assets/img/vehicle-interior.jpg" width="664" height="373" alt="Car interior at night with blue ambient lighting and a city skyline through the windshield" loading="lazy" decoding="async">
+              </a>
+              <figcaption class="figcap"><b>Figure 4-5.</b> Finished interior at night.</figcaption>
+            </figure>
+          </details>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== 4.4 MINTALITY ===== -->
+    <article class="project" id="mintality" aria-labelledby="mintality-h">
+      <header class="project__head">
+        <span class="project__num">4.4</span>
+        <div class="project__titles">
+          <h3 class="project__title" id="mintality-h">Mintality Smart Planter</h3>
+          <p class="project__meta">Texas Convergent · IoT subteam · Co-founder &amp; hardware lead · Jan 2026 – present</p>
+        </div>
+        <div class="project__aside">
+          <span class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2L12 17l-5.6 3 1.1-6.2-4.6-4.4 6.3-.9z" fill="currentColor"/></svg>Best Overall Project, 9 teams</span>
+          <a class="plink" href="https://canva.link/hdyiryjzo15d9k6" target="_blank" rel="noopener noreferrer">Project slides <span aria-hidden="true">↗</span></a>
+        </div>
+        <ul class="chips">
+          <li>ESP32</li><li>C++</li><li>Firebase RTDB</li><li>Wi-Fi</li><li>DRV8833</li><li>ST7735</li>
+        </ul>
+      </header>
+      <div class="project__body">
+        <div class="project__fig">
+          <div class="fig-stack">
+            <figure class="figure">
+              <div class="figure__frame">
+                <svg class="dg" viewBox="0 0 440 230" role="img" aria-labelledby="f46t f46d">
+                  <title id="f46t">Mintality block diagram</title>
+                  <desc id="f46d">A capacitive soil-moisture sensor feeds the ESP32's ADC. The ESP32 drives a TFT display over SPI, sends timed pulses to a DRV8833 motor driver that runs the water pump, and syncs over Wi-Fi with a Firebase Realtime Database connected to the habit-tracking app.</desc>
+                  <rect class="bx" x="12" y="20" width="110" height="46"/>
+                  <text class="t" x="67" y="40" text-anchor="middle">Soil moisture</text>
+                  <text class="s" x="67" y="55" text-anchor="middle">capacitive</text>
+                  <rect class="bx hi" x="164" y="20" width="112" height="118"/>
+                  <text class="t" x="220" y="42" text-anchor="middle">ESP32</text>
+                  <text class="s" x="220" y="57" text-anchor="middle">C++ firmware</text>
+                  <text class="s2" x="220" y="92" text-anchor="middle">power mgmt:</text>
+                  <text class="s2" x="220" y="108" text-anchor="middle">CPU-freq scaling</text>
+                  <text class="s2" x="220" y="124" text-anchor="middle">+ driver sleep</text>
+                  <rect class="bx" x="314" y="20" width="114" height="46"/>
+                  <text class="t" x="371" y="40" text-anchor="middle">ST7735 TFT</text>
+                  <text class="s" x="371" y="55" text-anchor="middle">3 animated faces</text>
+                  <rect class="bx" x="314" y="100" width="114" height="46"/>
+                  <text class="t" x="371" y="120" text-anchor="middle">Firebase RTDB</text>
+                  <text class="s" x="371" y="135" text-anchor="middle">status · commands</text>
+                  <rect class="bx" x="314" y="176" width="114" height="46"/>
+                  <text class="t" x="371" y="196" text-anchor="middle">Habit app</text>
+                  <text class="s" x="371" y="211" text-anchor="middle">goals → watering</text>
+                  <rect class="bx" x="164" y="168" width="112" height="46"/>
+                  <text class="t" x="220" y="188" text-anchor="middle">DRV8833</text>
+                  <text class="s" x="220" y="203" text-anchor="middle">motor driver</text>
+                  <rect class="bx" x="12" y="168" width="110" height="46"/>
+                  <text class="t" x="67" y="188" text-anchor="middle">Water pump</text>
+                  <text class="s" x="67" y="203" text-anchor="middle">waters the plant</text>
+                  <path class="w" d="M122 43H164" marker-end="url(#ah)"/>
+                  <text class="lbl" x="143" y="36" text-anchor="middle">ADC</text>
+                  <path class="w" d="M276 43H314" marker-end="url(#ah)"/>
+                  <text class="lbl" x="295" y="36" text-anchor="middle">SPI</text>
+                  <path class="w" d="M276 123H314" marker-start="url(#ah)" marker-end="url(#ah)"/>
+                  <text class="lbl" x="295" y="116" text-anchor="middle">Wi-Fi</text>
+                  <path class="w" d="M371 146V176" marker-start="url(#ah)" marker-end="url(#ah)"/>
+                  <text class="lbl" x="378" y="165">sync</text>
+                  <path class="w" d="M220 138V168" marker-end="url(#ah)"/>
+                  <text class="lbl" x="227" y="157">pulses</text>
+                  <path class="w" d="M164 191H122" marker-end="url(#ah)"/>
+                </svg>
+              </div>
+              <figcaption class="figcap"><b>Figure 4-6.</b> Mintality block diagram.</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="project__text">
+          <p class="project__lede">An ESP32 smart planter that pairs with a habit-tracking app: complete your goals and it waters a real plant.</p>
+          <table class="specs">
+            <caption>Key specifications</caption>
+            <tbody>
+              <tr><th scope="row">MCU</th><td>ESP32 (Wi-Fi) running C++ firmware</td></tr>
+              <tr><th scope="row">I/O</th><td>Capacitive soil-moisture sensor, pump on a DRV8833 driver with timed pulses, ST7735 TFT</td></tr>
+              <tr><th scope="row">Cloud</th><td>Firebase Realtime Database for plant status and remote watering commands</td></tr>
+              <tr><th scope="row">Power</th><td>CPU-frequency scaling and motor-driver sleep</td></tr>
+            </tbody>
+          </table>
+          <h4 class="mini-h">What I did</h4>
+          <ul class="blist">
+            <li>Co-founded the project and led the hardware design.</li>
+            <li>Wrote the firmware for sensing, timed watering, and a display that shows plant health as one of three animated faces.</li>
+            <li>Integrated Firebase over Wi-Fi to keep the app and planter in sync, and tuned CPU frequency and driver sleep to cut power use.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== 4.5 FPGA ===== -->
+    <article class="project" id="fpga" aria-labelledby="fpga-h">
+      <header class="project__head">
+        <span class="project__num">4.5</span>
+        <div class="project__titles">
+          <h3 class="project__title" id="fpga-h">FPGA Taiko Drumming Game</h3>
+          <p class="project__meta">Digital design project · Basys3 board</p>
+        </div>
+        <ul class="chips">
+          <li>Verilog</li><li>Artix-7</li><li>FSM design</li><li>Vivado</li><li>Simulation</li>
+        </ul>
+      </header>
+      <div class="project__body">
+        <div class="project__fig">
+          <div class="fig-stack">
+            <figure class="figure">
+              <div class="figure__frame">
+                <svg class="dg" viewBox="0 0 440 252" role="img" aria-labelledby="f47t f47d">
+                  <title id="f47t">FPGA drumming game, simplified functional block diagram</title>
+                  <desc id="f47d">Sixteen switches set the note pattern for a 12-state controller FSM on an Artix-7 FPGA. Button presses go to the scroll and scoring logic, which runs on a second clock domain derived from the 100 MHz board clock and drives the seven-segment display.</desc>
+                  <rect class="bx" x="8" y="39" width="92" height="44"/>
+                  <text class="t sm" x="54" y="58" text-anchor="middle">SW[15:0]</text>
+                  <text class="s" x="54" y="73" text-anchor="middle">note pattern</text>
+                  <rect class="bx" x="8" y="109" width="92" height="44"/>
+                  <text class="t sm" x="54" y="128" text-anchor="middle">Buttons</text>
+                  <text class="s" x="54" y="143" text-anchor="middle">drum hits</text>
+                  <rect class="bx" x="8" y="180" width="92" height="44"/>
+                  <text class="t sm" x="54" y="199" text-anchor="middle">100 MHz</text>
+                  <text class="s" x="54" y="214" text-anchor="middle">board clock</text>
+                  <rect class="chip" x="114" y="10" width="226" height="232" rx="4"/>
+                  <text class="lbl" x="124" y="27">ARTIX-7 FPGA · BASYS3</text>
+                  <rect class="bx hi" x="128" y="38" width="198" height="46"/>
+                  <text class="t" x="227" y="58" text-anchor="middle">Controller FSM</text>
+                  <text class="s" x="227" y="73" text-anchor="middle">12 states</text>
+                  <rect class="bx" x="128" y="108" width="198" height="46"/>
+                  <text class="t" x="227" y="128" text-anchor="middle">Scroll &amp; scoring</text>
+                  <text class="s" x="227" y="143" text-anchor="middle">3 speeds · hit check · score</text>
+                  <rect class="bx" x="128" y="180" width="198" height="44"/>
+                  <text class="t" x="227" y="199" text-anchor="middle">Clock domains</text>
+                  <text class="s" x="227" y="214" text-anchor="middle">board clock → scroll clock</text>
+                  <rect class="bx" x="354" y="108" width="78" height="46"/>
+                  <text class="t sm" x="393" y="128" text-anchor="middle">7-segment</text>
+                  <text class="s" x="393" y="143" text-anchor="middle">display</text>
+                  <path class="w" d="M100 61H128" marker-end="url(#ah)"/>
+                  <path class="w" d="M100 131H128" marker-end="url(#ah)"/>
+                  <path class="w" d="M100 202H128" marker-end="url(#ah)"/>
+                  <path class="c" d="M227 84V108" marker-end="url(#ah-c)"/>
+                  <text class="lbl" x="234" y="100">state</text>
+                  <path class="w" d="M227 180V154" marker-end="url(#ah)"/>
+                  <text class="lbl" x="234" y="171">scroll clk</text>
+                  <path class="w" d="M326 131H354" marker-end="url(#ah)"/>
+                </svg>
+              </div>
+              <figcaption class="figcap"><b>Figure 4-7.</b> Simplified functional view. The full design has 10 Verilog modules.</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="project__text">
+          <p class="project__lede">A Taiko-style rhythm game in Verilog: set a 16-step note pattern on the switches, then hit the buttons in time as it scrolls across the seven-segment display.</p>
+          <table class="specs">
+            <caption>Key specifications</caption>
+            <tbody>
+              <tr><th scope="row">Board</th><td>Basys3, Artix-7 FPGA</td></tr>
+              <tr><th scope="row">Design</th><td>10 Verilog modules, 12-state FSM, two clock domains</td></tr>
+              <tr><th scope="row">Gameplay</th><td>16-switch note pattern, 3 scroll speeds, final score calculation</td></tr>
+              <tr><th scope="row">Verification</th><td>Vivado simulation before deploying to hardware</td></tr>
+            </tbody>
+          </table>
+          <h4 class="mini-h">What I did</h4>
+          <ul class="blist">
+            <li>Built the game from 10 modules around a 12-state FSM spanning two clock domains.</li>
+            <li>Debugged module interfaces, latch inference, and timing in Vivado simulation before anything went to the board.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== 4.6 VIPER ===== -->
+    <article class="project" id="viper" aria-labelledby="viper-h">
+      <header class="project__head">
+        <span class="project__num">4.6</span>
+        <div class="project__titles">
+          <h3 class="project__title" id="viper-h">Compliant Wheel for NASA's VIPER Rover</h3>
+          <p class="project__meta">NASA SEES internship · VIPER team · Jun – Dec 2024</p>
+        </div>
+        <div class="project__aside">
+          <a class="plink" href="https://agu.confex.com/agu/agu24/meetingapp.cgi/Paper/1519825" target="_blank" rel="noopener noreferrer">AGU abstract <span aria-hidden="true">↗</span></a>
+          <a class="plink" href="https://canva.link/liipopif7iv6fzj" target="_blank" rel="noopener noreferrer">Presentation <span aria-hidden="true">↗</span></a>
+        </div>
+        <ul class="chips">
+          <li>FEA</li><li>Fusion 360</li><li>Materials selection</li><li>3D printing</li><li>Team lead</li>
+        </ul>
+      </header>
+      <div class="project__body">
+        <div class="project__fig">
+          <div class="fig-stack">
+            <figure class="figure">
+              <div class="figure__frame">
+                <svg class="dg" viewBox="0 0 440 236" role="img" aria-labelledby="f48t f48d">
+                  <title id="f48t">Concept sketch of a compliant unibody wheel</title>
+                  <desc id="f48d">Illustration of a one-piece wheel whose spokes are curved leaf springs between the hub and the rim, with tread on the outside.</desc>
+                  <circle class="lug" cx="118" cy="118" r="107"/>
+                  <circle class="band" cx="118" cy="118" r="97"/>
+                  <circle class="edge" cx="118" cy="118" r="104"/>
+                  <circle class="edge" cx="118" cy="118" r="90"/>
+                  <path class="spring" d="M118.0 91.0C93.6 72.1 168.4 69.4 154.2 36.7M137.1 98.9C133.2 68.3 188.0 119.2 201.1 86.1M145.0 118.0C163.9 93.6 166.6 168.4 199.3 154.2M137.1 137.1C167.7 133.2 116.8 188.0 149.9 201.1M118.0 145.0C142.4 163.9 67.6 166.6 81.8 199.3M98.9 137.1C102.8 167.7 48.0 116.8 34.9 149.9M91.0 118.0C72.1 142.4 69.4 67.6 36.7 81.8M98.9 98.9C68.3 102.8 119.2 48.0 86.1 34.9"/>
+                  <circle class="hub" cx="118" cy="118" r="27"/>
+                  <circle class="bore" cx="118" cy="118" r="10"/>
+                  <path class="leader" d="M195.3 48.4L226 30H240"/>
+                  <circle class="ldot" cx="195.3" cy="48.4" r="2.6"/>
+                  <text class="t sm" x="246" y="34">Unibody, 3D-printable</text>
+                  <path class="leader" d="M169.2 136.4L226 104H240"/>
+                  <circle class="ldot" cx="169.2" cy="136.4" r="2.6"/>
+                  <text class="t sm" x="246" y="108">Built-in leaf springs</text>
+                  <path class="leader" d="M219.5 154.9L226 172H240"/>
+                  <circle class="ldot" cx="219.5" cy="154.9" r="2.6"/>
+                  <text class="t sm" x="246" y="176">Rim with tread</text>
+                  <text class="s" x="246" y="206">6 geometries × 3 materials</text>
+                  <text class="s" x="246" y="222">titanium selected</text>
+                </svg>
+              </div>
+              <figcaption class="figcap"><b>Figure 4-8.</b> Concept sketch of a compliant unibody wheel (illustrative, not the final geometry).</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="project__text">
+          <p class="project__lede">Summer research with NASA SEES: a 3D-printable compliant wheel with built-in leaf springs for NASA's VIPER lunar rover, aimed at better shock absorption and simpler manufacturing for extreme polar terrain.</p>
+          <table class="specs">
+            <caption>Key specifications</caption>
+            <tbody>
+              <tr><th scope="row">Role</th><td>Team lead, 6-person team</td></tr>
+              <tr><th scope="row">Analysis</th><td>FEA in Autodesk Fusion 360 across 6 wheel geometries and 3 materials</td></tr>
+              <tr><th scope="row">Materials</th><td>Aluminum, steel, and titanium; titanium gave the best balance of flexibility and safety factor</td></tr>
+              <tr><th scope="row">Output</th><td>Research poster at AGU24, the American Geophysical Union's 2024 meeting</td></tr>
+            </tbody>
+          </table>
+          <h4 class="mini-h">What I did</h4>
+          <ul class="blist">
+            <li>Led the team's wheel design and the FEA study comparing geometries and materials.</li>
+            <li>Worked with VIPER engineers to refine recommendations for wheel traction and durability.</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- ===== 4.7 EARLIER BUILDS ===== -->
+    <div class="earlier">
+      <h3 class="earlier__h"><span class="project__num">4.7</span> Earlier builds</h3>
+      <ul class="earlier__list">
+        <li><b>Fingerprint-verified ignition (Secured Drive).</b> A fingerprint reader on the ignition button verifies the driver before the car starts, designed to pair with a phone for remote start and per-driver presets, running off the car's 12 V system.</li>
+        <li><b>Sound-reactive lighting.</b> Fed a computer's audio output into an Arduino that lights LEDs by frequency band, using per-band averages and transient detection to compensate for changes in volume.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =========================== 5 EXPERIENCE ========================== -->
+  <section class="wrap section" id="experience" aria-labelledby="experience-h">
+    <div class="sh">
+      <span class="sh__n">5</span>
+      <h2 id="experience-h">Experience</h2>
+      <span class="sh__aka">Revision history</span>
+    </div>
+    <ol class="rev" reversed>
+      <li class="rev__item">
+        <p class="rev__date"><span class="rev__tag">Rev D</span><br>Sep 2026 – Present</p>
+        <div>
+          <h3 class="rev__org">STEAMWorks · Austin, TX</h3>
+          <p class="rev__role">LEGO Robotics Instructor (part-time)</p>
+          <ul class="blist">
+            <li>Co-teach after-school robotics classes for 70+ K–5 students, guiding hands-on engineering and coding with LEGO kits.</li>
+            <li>Support instructors across 5 weekly classes at 12 Austin elementary schools, handling setup and student instruction.</li>
+          </ul>
+        </div>
+        <span class="rev__ref"></span>
+      </li>
+      <li class="rev__item">
+        <p class="rev__date"><span class="rev__tag">Rev C</span><br>Jan 2026 – Present</p>
+        <div>
+          <h3 class="rev__org">Texas Convergent, IoT Subteam · Austin, TX</h3>
+          <p class="rev__role">Co-Founder &amp; Hardware Lead, Mintality</p>
+          <ul class="blist">
+            <li>Won Best Overall Project among 9 teams with an ESP32 smart planter tied to a habit-tracking app.</li>
+            <li>Led hardware and wrote the C++ firmware: soil sensing, pump control, TFT display, and Firebase sync.</li>
+          </ul>
+        </div>
+        <a class="rev__ref" href="#mintality">See 4.4 →</a>
+      </li>
+      <li class="rev__item">
+        <p class="rev__date"><span class="rev__tag">Rev B</span><br>Aug 2025 – Present</p>
+        <div>
+          <h3 class="rev__org">Longhorn Rocketry Association · Austin, TX</h3>
+          <p class="rev__role">Electronics Member, Payload Subteam</p>
+          <ul class="blist">
+            <li>Designed the payload's LiFePO₄ power PCB: BMS, buck regulation to 5 V, and MOSFET actuator switching.</li>
+            <li>Interfaced IMU and thermocouple sensors and wrote the Python flight data logger.</li>
+          </ul>
+        </div>
+        <a class="rev__ref" href="#rocketry">See 4.2 →</a>
+      </li>
+      <li class="rev__item">
+        <p class="rev__date"><span class="rev__tag">Rev A</span><br>Jun 2024 – Dec 2024</p>
+        <div>
+          <h3 class="rev__org">NASA SEES (STEM Enhancement in Earth Science) · Austin, TX</h3>
+          <p class="rev__role">VIPER Team Summer Research Intern</p>
+          <ul class="blist">
+            <li>Led a 6-person team designing a 3D-printable compliant wheel for NASA's VIPER lunar rover.</li>
+            <li>Ran Fusion 360 FEA across 6 geometries and 3 materials and presented the results at AGU24 with input from VIPER engineers.</li>
+          </ul>
+        </div>
+        <a class="rev__ref" href="#viper">See 4.6 →</a>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ============================ 6 SKILLS ============================= -->
+  <section class="wrap section" id="skills" aria-labelledby="skills-h">
+    <div class="sh">
+      <span class="sh__n">6</span>
+      <h2 id="skills-h">Skills</h2>
+      <span class="sh__aka">Specifications</span>
+    </div>
+    <table class="dtable dtable--stack dtable--skills">
+      <caption class="visually-hidden">Skills, tools, and where each was used</caption>
+      <thead><tr><th scope="col">Parameter</th><th scope="col">Tools &amp; methods</th><th scope="col">Proven in</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Languages</th><td data-label="Tools &amp; methods">C, C++, Python, Verilog, Arm assembly, Java, MATLAB</td><td data-label="Proven in"><a href="#arcade">4.1</a> C++ · <a href="#rocketry">4.2</a> Python · <a href="#mintality">4.4</a> C++ · <a href="#fpga">4.5</a> Verilog</td></tr>
+        <tr><th scope="row">Embedded platforms</th><td data-label="Tools &amp; methods">Arm Cortex-M0+ (MSPM0), ESP32, Raspberry Pi, FPGAs</td><td data-label="Proven in"><a href="#arcade">4.1</a> · <a href="#rocketry">4.2</a> · <a href="#mintality">4.4</a> · <a href="#fpga">4.5</a></td></tr>
+        <tr><th scope="row">Interfaces</th><td data-label="Tools &amp; methods">SPI, I²C, Wi-Fi, BLE, Firebase Realtime Database</td><td data-label="Proven in"><a href="#arcade">4.1</a> SPI · <a href="#rocketry">4.2</a> I²C/SPI · <a href="#vehicle">4.3</a> BLE · <a href="#mintality">4.4</a> Wi-Fi</td></tr>
+        <tr><th scope="row">PCB &amp; simulation</th><td data-label="Tools &amp; methods">PCB design, KiCad, Altium, LTspice</td><td data-label="Proven in"><a href="#rocketry">4.2</a> payload power board</td></tr>
+        <tr><th scope="row">Power</th><td data-label="Tools &amp; methods">LiFePO₄ packs &amp; BMS, buck converters, MOSFET switching, relays, 12 V distribution</td><td data-label="Proven in"><a href="#rocketry">4.2</a> · <a href="#vehicle">4.3</a></td></tr>
+        <tr><th scope="row">Digital design</th><td data-label="Tools &amp; methods">Verilog, Vivado, design verification</td><td data-label="Proven in"><a href="#fpga">4.5</a></td></tr>
+        <tr><th scope="row">Mechanical &amp; CAD</th><td data-label="Tools &amp; methods">Fusion 360 (certified), AutoCAD, FEA, 3D printing</td><td data-label="Proven in"><a href="#arcade">4.1</a> cabinet · <a href="#viper">4.6</a> wheel</td></tr>
+        <tr><th scope="row">Lab &amp; fabrication</th><td data-label="Tools &amp; methods">Oscilloscope, multimeter, bench power supply, soldering &amp; reflow, SMD &amp; through-hole, crimping &amp; harnessing</td><td data-label="Proven in"><a href="#vehicle">4.3</a> wiring &amp; harnessing</td></tr>
+        <tr><th scope="row">Tools</th><td data-label="Tools &amp; methods">Git, Linux, Adobe Suite</td><td data-label="Proven in">—</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- =========================== 7 EDUCATION =========================== -->
+  <section class="wrap section" id="education" aria-labelledby="education-h">
+    <div class="sh">
+      <span class="sh__n">7</span>
+      <h2 id="education-h">Education</h2>
+      <span class="sh__aka">Device &amp; documentation support</span>
+    </div>
+    <div class="edu">
+      <div>
+        <h3 class="edu__school">The University of Texas at Austin</h3>
+        <p class="edu__deg">B.S. Electrical and Computer Engineering · Cockrell School of Engineering</p>
+      </div>
+      <dl class="edu__facts">
+        <div><dt>Expected</dt><dd>May 2028</dd></div>
+        <div><dt>GPA</dt><dd>3.68 / 4.00</dd></div>
+      </dl>
+    </div>
+    <h4 class="mini-h">Relevant coursework</h4>
+    <ul class="chips chips--lg">
+      <li>Intro to Embedded Systems</li><li>Software Design &amp; Implementation</li><li>Digital Logic &amp; Design</li><li>Circuit Theory</li><li>Linear Systems &amp; Signals</li>
+    </ul>
+  </section>
+
+  <!-- ============================ 8 CONTACT ============================ -->
+  <section class="wrap section" id="contact" aria-labelledby="contact-h">
+    <div class="sh">
+      <span class="sh__n">8</span>
+      <h2 id="contact-h">Contact</h2>
+      <span class="sh__aka">Pin functions</span>
+    </div>
+    <p class="lede">Recruiting for Summer 2027 or a 2027 co-op? I'd like to hear about it.</p>
+    <div class="table-scroll">
+      <table class="dtable dtable--pins">
+        <caption class="visually-hidden">Contact links</caption>
+        <thead><tr><th scope="col">Pin</th><th scope="col">No.</th><th scope="col">I/O</th><th scope="col">Description</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">EMAIL</th><td>14</td><td>O</td><td><a href="mailto:ClementP@utexas.edu">ClementP@utexas.edu</a> <button class="copy" type="button" data-copy="ClementP@utexas.edu" hidden>Copy</button></td></tr>
+          <tr><th scope="row">LINKEDIN</th><td>13</td><td>O</td><td><a href="https://www.linkedin.com/in/clement-poon/" target="_blank" rel="noopener noreferrer">linkedin.com/in/clement-poon</a></td></tr>
+          <tr><th scope="row">GITHUB</th><td>12</td><td>O</td><td><a href="https://github.com/ClementPoon" target="_blank" rel="noopener noreferrer">github.com/ClementPoon</a></td></tr>
+          <tr><th scope="row">RESUME</th><td>15</td><td>O</td><td><a href="assets/Clement_Poon_Resume.pdf" target="_blank" rel="noopener">One-page résumé (PDF)</a></td></tr>
+          <tr><th scope="row">EN</th><td>10</td><td>I</td><td>Enable. Available for Summer 2027 internships and 2027 co-op terms.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <h2 class="footer__h"><span class="n">9</span>Mechanical, packaging &amp; orderable information</h2>
+    <div class="footer__row">
+      <p>Orderable part: <b>CP-2028</b> · Austin, TX · Available Summer 2027.</p>
+      <p><a href="mailto:ClementP@utexas.edu?subject=Portfolio%20feedback">Submit documentation feedback</a> · <a href="#top">Back to top ↑</a></p>
+    </div>
+    <p class="footer__fine">Copyright © 2026 Clement Poon. Built with HTML, CSS, and a little JavaScript. Hosted on GitHub Pages.</p>
+  </div>
+</footer>
+
+<dialog class="lightbox" aria-labelledby="lightbox-cap">
+  <button class="lightbox__close" type="button" data-close aria-label="Close photo">✕</button>
+  <figure>
+    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
+    <figcaption id="lightbox-cap">Photo</figcaption>
+  </figure>
+</dialog>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

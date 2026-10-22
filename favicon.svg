@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .p { fill: #8a929b; } .b { fill: #121417; } .d { fill: #c8102e; }
+    @media (prefers-color-scheme: dark) { .p { fill: #8c959f; } .b { fill: #e7ebef; } .d { fill: #ff5d70; } }
+  </style>
+  <g class="p">
+    <rect x="2" y="6" width="6" height="3" rx="0.5"/><rect x="2" y="12" width="6" height="3" rx="0.5"/>
+    <rect x="2" y="18" width="6" height="3" rx="0.5"/><rect x="2" y="24" width="6" height="3" rx="0.5"/>
+    <rect x="24" y="6" width="6" height="3" rx="0.5"/><rect x="24" y="12" width="6" height="3" rx="0.5"/>
+    <rect x="24" y="18" width="6" height="3" rx="0.5"/><rect x="24" y="24" width="6" height="3" rx="0.5"/>
+  </g>
+  <rect class="b" x="8" y="2.5" width="16" height="27" rx="2"/>
+  <circle class="d" cx="12.5" cy="7.5" r="2"/>
+</svg>
