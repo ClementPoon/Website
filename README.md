@@ -3,7 +3,7 @@
 A datasheet-style portfolio site for EE internship and co-op applications.
 It's plain HTML, CSS, and a little JavaScript: no build step, no frameworks, nothing to install.
 
-Live site (once you publish it): **https://clementpoon.github.io**
+Live site: **https://clementpoon.com** (custom domain via Cloudflare; also reachable at clementpoon.github.io)
 
 ---
 
@@ -36,7 +36,7 @@ Double-click `index.html`. It opens in your browser and works offline.
    Drag the *contents*, not the folder itself, so `index.html` ends up at the top level of the repository.
 5. Click **Commit changes**.
 6. Open **Settings → Pages**. Under *Build and deployment*, make sure Source is **Deploy from a branch**, Branch is **main**, folder **/ (root)**, then click **Save**. (For a `ClementPoon.github.io` repository this is usually already set.)
-7. Wait a minute or two and open **https://clementpoon.github.io**. The **Actions** tab shows deploy progress.
+7. Wait a minute or two and open **https://clementpoon.com** (or clementpoon.github.io before the domain is set up). The **Actions** tab shows deploy progress.
 
 > **About `.nojekyll`:** Mac Finder hides files whose names start with a dot, so it may not get dragged in. The site works fine without it. (Press **Cmd + Shift + .** in Finder to show hidden files.) Windows shows it normally.
 
@@ -79,10 +79,14 @@ Edit files directly on GitHub (open a file → pencil icon → **Commit changes*
 - **Check every detail.** Interviewers will ask about anything on here. Most text comes from your Tech résumé; a few details came from earlier notes and are worth a second look: the TPS62933 part number on the payload board, and the 12-speaker, BLE, and ESP32 details on the vehicle project.
 - **Your résumé PDF includes your phone number.** Once the site is live, anyone can download it.
 - **The arcade demo video is on another YouTube channel.** If it was a team project, consider crediting your partner, or upload your own copy and swap the video ID (`bRI7dZDsyjc`) in `index.html`.
-- **Fix your résumé's "Portfolio" link.** On the vehicle project it points to an old LinkedIn URL; point it at `https://clementpoon.github.io/#vehicle` instead.
+- **Fix your résumé's "Portfolio" link.** On the vehicle project it points to an old LinkedIn URL; point it at `https://clementpoon.com/#vehicle` instead.
 - **Link the site everywhere:** your résumé header, LinkedIn (Contact info → Website), and your GitHub profile.
 
-## Optional: your own domain
+## Custom domain (clementpoon.com)
+
+The `CNAME` file tells GitHub Pages to serve this site at clementpoon.com. In Cloudflare DNS: four A records on `@` (185.199.108.153, .109.153, .110.153, .111.153) and a CNAME `www` → `clementpoon.github.io`, all set to "DNS only". Then Settings → Pages → Custom domain → `clementpoon.com` → Enforce HTTPS.
+
+## Optional: a different domain
 
 Buy a domain (for example `clementpoon.com`), then go to **Settings → Pages → Custom domain**. GitHub's Pages documentation walks through the DNS records.
 
