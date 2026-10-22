@@ -11,6 +11,8 @@ Live site: **https://clementpoon.com** (custom domain via Cloudflare; also reach
 
 ```
 index.html                  the whole site (all the text lives here)
+contact.html                contact page with the message form
+CNAME                       tells GitHub Pages to use clementpoon.com
 404.html                    "pin not connected" page for broken links
 favicon.svg                 browser-tab icon
 .nojekyll                   tells GitHub Pages to serve the files as-is
@@ -58,6 +60,16 @@ If you name the repository something else, like `portfolio`, the site lives at
 
 - the 4 URL tags near the top of `index.html` (`canonical`, `og:url`, `og:image`, `twitter:image`), which LinkedIn uses for link previews, and
 - the two `/` links in `404.html` (`href="/"` and `/favicon.svg`), which should become `/portfolio/`.
+
+## Contact form
+
+The form on `contact.html` sends messages to ClementP@utexas.edu through **Web3Forms**, a free
+service for static sites (250 messages a month). It's already set up: the access key is in
+`contact.html` (search for `access_key`). The key is designed to be public.
+
+- The first message may land in Junk; mark it "Not junk" so later ones reach your inbox.
+- To send messages somewhere else, create a new key at https://web3forms.com with the new address
+  and replace the old key in `contact.html`.
 
 ## Updating the site later
 

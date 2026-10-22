@@ -121,6 +121,58 @@
     });
   }
 
+  /* ---- Contact form (contact.html) ----
+     Sends through Web3Forms once an access key is set in contact.html.
+     Without a key, it opens the visitor's email app with the message filled in. */
+  var form = document.getElementById("contact-form");
+  if (form) {
+    var statusEl = form.querySelector(".cform__status");
+    var submitBtn = form.querySelector("button[type=submit]");
+    var keyInput = form.querySelector("[name=access_key]");
+    var hasKey = keyInput && keyInput.value && keyInput.value.indexOf("YOUR_") !== 0;
+    var TO = "ClementP@utexas.edu";
+    var setStatus = function (msg, state) {
+      statusEl.textContent = msg;
+      if (state) statusEl.setAttribute("data-state", state); else statusEl.removeAttribute("data-state");
+    };
+    form.addEventListener("submit", function (ev) {
+      ev.preventDefault();
+      var data = {};
+      new FormData(form).forEach(function (v, k) { data[k] = typeof v === "string" ? v.trim() : v; });
+      if (data.botcheck) { form.reset(); setStatus("Thanks! Your message was sent.", "ok"); return; } // spam trap
+
+      if (!hasKey) {
+        var body = "Name: " + data.name + "\nEmail: " + data.email +
+          (data.company ? "\nCompany or school: " + data.company : "") +
+          "\nTopic: " + data.topic + "\n\n" + data.message;
+        window.location.href = "mailto:" + TO + "?subject=" + encodeURIComponent("Portfolio message: " + data.topic) +
+          "&body=" + encodeURIComponent(body);
+        setStatus("Your email app should open with your message filled in. Just press send.", "ok");
+        return;
+      }
+
+      delete data.botcheck;
+      submitBtn.disabled = true;
+      setStatus("Sending…");
+      fetch(form.action, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(data)
+      }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (json) {
+          if (!res.ok || json.success === false) throw new Error(json.message || "Request failed");
+        });
+      }).then(function () {
+        form.reset();
+        setStatus("Thanks! Your message was sent. I'll get back to you soon.", "ok");
+      }).catch(function () {
+        setStatus("Sorry, that didn't go through. Please email me at " + TO + ".", "err");
+      }).then(function () {
+        submitBtn.disabled = false;
+      });
+    });
+  }
+
   /* ---- Printing: expand the collapsed notes so nothing is hidden on paper ---- */
   window.addEventListener("beforeprint", function () {
     each("details:not([open])", function (d) { d.setAttribute("open", ""); d.setAttribute("data-print-open", ""); });
