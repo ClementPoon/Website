@@ -173,7 +173,7 @@
     <div class="col col--desc">
       <h2 class="dh"><span class="n">3</span>Description</h2>
       <p class="dh-sub">About me</p>
-      <p>I'm an Electrical and Computer Engineering student at UT Austin. Most of my experience is in embedded systems, hardware, and digital design: I co-designed a LiFePO₄ power board for a rocketry payload, co-founded an ESP32 smart planter that won Best Overall Project, and wrote a DOOM-style shooter from scratch for a Cortex-M0+ microcontroller.</p>
+      <p>I'm an Electrical and Computer Engineering student at UT Austin who enjoys turning ideas into working hardware. My skills cover circuit and PCB design, embedded programming, digital design, and hands-on testing and debugging, and I've used them on student engineering teams, in class labs, and in my own builds.</p>
       <p>I'm looking for an internship or co-op where I can apply those skills to real engineering problems.</p>
       <p class="notice"><b>Important notice:</b> every project on this page is a real build.</p>
     </div>
@@ -355,7 +355,7 @@
             <li>Routed actuator power through MOSFETs on the board so the Pi's GPIO only sends a low-current control signal.</li>
             <li>Interfaced the IMU and thermocouple and wrote the Python logger that records motion, altitude, and temperature from launch through landing and recovery.</li>
           </ul>
-          <details class="notes">
+          <details class="notes" open>
             <summary>Power architecture diagram</summary>
             <figure class="figure">
                 <div class="figure__frame">
@@ -434,13 +434,18 @@
         <div class="project__fig">
           <div class="fig-stack">
             <figure class="figure">
-              <a class="zoom photo" href="assets/img/vehicle-console.jpg" data-caption="Center console: DSP, battery monitor, and the 5-switch cut-off panel.">
-                <img src="assets/img/vehicle-console.jpg" width="1125" height="747" alt="Car center console at night with a digital audio processor, a battery monitor reading 13.9 volts, and a panel of lit switches" loading="lazy" decoding="async">
-              </a>
-              <figcaption class="figcap"><b>Figure 4-5.</b> Center console: DSP, battery monitor, and the 5-switch cut-off panel.</figcaption>
+              <div class="photo-pair photo-pair--wide-left">
+                <a class="zoom photo" href="assets/img/vehicle-rack-bench.jpg" data-caption="The amp rack on the bench before install: fused power distribution, three amplifiers, an ESP32 controller above a fuse box, and an 8-channel relay board.">
+                  <img src="assets/img/vehicle-rack-bench-sm.jpg" width="640" height="480" alt="Black mounting board on a garage floor holding a fused distribution block, three car amplifiers, an ESP32 board above a blade fuse box, and a red 8-channel relay board, with tools around it" loading="lazy" decoding="async">
+                </a>
+                <a class="zoom photo" href="assets/img/vehicle-rack-trunk.jpg" data-caption="The amp rack installed in the trunk.">
+                  <img src="assets/img/vehicle-rack-trunk-sm.jpg" width="480" height="640" alt="The amplifier rack mounted in the car's trunk, with three amplifiers, fuse blocks, relay modules, and bundles of red and black wiring" loading="lazy" decoding="async">
+                </a>
+              </div>
+              <figcaption class="figcap"><b>Figure 4-5.</b> The trunk amp rack on the bench (left) and installed in the car (right).</figcaption>
             </figure>
             <ul class="gallery gallery--2">
-              <li><figure><a class="zoom" href="assets/img/vehicle-amp-rack.jpg" data-caption="Amp rack before install: DSP, two amplifiers, and a fused power distribution block."><img src="assets/img/vehicle-amp-rack-sm.jpg" width="390" height="520" alt="Mounting board with a sound processor, two car amplifiers, a fused distribution block, and red and black power cables" loading="lazy" decoding="async"></a><figcaption>Amp rack: DSP, 2 amps, fused distribution</figcaption></figure></li>
+              <li><figure><a class="zoom" href="assets/img/vehicle-amp-rack.jpg" data-caption="An earlier layout of the amp rack: DSP, two amplifiers, and a fused power distribution block."><img src="assets/img/vehicle-amp-rack-sm.jpg" width="390" height="520" alt="Mounting board with a sound processor, two car amplifiers, a fused distribution block, and red and black power cables" loading="lazy" decoding="async"></a><figcaption>Earlier layout: DSP, 2 amps, fused distribution</figcaption></figure></li>
               <li><figure><a class="zoom" href="assets/img/vehicle-dash-wiring.jpg" data-caption="Behind the dash: distribution strips and control wiring."><img src="assets/img/vehicle-dash-wiring-sm.jpg" width="520" height="516" alt="Open dashboard with barrier-strip terminal blocks and bundles of control wiring under the head unit" loading="lazy" decoding="async"></a><figcaption>Behind the dash: distribution strips</figcaption></figure></li>
               <li><figure><a class="zoom" href="assets/img/vehicle-model-car-relays.jpg" data-caption="Model-car base with its relay board."><img src="assets/img/vehicle-model-car-relays-sm.jpg" width="390" height="520" alt="Underside of the model car's display base with a red multi-channel relay board and wiring" loading="lazy" decoding="async"></a><figcaption>Model-car base and relay board</figcaption></figure></li>
               <li><figure><a class="zoom" href="assets/img/vehicle-model-car.jpg" data-caption="The dashboard model car mirroring the real car's lights."><img src="assets/img/vehicle-model-car-sm.jpg" width="520" height="276" alt="Black model sedan on a display base with its headlights lit" loading="lazy" decoding="async"></a><figcaption>Model car mirroring the lights</figcaption></figure></li>
@@ -465,7 +470,7 @@
             <li>Wired a dashboard model car to mirror the real car's turn signals, headlights, and brake lights in real time through 8 relays.</li>
             <li>Tracked down and fixed battery drain, speaker noise, and parasitic draw (below).</li>
           </ul>
-          <details class="notes">
+          <details class="notes" open>
             <summary>Engineering notes: problems &amp; fixes</summary>
             <table class="dtable dtable--stack">
               <caption>Problems found during the build</caption>
@@ -493,7 +498,7 @@
         <span class="project__num">4.4</span>
         <div class="project__titles">
           <h3 class="project__title" id="mintality-h">Mintality Smart Planter</h3>
-          <p class="project__meta">Texas Convergent · IoT subteam · Co-founder &amp; hardware lead · Jan 2026 – present</p>
+          <p class="project__meta">Texas Convergent · IoT subteam · Co-founder &amp; hardware lead · Jan 2026 – Apr 2026</p>
         </div>
         <div class="project__aside">
           <span class="award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.8l2.8 5.7 6.3.9-4.6 4.4 1.1 6.2L12 17l-5.6 3 1.1-6.2-4.6-4.4 6.3-.9z" fill="currentColor"/></svg>Best Overall Project, 9 teams</span>
@@ -537,7 +542,7 @@
             <li>Wrote the firmware for sensing, timed watering, and a display that shows plant health as one of three animated faces.</li>
             <li>Integrated Firebase over Wi-Fi to keep the app and planter in sync, and tuned CPU frequency and driver sleep to cut power use.</li>
           </ul>
-          <details class="notes">
+          <details class="notes" open>
             <summary>Block diagram</summary>
             <figure class="figure">
               <div class="figure__frame">
@@ -609,10 +614,10 @@
         <div class="project__fig">
           <div class="fig-stack">
             <figure class="figure">
-              <a class="zoom photo" href="assets/img/fpga-board.jpg" data-caption="The drumming game running on the Basys3 board, showing “donE” on the seven-segment display.">
-                <img src="assets/img/fpga-board.jpg" width="1200" height="899" alt="Basys3 FPGA board with its green switch LEDs lit and the red seven-segment display reading donE" loading="lazy" decoding="async">
+              <a class="zoom photo" href="assets/img/fpga-board.jpg" data-caption="The drumming game running on the Basys3 board, showing “done” on the seven-segment display.">
+                <img src="assets/img/fpga-board.jpg" width="1200" height="899" alt="Basys3 FPGA board with its green switch LEDs lit and the red seven-segment display reading done" loading="lazy" decoding="async">
               </a>
-              <figcaption class="figcap"><b>Figure 4-9.</b> The game running on the Basys3, showing “donE” on the seven-segment display.</figcaption>
+              <figcaption class="figcap"><b>Figure 4-9.</b> The game running on the Basys3, showing “done” on the seven-segment display.</figcaption>
             </figure>
           </div>
         </div>
@@ -632,7 +637,7 @@
             <li>Built the game from 10 modules around a 12-state FSM spanning two clock domains.</li>
             <li>Debugged module interfaces, latch inference, and timing in Vivado simulation before anything went to the board.</li>
           </ul>
-          <details class="notes">
+          <details class="notes" open>
             <summary>Block diagram</summary>
               <figure class="figure">
                 <div class="figure__frame">
@@ -764,18 +769,6 @@
         <span class="rev__ref"></span>
       </li>
       <li class="rev__item">
-        <p class="rev__date"><span class="rev__tag">Current</span><br>Jan 2026 – Present</p>
-        <div>
-          <h3 class="rev__org">Texas Convergent, IoT Subteam · Austin, TX</h3>
-          <p class="rev__role">Co-Founder &amp; Hardware Lead, Mintality</p>
-          <ul class="blist">
-            <li>Won Best Overall Project among 9 teams with an ESP32 smart planter tied to a habit-tracking app.</li>
-            <li>Led hardware and wrote the C++ firmware: soil sensing, pump control, TFT display, and Firebase sync.</li>
-          </ul>
-        </div>
-        <a class="rev__ref" href="#mintality">See the project →</a>
-      </li>
-      <li class="rev__item">
         <p class="rev__date"><span class="rev__tag">Current</span><br>Aug 2025 – Present</p>
         <div>
           <h3 class="rev__org">Longhorn Rocketry Association · Austin, TX</h3>
@@ -786,6 +779,18 @@
           </ul>
         </div>
         <a class="rev__ref" href="#rocketry">See the project →</a>
+      </li>
+      <li class="rev__item">
+        <p class="rev__date"><span class="rev__tag rev__tag--past">Completed</span><br>Jan 2026 – Apr 2026</p>
+        <div>
+          <h3 class="rev__org">Texas Convergent, IoT Subteam · Austin, TX</h3>
+          <p class="rev__role">Co-Founder &amp; Hardware Lead, Mintality</p>
+          <ul class="blist">
+            <li>Won Best Overall Project among 9 teams with an ESP32 smart planter tied to a habit-tracking app.</li>
+            <li>Led hardware and wrote the C++ firmware: soil sensing, pump control, TFT display, and Firebase sync.</li>
+          </ul>
+        </div>
+        <a class="rev__ref" href="#mintality">See the project →</a>
       </li>
       <li class="rev__item">
         <p class="rev__date"><span class="rev__tag rev__tag--past">Completed</span><br>Jun 2024 – Dec 2024</p>
@@ -820,8 +825,8 @@
         <tr><th scope="row">Power</th><td data-label="Skills">LiFePO₄ packs &amp; BMS, buck converters, MOSFET switching, relays, 12 V distribution</td><td data-label="Where I used them"><a href="#rocketry">Rocketry board</a> · <a href="#vehicle">Car system</a></td></tr>
         <tr><th scope="row">Digital design</th><td data-label="Skills">Verilog, Vivado, design verification</td><td data-label="Where I used them"><a href="#fpga">FPGA game</a></td></tr>
         <tr><th scope="row">Mechanical &amp; CAD</th><td data-label="Skills">Fusion 360 (certified), AutoCAD, FEA, 3D printing</td><td data-label="Where I used them"><a href="#arcade">Arcade cabinet</a> · <a href="#viper">VIPER wheel</a></td></tr>
-        <tr><th scope="row">Lab &amp; fabrication</th><td data-label="Skills">Oscilloscope, multimeter, bench power supply, soldering &amp; reflow, SMD &amp; through-hole, crimping &amp; harnessing</td><td data-label="Where I used them"><a href="#vehicle">Car system</a> wiring &amp; harnessing</td></tr>
-        <tr><th scope="row">Tools</th><td data-label="Skills">Git, Linux, Adobe Suite</td><td data-label="Where I used them">—</td></tr>
+        <tr><th scope="row">Lab &amp; fabrication</th><td data-label="Skills">Oscilloscope, multimeter, bench power supply, soldering &amp; reflow, SMD &amp; through-hole, crimping &amp; harnessing</td><td data-label="Where I used them">In-class lab projects</td></tr>
+        <tr><th scope="row">Tools</th><td data-label="Skills">Git, Linux, Adobe Suite</td><td data-label="Where I used them"><a href="#mintality">Texas Convergent</a> (Git) · <a href="#rocketry">Longhorn Rocketry</a> (Linux)</td></tr>
       </tbody>
     </table>
   </section>

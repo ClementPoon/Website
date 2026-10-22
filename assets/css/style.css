@@ -392,6 +392,10 @@ sup { font-size: 0.65em; }
 .photo, .zoom { display: block; cursor: zoom-in; }
 .photo { border: 1px solid var(--rule-2); background: var(--video-bg); }
 .photo img { width: 100%; height: auto; }
+.photo-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: start; }
+/* landscape (4:3) photo beside a portrait (3:4) one: 16:9 column split gives both the same height */
+.photo-pair--wide-left { grid-template-columns: minmax(0, 16fr) minmax(0, 9fr); align-items: stretch; }
+.photo-pair--wide-left .photo img { height: 100%; object-fit: cover; } /* evens out the 1px the borders add */
 
 /* video facade */
 .video {
@@ -664,6 +668,8 @@ sup { font-size: 0.65em; }
   .project__fig .figure__frame, .project__fig .video, .project__fig .photo { border-inline: 0; }
   .project__fig .figure__frame { padding: 8px 4px; }
   .project__fig .figcap, .project__fig .gallery { padding-inline: var(--gutter); }
+  .project__fig .photo-pair { padding-inline: var(--gutter); }
+  .project__fig .photo-pair .photo { border-inline: 1px solid var(--rule-2); }
   .project__title { font-size: 1.22rem; }
   .specs th { width: 32%; }
   .rev__item { grid-template-columns: 1fr; gap: 6px; }
