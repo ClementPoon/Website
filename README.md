@@ -12,6 +12,7 @@ Live site: **https://clementpoon.com** (custom domain via Cloudflare; also reach
 ```
 index.html                  the whole site (all the text lives here)
 contact.html                contact page with the message form
+photography/                the photography site at clementpoon.com/photography (see below)
 CNAME                       tells GitHub Pages to use clementpoon.com
 404.html                    "pin not connected" page for broken links
 favicon.svg                 browser-tab icon
@@ -34,7 +35,7 @@ Double-click `index.html`. It opens in your browser and works offline.
 1. Sign in to GitHub as **ClementPoon**.
 2. Click **+ → New repository**. Name it exactly **`ClementPoon.github.io`**, set it to **Public**, leave "Add a README" unchecked, and click **Create repository**.
 3. On the empty repository page, click **uploading an existing file**.
-4. Open this folder, select **everything inside it** (`index.html`, `404.html`, `favicon.svg`, `README.md`, `.nojekyll`, and the `assets` folder), and drag it onto the upload page.
+4. Open this folder, select **everything inside it** (all the files plus the `assets` and `photography` folders), and drag it onto the upload page.
    Drag the *contents*, not the folder itself, so `index.html` ends up at the top level of the repository.
 5. Click **Commit changes**.
 6. Open **Settings → Pages**. Under *Build and deployment*, make sure Source is **Deploy from a branch**, Branch is **main**, folder **/ (root)**, then click **Save**. (For a `ClementPoon.github.io` repository this is usually already set.)
@@ -70,6 +71,45 @@ service for static sites (250 messages a month). It's already set up: the access
 - The first message may land in Junk; mark it "Not junk" so later ones reach your inbox.
 - To send messages somewhere else, create a new key at https://web3forms.com with the new address
   and replace the old key in `contact.html`.
+
+## Photography page (clementpoon.com/photography)
+
+Everything for it lives in the `photography/` folder. It has its own look (dark and photo-first, with its own
+fonts and icon) and it never links back to the engineering portfolio. The main site reaches it through the
+**Photography** tab.
+
+```
+photography/
+  index.html        the page: cover, Portraits, Travel, Cars, About, Contact
+  photo.css         its styles (colors, fonts, and photo row height at the top)
+  photo.js          full-screen photo viewer (arrows, swipe, Esc), header, contact form
+  fonts/            Instrument Serif and Inter (SIL Open Font License)
+  favicon.svg, apple-touch-icon.png, og-image.jpg
+  img/              your photos: img/portraits/, img/travel/, img/cars/
+```
+
+**Easiest way to add photos:** send them to Claude and say which set each one goes in. Otherwise:
+
+1. Export two JPEGs of each photo from Lightroom: one about 2400 px on the long edge (`img/travel/big-bend.jpg`)
+   and one about 1200 px (`img/travel/big-bend-sm.jpg`). Under **Metadata**, choose "Copyright Only" and tick
+   **Remove Location Info**, so your GPS location isn't published with the photo.
+2. In `photography/index.html`, find the set (search for `id="travel"`) and copy this block inside its `<div class="grid">`:
+   ```html
+   <figure class="shot" style="--r:1.5">
+     <a class="shot__img" href="img/travel/big-bend.jpg"><img src="img/travel/big-bend-sm.jpg" width="1200" height="800" alt="Describe the photo" loading="lazy" decoding="async"></a>
+     <figcaption><span class="shot__title">Big Bend, Texas</span><span class="shot__meta">24mm · f/8 · 1/250 s · ISO 100</span></figcaption>
+   </figure>
+   ```
+   `--r` is the photo's width ÷ height (3:2 = 1.5, 2:3 = 0.667, 4:5 = 0.8, 16:9 = 1.778). `width` and `height` are the pixel size of the `-sm` file.
+3. Delete that set's gray "coming soon" frames (`<figure class="shot shot--empty" …>`) and its line
+   `<p class="visually-hidden">Photos for this set are coming soon.</p>`.
+
+**Cover photos:** the comment above `<section class="hero"` shows how to add the big photo at the top. For the three
+cards under it, put `<img src="img/portraits/cover-sm.jpg" width="1200" height="1500" alt="" loading="lazy">` as the
+first thing inside each `<a class="set-card">` and delete the `<span class="set-card__icon">…</span>` next to it.
+
+**Before it goes live:** until your photos are in, the page shows gray "coming soon" frames. It's fine to publish
+like that, but it looks best once the photos are in.
 
 ## Updating the site later
 

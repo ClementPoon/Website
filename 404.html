@@ -37,7 +37,15 @@
     <thead><tr><th scope="col">Pin</th><th scope="col">No.</th><th scope="col">Description</th></tr></thead>
     <tbody><tr><td>NC</td><td>9</td><td>No internal connection. Leave floating.</td></tr></tbody>
   </table>
-  <a href="/">Back to the portfolio</a>
+  <a id="home" href="/">Back to the portfolio</a>
 </main>
+<script>
+  /* Missing pages under /photography send people back to the photos, not the engineering portfolio. */
+  if (location.pathname.indexOf("/photography") === 0) {
+    var home = document.getElementById("home");
+    home.href = "/photography/";
+    home.textContent = "Back to the photos";
+  }
+</script>
 </body>
 </html>

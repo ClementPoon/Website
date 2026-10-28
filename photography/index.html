@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clement Poon — Photography</title>
+<meta name="description" content="Portrait, travel, and car photography by Clement Poon, based in Austin, Texas.">
+<meta name="author" content="Clement Poon">
+<link rel="canonical" href="https://clementpoon.com/photography/">
+<meta property="og:url" content="https://clementpoon.com/photography/">
+<meta property="og:image" content="https://clementpoon.com/photography/og-image.jpg">
+<meta name="twitter:image" content="https://clementpoon.com/photography/og-image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Clement Poon Photography">
+<meta property="og:title" content="Clement Poon — Photography">
+<meta property="og:description" content="Portraits, travel, and cars. Based in Austin, Texas.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Clement Poon Photography: portraits, travel, and cars">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="photo.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the photos</a>
+
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="mark" href="#top" aria-label="Clement Poon Photography, back to top">
+      <span class="mark__name">Clement Poon</span>
+      <span class="mark__tag">Photography</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#portraits">Portraits</a>
+      <a href="#travel">Travel</a>
+      <a href="#cars">Cars</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================================ COVER ================================
+       To add a cover photo, put this line right after <section ...>:
+       <figure class="hero__media"><img src="img/cover.jpg" width="2400" height="1600" alt="Describe the photo" fetchpriority="high"></figure>
+  -->
+  <section class="hero" id="top" aria-labelledby="name">
+    <div class="wrap hero__inner">
+      <p class="label hero__kicker">Photography · Austin, Texas</p>
+      <h1 id="name">Clement Poon</h1>
+      <p class="hero__tagline">Portraits, travel, and cars.</p>
+      <a class="hero__cue" href="#portraits">View the work <span aria-hidden="true"></span></a>
+    </div>
+  </section>
+
+  <!-- ============================== SET INDEX ==============================
+       Cover for a card: put <img src="img/portraits/cover-sm.jpg" width="1200" height="1500" alt="" loading="lazy">
+       as the first thing inside <a class="set-card">, and delete the <span class="set-card__icon"> next to it.
+  -->
+  <nav class="sets wrap" aria-label="Photo sets">
+    <ul class="sets__grid">
+      <li>
+        <a class="set-card" href="#portraits">
+          <span class="set-card__icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="23" r="10"/><path d="M13 55c2.5-10.5 9.8-16.5 19-16.5S48.5 44.5 51 55"/></svg></span>
+          <span class="set-card__text">
+            <span><span class="label set-card__n">01</span><span class="set-card__title">Portraits</span></span>
+            <span class="set-card__go">View</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="set-card" href="#travel">
+          <span class="set-card__icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 51l17-21 10 12 8-9 19 18z"/><circle cx="45" cy="17" r="6"/></svg></span>
+          <span class="set-card__text">
+            <span><span class="label set-card__n">02</span><span class="set-card__title">Travel</span></span>
+            <span class="set-card__go">View</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="set-card" href="#cars">
+          <span class="set-card__icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 41v-7c0-2 1.3-3.4 3.2-3.8L16 28l8-8.4c1-1 2.3-1.6 3.7-1.6h12.2c1.6 0 3 .7 4 2L51 28l6 1.4c1.8.4 3 2 3 3.8V41h-6M24 41h16M10 41H4"/><circle cx="17" cy="41" r="5"/><circle cx="47" cy="41" r="5"/></svg></span>
+          <span class="set-card__text">
+            <span><span class="label set-card__n">03</span><span class="set-card__title">Cars</span></span>
+            <span class="set-card__go">View</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ============================== PORTRAITS ==============================
+       Each photo is one <figure class="shot"> block. To add one, copy this pattern:
+
+       <figure class="shot" style="--r:0.8">
+         <a class="shot__img" href="img/portraits/name.jpg"><img src="img/portraits/name-sm.jpg" width="960" height="1200" alt="Describe the photo" loading="lazy" decoding="async"></a>
+         <figcaption><span class="shot__title">Title or place</span><span class="shot__meta">85mm · f/1.8 · 1/200 s · ISO 100</span></figcaption>
+       </figure>
+
+       --r is the photo's width ÷ height (3:2 = 1.5, 2:3 = 0.667, 4:5 = 0.8, 16:9 = 1.778).
+       Then delete the "shot--empty" placeholders.
+  -->
+  <section class="set wrap" id="portraits" aria-labelledby="portraits-h">
+    <header class="set__head">
+      <p class="label set__n">01 — Set</p>
+      <h2 id="portraits-h">Portraits</h2>
+      <p class="set__note">People, and the light they're in.</p>
+    </header>
+    <p class="visually-hidden">Photos for this set are coming soon.</p>
+    <div class="grid">
+      <figure class="shot shot--empty" style="--r:0.8" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:0.667" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:1.5" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:0.8" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:0.667" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:0.8" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ================================ TRAVEL ================================ -->
+  <section class="set wrap" id="travel" aria-labelledby="travel-h">
+    <header class="set__head">
+      <p class="label set__n">02 — Set</p>
+      <h2 id="travel-h">Travel</h2>
+      <p class="set__note">Places, streets, and the moments in between.</p>
+    </header>
+    <p class="visually-hidden">Photos for this set are coming soon.</p>
+    <div class="grid">
+      <figure class="shot shot--empty" style="--r:1.5" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:0.667" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:1.5" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:1.778" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:0.8" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:1.5" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ================================= CARS ================================= -->
+  <section class="set wrap" id="cars" aria-labelledby="cars-h">
+    <header class="set__head">
+      <p class="label set__n">03 — Set</p>
+      <h2 id="cars-h">Cars</h2>
+      <p class="set__note">Builds, details, and the cars I can't stop looking at.</p>
+    </header>
+    <p class="visually-hidden">Photos for this set are coming soon.</p>
+    <div class="grid">
+      <figure class="shot shot--empty" style="--r:1.5" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:1.778" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:0.8" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:2.4" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:1.5" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:1.5" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ================================ ABOUT ================================= -->
+  <section class="about wrap" id="about" aria-labelledby="about-h">
+    <div class="about__grid">
+      <div class="about__text">
+        <h2 class="sec-title" id="about-h">About</h2>
+        <p class="about__lead">I'm Clement, a photographer based in Austin, Texas.</p>
+        <p>I shoot portraits, the places I travel to, and cars, which I spend almost as much time working on as photographing. Most of these photos start on a Sony a7R III and finish in Lightroom.</p>
+      </div>
+      <div class="kit-wrap">
+        <h3 class="visually-hidden">Camera kit</h3>
+        <dl class="kit">
+          <div><dt class="label">Camera</dt><dd>Sony a7R III</dd></div>
+          <div><dt class="label">Lenses</dt><dd><span>Sony Zeiss 24–70mm f/4</span><span>Sony 50mm f/1.8</span><span>Sony 85mm f/1.8</span><span>Tamron 70–300mm f/4.5–6.3</span></dd></div>
+          <div><dt class="label">Light</dt><dd><span>Godox V1 Pro flash</span><span>Godox TL60 RGB tube light</span><span>Softbox</span></dd></div>
+          <div><dt class="label">Edit</dt><dd>Adobe Lightroom and Photoshop</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== CONTACT ===============================
+       The form sends through Web3Forms to ClementP@utexas.edu (same key as before; it's meant to be public).
+  -->
+  <section class="contact wrap" id="contact" aria-labelledby="contact-h">
+    <div class="contact__grid">
+      <div>
+        <h2 class="sec-title" id="contact-h">Say hello</h2>
+        <p class="contact__lead">Shoot ideas, collaborations, or a question about a photo. I read everything.</p>
+        <a class="contact__email" href="mailto:ClementP@utexas.edu?subject=Photography">ClementP@utexas.edu</a>
+      </div>
+      <form class="form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="4c3725a1-b6ff-4b01-a8b3-9ed4b5b16d1e">
+        <input type="hidden" name="subject" value="New photography message from clementpoon.com">
+        <input type="hidden" name="from_name" value="clementpoon.com/photography">
+        <input type="checkbox" name="botcheck" hidden>
+        <div class="form__row">
+          <div class="field">
+            <label for="pf-name">Name</label>
+            <input id="pf-name" name="name" type="text" autocomplete="name" maxlength="120" required>
+          </div>
+          <div class="field">
+            <label for="pf-email">Email</label>
+            <input id="pf-email" name="email" type="email" autocomplete="email" maxlength="200" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="pf-message">Message</label>
+          <textarea id="pf-message" name="message" rows="5" maxlength="5000" required></textarea>
+        </div>
+        <div class="form__foot">
+          <button class="btn" type="submit">Send <span aria-hidden="true">→</span></button>
+          <p class="form__note">Goes straight to my inbox.</p>
+        </div>
+        <p class="form__status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap site-foot__row">
+    <p>© 2026 Clement Poon. All photos are my own; please ask before using them.</p>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<dialog class="viewer" aria-labelledby="viewer-h">
+  <h2 class="visually-hidden" id="viewer-h">Photo viewer</h2>
+  <div class="viewer__stage">
+    <img class="viewer__img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
+  </div>
+  <div class="viewer__bar">
+    <p class="viewer__cap"><span class="viewer__title"></span><span class="viewer__meta"></span></p>
+    <div class="viewer__nav">
+      <button class="viewer__btn viewer__prev" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <p class="viewer__count"></p>
+      <button class="viewer__btn viewer__next" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
+  <button class="viewer__close" type="button" aria-label="Close photo viewer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+</dialog>
+
+<script src="photo.js" defer></script>
+</body>
+</html>
