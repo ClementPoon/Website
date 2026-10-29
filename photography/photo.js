@@ -1,6 +1,11 @@
 /* Clement Poon — Photography
+<<<<<<< HEAD
    The see-through header, the full-screen photo viewer (with zoom), the save deterrents,
    and the contact form (which still posts to Web3Forms without JavaScript). */
+=======
+   Small enhancements. Without JavaScript every photo link still opens the full-size image,
+   and the form still posts to Web3Forms. */
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
 (function () {
   "use strict";
   var root = document.documentElement;
@@ -43,17 +48,26 @@
     });
   }
 
+<<<<<<< HEAD
   /* ---- Photo viewer: full screen, with previous / next, arrow keys, swipe, and zoom ----
      Zoom in by clicking the photo (double-tap on a phone), pinching, scrolling, the magnifier
      button, or the + / − / 0 keys. Once zoomed in, drag to look around. */
+=======
+  /* ---- Photo viewer: full screen, with previous / next, arrow keys, and swipe ---- */
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
   var dlg = document.querySelector(".viewer");
   if (dlg && typeof dlg.showModal === "function") {
     var img = dlg.querySelector(".viewer__img");
     var blank = img.getAttribute("src");
+<<<<<<< HEAD
+=======
+    var titleEl = dlg.querySelector(".viewer__title");
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
     var metaEl = dlg.querySelector(".viewer__meta");
     var countEl = dlg.querySelector(".viewer__count");
     var prevBtn = dlg.querySelector(".viewer__prev");
     var nextBtn = dlg.querySelector(".viewer__next");
+<<<<<<< HEAD
     var zoomBtn = dlg.querySelector(".viewer__zoom");
     var stage = dlg.querySelector(".viewer__stage");
     var list = [], index = 0, opener = null;
@@ -146,25 +160,43 @@
              y >= Math.max(r.top, f.top) && y <= Math.min(r.bottom, f.bottom);
     };
 
+=======
+    var stage = dlg.querySelector(".viewer__stage");
+    var list = [], index = 0, opener = null;
+
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
     var text = function (fig, sel) {
       var el = fig && fig.querySelector(sel);
       return el ? el.textContent.trim() : "";
     };
     var preload = function (i) {
       var a = list[(i + list.length) % list.length];
+<<<<<<< HEAD
       if (a) { var p = new Image(); p.src = a.getAttribute("data-full"); }
     };
     var show = function (i) {
       if (!list.length) return;
       resetZoom();
+=======
+      if (a) { var p = new Image(); p.src = a.getAttribute("href"); }
+    };
+    var show = function (i) {
+      if (!list.length) return;
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
       index = (i + list.length) % list.length;
       var a = list[index];
       var fig = a.closest("figure");
       var thumb = a.querySelector("img");
       img.classList.add("is-loading");
       img.onload = img.onerror = function () { img.classList.remove("is-loading"); };
+<<<<<<< HEAD
       img.src = a.getAttribute("data-full");
       img.alt = thumb ? thumb.alt : "";
+=======
+      img.src = a.getAttribute("href");
+      img.alt = thumb ? thumb.alt : "";
+      titleEl.textContent = text(fig, ".shot__title");
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
       metaEl.textContent = text(fig, ".shot__meta");
       var many = list.length > 1;
       countEl.textContent = many ? (index + 1) + " / " + list.length : "";
@@ -173,11 +205,19 @@
     };
 
     document.addEventListener("click", function (ev) {
+<<<<<<< HEAD
       var a = ev.target.closest ? ev.target.closest(".shot__img[data-full]") : null;
       if (!a) return;
       ev.preventDefault();
       var grid = a.closest(".grid") || document;
       list = Array.prototype.slice.call(grid.querySelectorAll(".shot__img[data-full]"));
+=======
+      var a = ev.target.closest ? ev.target.closest("a.shot__img") : null;
+      if (!a || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;   // let "open in new tab" through
+      ev.preventDefault();
+      var grid = a.closest(".grid") || document;
+      list = Array.prototype.slice.call(grid.querySelectorAll("a.shot__img"));
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
       opener = a;
       show(list.indexOf(a));
       root.classList.add("viewer-open");
@@ -186,6 +226,7 @@
 
     prevBtn.addEventListener("click", function () { show(index - 1); });
     nextBtn.addEventListener("click", function () { show(index + 1); });
+<<<<<<< HEAD
     zoomBtn.addEventListener("click", function () { toggleZoom(); });
     dlg.querySelector(".viewer__close").addEventListener("click", function () { dlg.close(); });
     dlg.addEventListener("keydown", function (ev) {
@@ -303,18 +344,42 @@
     }
     window.addEventListener("resize", function () {
       if (dlg.open && isZoomed()) { keepInFrame(fitted()); render(false); }
+=======
+    dlg.querySelector(".viewer__close").addEventListener("click", function () { dlg.close(); });
+    dlg.addEventListener("keydown", function (ev) {
+      if (ev.key === "ArrowLeft") { ev.preventDefault(); show(index - 1); }
+      else if (ev.key === "ArrowRight") { ev.preventDefault(); show(index + 1); }
+    });
+
+    // swipe left / right on touch screens; a tap on the dark area closes
+    var startX = null, startY = null, swiped = false;
+    stage.addEventListener("pointerdown", function (ev) { startX = ev.clientX; startY = ev.clientY; swiped = false; });
+    stage.addEventListener("pointerup", function (ev) {
+      if (startX === null) return;
+      var dx = ev.clientX - startX, dy = ev.clientY - startY;
+      startX = startY = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) && list.length > 1) { swiped = true; show(index + (dx < 0 ? 1 : -1)); }
+    });
+    dlg.addEventListener("click", function (ev) {
+      if (swiped) { swiped = false; return; }
+      if (ev.target === dlg || ev.target === stage) dlg.close();
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
     });
 
     dlg.addEventListener("close", function () {
       root.classList.remove("viewer-open");
+<<<<<<< HEAD
       pts.clear(); pinch = gest = lastTap = null; gesturing = false;
       stage.classList.remove("is-panning", "on-photo");
       resetZoom();
+=======
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
       img.src = blank;
       if (opener) opener.focus({ preventScroll: true });
     });
   }
 
+<<<<<<< HEAD
   /* ---- Make the photos harder to save: no right-click or long-press menu, no dragging ---- */
   var PHOTO_AREAS = ".shot__img, .set-card, .hero__media, .viewer";
   document.addEventListener("contextmenu", function (ev) {
@@ -324,6 +389,8 @@
     if (ev.target.tagName === "IMG") ev.preventDefault();
   });
 
+=======
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
   /* ---- Contact form → Web3Forms ---- */
   var form = document.getElementById("contact-form");
   if (form && window.fetch) {

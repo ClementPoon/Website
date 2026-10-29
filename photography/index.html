@@ -45,10 +45,17 @@
 <main id="main">
 
   <!-- ================================ COVER ================================
+<<<<<<< HEAD
        The big photo is img/cover-1440.jpg / img/cover-2560.jpg (same photo, two sizes). Replace both to change it.
   -->
   <section class="hero" id="top" aria-labelledby="name">
     <figure class="hero__media"><img draggable="false" src="img/cover-1440.jpg" srcset="img/cover-1440.jpg 1440w, img/cover-2560.jpg 2560w" sizes="100vw" width="2560" height="1691" alt="Hong Kong Island's skyline at sunset across Victoria Harbour" fetchpriority="high"></figure>
+=======
+       To add a cover photo, put this line right after <section ...>:
+       <figure class="hero__media"><img src="img/cover.jpg" width="2400" height="1600" alt="Describe the photo" fetchpriority="high"></figure>
+  -->
+  <section class="hero" id="top" aria-labelledby="name">
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
     <div class="wrap hero__inner">
       <p class="label hero__kicker">Photography · Austin, Texas</p>
       <h1 id="name">Clement Poon</h1>
@@ -58,13 +65,22 @@
   </section>
 
   <!-- ============================== SET INDEX ==============================
+<<<<<<< HEAD
        Each card shows one photo from its set. object-position picks which part of the photo stays in view.
+=======
+       Cover for a card: put <img src="img/portraits/cover-sm.jpg" width="1200" height="1500" alt="" loading="lazy">
+       as the first thing inside <a class="set-card">, and delete the <span class="set-card__icon"> next to it.
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
   -->
   <nav class="sets wrap" aria-label="Photo sets">
     <ul class="sets__grid">
       <li>
         <a class="set-card" href="#portraits">
+<<<<<<< HEAD
           <img draggable="false" src="img/portraits/caven-clark-field-sm.jpg" width="1019" height="1600" alt="" loading="lazy" decoding="async" style="object-position:50% 35%">
+=======
+          <span class="set-card__icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="23" r="10"/><path d="M13 55c2.5-10.5 9.8-16.5 19-16.5S48.5 44.5 51 55"/></svg></span>
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
           <span class="set-card__text">
             <span><span class="label set-card__n">01</span><span class="set-card__title">Portraits</span></span>
             <span class="set-card__go">View</span>
@@ -73,7 +89,11 @@
       </li>
       <li>
         <a class="set-card" href="#travel">
+<<<<<<< HEAD
           <img draggable="false" src="img/travel/sensoji-reflection-sm.jpg" width="1038" height="1600" alt="" loading="lazy" decoding="async" style="object-position:50% 28%">
+=======
+          <span class="set-card__icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 51l17-21 10 12 8-9 19 18z"/><circle cx="45" cy="17" r="6"/></svg></span>
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
           <span class="set-card__text">
             <span><span class="label set-card__n">02</span><span class="set-card__title">Travel</span></span>
             <span class="set-card__go">View</span>
@@ -82,7 +102,11 @@
       </li>
       <li>
         <a class="set-card" href="#cars">
+<<<<<<< HEAD
           <img draggable="false" src="img/cars/under-the-milky-way-sm.jpg" width="1067" height="1600" alt="" loading="lazy" decoding="async" style="object-position:50% 90%">
+=======
+          <span class="set-card__icon" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 41v-7c0-2 1.3-3.4 3.2-3.8L16 28l8-8.4c1-1 2.3-1.6 3.7-1.6h12.2c1.6 0 3 .7 4 2L51 28l6 1.4c1.8.4 3 2 3 3.8V41h-6M24 41h16M10 41H4"/><circle cx="17" cy="41" r="5"/><circle cx="47" cy="41" r="5"/></svg></span>
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
           <span class="set-card__text">
             <span><span class="label set-card__n">03</span><span class="set-card__title">Cars</span></span>
             <span class="set-card__go">View</span>
@@ -96,12 +120,21 @@
        Each photo is one <figure class="shot"> block. To add one, copy this pattern:
 
        <figure class="shot" style="--r:0.8">
+<<<<<<< HEAD
          <button class="shot__img" type="button" data-full="img/portraits/name.jpg"><img draggable="false" src="img/portraits/name-sm.jpg" width="960" height="1200" alt="Describe the photo" loading="lazy" decoding="async"></button>
          <figcaption><span class="shot__meta">85mm · f/1.8 · 1/200 s · ISO 100</span></figcaption>
        </figure>
 
        --r is the photo's width ÷ height (3:2 = 1.5, 2:3 = 0.667, 4:5 = 0.8, 16:9 = 1.778).
        data-full is the large file the viewer opens; the -sm file is what shows in the grid.
+=======
+         <a class="shot__img" href="img/portraits/name.jpg"><img src="img/portraits/name-sm.jpg" width="960" height="1200" alt="Describe the photo" loading="lazy" decoding="async"></a>
+         <figcaption><span class="shot__title">Title or place</span><span class="shot__meta">85mm · f/1.8 · 1/200 s · ISO 100</span></figcaption>
+       </figure>
+
+       --r is the photo's width ÷ height (3:2 = 1.5, 2:3 = 0.667, 4:5 = 0.8, 16:9 = 1.778).
+       Then delete the "shot--empty" placeholders.
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
   -->
   <section class="set wrap" id="portraits" aria-labelledby="portraits-h">
     <header class="set__head">
@@ -109,6 +142,7 @@
       <h2 id="portraits-h">Portraits</h2>
       <p class="set__note">People, and the light they're in.</p>
     </header>
+<<<<<<< HEAD
     <div class="grid">
       <figure class="shot" style="--r:0.637">
         <button class="shot__img" type="button" data-full="img/portraits/caven-clark-field.jpg"><img draggable="false" src="img/portraits/caven-clark-field-sm.jpg" width="1019" height="1600" alt="Three friends making a star with their fingers under the orange Caven-Clark Field banner on campus" loading="lazy" decoding="async"></button>
@@ -145,6 +179,16 @@
         <button class="shot__img" type="button" data-full="img/portraits/glass-hallway.jpg"><img draggable="false" src="img/portraits/glass-hallway-sm.jpg" width="1067" height="1600" alt="Young man in glasses, a black suit and a blue patterned tie, arms crossed in a long hallway lined with windows" loading="lazy" decoding="async"></button>
         <figcaption><span class="shot__meta">50mm · f/2.2 · 1/160 s · ISO 160</span></figcaption>
       </figure>
+=======
+    <p class="visually-hidden">Photos for this set are coming soon.</p>
+    <div class="grid">
+      <figure class="shot shot--empty" style="--r:0.8" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:0.667" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:1.5" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:0.8" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:0.667" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:0.8" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
     </div>
   </section>
 
@@ -155,6 +199,7 @@
       <h2 id="travel-h">Travel</h2>
       <p class="set__note">Places, streets, and the moments in between.</p>
     </header>
+<<<<<<< HEAD
     <div class="grid">
       <figure class="shot" style="--r:1.514">
         <button class="shot__img" type="button" data-full="img/travel/victoria-harbour-sunset.jpg"><img draggable="false" src="img/travel/victoria-harbour-sunset-sm.jpg" width="1600" height="1057" alt="Hong Kong Island&#x27;s skyline at sunset across Victoria Harbour, the sky glowing orange behind distant mountains" loading="lazy" decoding="async"></button>
@@ -252,6 +297,16 @@
         <button class="shot__img" type="button" data-full="img/travel/red-glow.jpg"><img draggable="false" src="img/travel/red-glow-sm.jpg" width="1067" height="1600" alt="A person in a night scene lit by deep red light" loading="lazy" decoding="async"></button>
         <figcaption><span class="shot__meta">60mm · f/4 · 1/60 s · ISO 1600</span></figcaption>
       </figure>
+=======
+    <p class="visually-hidden">Photos for this set are coming soon.</p>
+    <div class="grid">
+      <figure class="shot shot--empty" style="--r:1.5" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:0.667" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:1.5" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:1.778" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:0.8" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:1.5" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
     </div>
   </section>
 
@@ -260,6 +315,7 @@
     <header class="set__head">
       <p class="label set__n">03 — Set</p>
       <h2 id="cars-h">Cars</h2>
+<<<<<<< HEAD
       <p class="set__note">Race cars, superbikes, and a lot of motion blur.</p>
     </header>
     <div class="grid grid--wide">
@@ -302,6 +358,18 @@
         <button class="shot__img" type="button" data-full="img/cars/two-seconds-later.jpg"><img draggable="false" src="img/cars/two-seconds-later-sm.jpg" width="1600" height="1019" alt="Another race car passing close, two seconds after the previous shot" loading="lazy" decoding="async"></button>
         <figcaption><span class="shot__meta">62mm · f/5.6 · 1/80 s · ISO 100</span></figcaption>
       </figure>
+=======
+      <p class="set__note">Builds, details, and the cars I can't stop looking at.</p>
+    </header>
+    <p class="visually-hidden">Photos for this set are coming soon.</p>
+    <div class="grid">
+      <figure class="shot shot--empty" style="--r:1.5" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:1.778" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:0.8" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:2.4" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:1.5" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+      <figure class="shot shot--empty" style="--r:1.5" aria-hidden="true"><div class="shot__img"></div><figcaption><span class="shot__title">Coming soon</span><span class="shot__meta">— mm · f/— · — s · ISO —</span></figcaption></figure>
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
     </div>
   </section>
 
@@ -317,7 +385,11 @@
         <h3 class="visually-hidden">Camera kit</h3>
         <dl class="kit">
           <div><dt class="label">Camera</dt><dd>Sony a7R III</dd></div>
+<<<<<<< HEAD
           <div><dt class="label">Lenses</dt><dd><span>Sigma 24–70mm f/2.8 DG DN II Art</span><span>Sony Zeiss 24–70mm f/4</span><span>Sony 50mm f/1.8</span><span>Sony 85mm f/1.8</span><span>Tamron 70–300mm f/4.5–6.3</span></dd></div>
+=======
+          <div><dt class="label">Lenses</dt><dd><span>Sony Zeiss 24–70mm f/4</span><span>Sony 50mm f/1.8</span><span>Sony 85mm f/1.8</span><span>Tamron 70–300mm f/4.5–6.3</span></dd></div>
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
           <div><dt class="label">Light</dt><dd><span>Godox V1 Pro flash</span><span>Godox TL60 RGB tube light</span><span>Softbox</span></dd></div>
           <div><dt class="label">Edit</dt><dd>Adobe Lightroom and Photoshop</dd></div>
         </dl>
@@ -375,17 +447,27 @@
 <dialog class="viewer" aria-labelledby="viewer-h">
   <h2 class="visually-hidden" id="viewer-h">Photo viewer</h2>
   <div class="viewer__stage">
+<<<<<<< HEAD
     <img draggable="false" class="viewer__img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
   </div>
   <div class="viewer__bar">
     <p class="viewer__cap"><span class="viewer__meta"></span></p>
+=======
+    <img class="viewer__img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
+  </div>
+  <div class="viewer__bar">
+    <p class="viewer__cap"><span class="viewer__title"></span><span class="viewer__meta"></span></p>
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
     <div class="viewer__nav">
       <button class="viewer__btn viewer__prev" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
       <p class="viewer__count"></p>
       <button class="viewer__btn viewer__next" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
   </div>
+<<<<<<< HEAD
   <button class="viewer__zoom" type="button" aria-label="Zoom in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.25" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.2 15.2L20 20M7.75 10.5h5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="viewer__zoom-plus" d="M10.5 7.75v5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+=======
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
   <button class="viewer__close" type="button" aria-label="Close photo viewer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
 </dialog>
 

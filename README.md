@@ -82,7 +82,11 @@ fonts and icon) and it never links back to the engineering portfolio. The main s
 photography/
   index.html        the page: cover, Portraits, Travel, Cars, About, Contact
   photo.css         its styles (colors, fonts, and photo row height at the top)
+<<<<<<< HEAD
   photo.js          full-screen photo viewer (arrows, swipe, zoom, Esc), header, contact form
+=======
+  photo.js          full-screen photo viewer (arrows, swipe, Esc), header, contact form
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
   fonts/            Instrument Serif and Inter (SIL Open Font License)
   favicon.svg, apple-touch-icon.png, og-image.jpg
   img/              your photos: img/portraits/, img/travel/, img/cars/
@@ -90,12 +94,18 @@ photography/
 
 **Easiest way to add photos:** send them to Claude and say which set each one goes in. Otherwise:
 
+<<<<<<< HEAD
 1. Export two JPEGs of each photo from Lightroom at quality 90–100: one 3200 px on the long edge (`img/travel/big-bend.jpg`)
    and one 1600 px (`img/travel/big-bend-sm.jpg`). Under **Metadata**, choose "Copyright Only" and tick
+=======
+1. Export two JPEGs of each photo from Lightroom: one about 2400 px on the long edge (`img/travel/big-bend.jpg`)
+   and one about 1200 px (`img/travel/big-bend-sm.jpg`). Under **Metadata**, choose "Copyright Only" and tick
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
    **Remove Location Info**, so your GPS location isn't published with the photo.
 2. In `photography/index.html`, find the set (search for `id="travel"`) and copy this block inside its `<div class="grid">`:
    ```html
    <figure class="shot" style="--r:1.5">
+<<<<<<< HEAD
      <button class="shot__img" type="button" data-full="img/travel/big-bend.jpg"><img draggable="false" src="img/travel/big-bend-sm.jpg" width="1600" height="1067" alt="Describe the photo" loading="lazy" decoding="async"></button>
      <figcaption><span class="shot__meta">24mm · f/8 · 1/250 s · ISO 100</span></figcaption>
    </figure>
@@ -110,6 +120,22 @@ photo you're especially protective of.
 **Cover photos:** the big photo at the top is `img/cover-1440.jpg` / `img/cover-2560.jpg` (same photo, two sizes).
 Each of the three cards under it uses one photo from its set; change its `<img src=…>` inside `<a class="set-card">`.
 `object-position` on that image picks which part of the photo stays in view.
+=======
+     <a class="shot__img" href="img/travel/big-bend.jpg"><img src="img/travel/big-bend-sm.jpg" width="1200" height="800" alt="Describe the photo" loading="lazy" decoding="async"></a>
+     <figcaption><span class="shot__title">Big Bend, Texas</span><span class="shot__meta">24mm · f/8 · 1/250 s · ISO 100</span></figcaption>
+   </figure>
+   ```
+   `--r` is the photo's width ÷ height (3:2 = 1.5, 2:3 = 0.667, 4:5 = 0.8, 16:9 = 1.778). `width` and `height` are the pixel size of the `-sm` file.
+3. Delete that set's gray "coming soon" frames (`<figure class="shot shot--empty" …>`) and its line
+   `<p class="visually-hidden">Photos for this set are coming soon.</p>`.
+
+**Cover photos:** the comment above `<section class="hero"` shows how to add the big photo at the top. For the three
+cards under it, put `<img src="img/portraits/cover-sm.jpg" width="1200" height="1500" alt="" loading="lazy">` as the
+first thing inside each `<a class="set-card">` and delete the `<span class="set-card__icon">…</span>` next to it.
+
+**Before it goes live:** until your photos are in, the page shows gray "coming soon" frames. It's fine to publish
+like that, but it looks best once the photos are in.
+>>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
 
 ## Updating the site later
 
