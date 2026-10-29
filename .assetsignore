@@ -1,0 +1,8 @@
+# Files Cloudflare skips when it publishes the site (same format as .gitignore).
+# .git is git's own history folder: it isn't part of the website, and it's too big to upload.
+.git
+.gitignore
+.assetsignore
+README.md
+_to_delete
+Claude outputs

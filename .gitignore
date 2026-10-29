@@ -1,0 +1,7 @@
+# Preview images the Claude app saves here; not part of the site
+Claude outputs/
+# Windows / OneDrive folder files
+desktop.ini
+Thumbs.db
+# Files waiting for you to delete (old copies from the accidental pull)
+_to_delete/

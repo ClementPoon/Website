@@ -1,11 +1,6 @@
 /* Clement Poon — Photography
-<<<<<<< HEAD
    The see-through header, the full-screen photo viewer (with zoom), the save deterrents,
    and the contact form (which still posts to Web3Forms without JavaScript). */
-=======
-   Small enhancements. Without JavaScript every photo link still opens the full-size image,
-   and the form still posts to Web3Forms. */
->>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
 (function () {
   "use strict";
   var root = document.documentElement;
@@ -48,26 +43,20 @@
     });
   }
 
-<<<<<<< HEAD
   /* ---- Photo viewer: full screen, with previous / next, arrow keys, swipe, and zoom ----
+     Each photo opens at full resolution. The grid's smaller copy shows first, so the viewer is instant,
+     and the full file takes its place as soon as it has downloaded.
      Zoom in by clicking the photo (double-tap on a phone), pinching, scrolling, the magnifier
-     button, or the + / − / 0 keys. Once zoomed in, drag to look around. */
-=======
-  /* ---- Photo viewer: full screen, with previous / next, arrow keys, and swipe ---- */
->>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
+     button, or the + / − / 0 keys. Once zoomed in, drag to look around. Zoom stops at 1080p size
+     (the photo 1920 px on its long side); if a big screen already shows it larger, the magnifier hides. */
   var dlg = document.querySelector(".viewer");
   if (dlg && typeof dlg.showModal === "function") {
     var img = dlg.querySelector(".viewer__img");
     var blank = img.getAttribute("src");
-<<<<<<< HEAD
-=======
-    var titleEl = dlg.querySelector(".viewer__title");
->>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
     var metaEl = dlg.querySelector(".viewer__meta");
     var countEl = dlg.querySelector(".viewer__count");
     var prevBtn = dlg.querySelector(".viewer__prev");
     var nextBtn = dlg.querySelector(".viewer__next");
-<<<<<<< HEAD
     var zoomBtn = dlg.querySelector(".viewer__zoom");
     var stage = dlg.querySelector(".viewer__stage");
     var list = [], index = 0, opener = null;
@@ -76,7 +65,7 @@
     var scale = 1, tx = 0, ty = 0;
     var clamp = function (v, lo, hi) { return Math.min(Math.max(v, lo), hi); };
     var isZoomed = function () { return scale > 1.001; };
-    var loading = function () { return img.classList.contains("is-loading"); };
+    var loading = function () { return img.classList.contains("is-loading") || img.classList.contains("is-preview"); };
     var fitted = function () {
       // the photo's box before zooming: it's fitted inside the frame's padding and centred there
       var f = stage.getBoundingClientRect(), cs = getComputedStyle(stage);
@@ -86,12 +75,21 @@
       var w = k ? nw * k : img.offsetWidth, h = k ? nh * k : img.offsetHeight;
       return { cx: f.left + pl + cw / 2, cy: f.top + pt + ch / 2, w: w, h: h };
     };
+    var ZOOM_LIMIT = 1920;   // the biggest a photo is ever shown: 1920 px on its long side, the size of 1080p
     var levels = function (b) {
-      var native = b.w ? img.naturalWidth / b.w : 0;   // at this scale, 1 photo pixel = 1 CSS pixel
+      var long = Math.max(b.w, b.h);
+      var cap = Math.min(ZOOM_LIMIT, Math.max(img.naturalWidth, img.naturalHeight) || ZOOM_LIMIT);
+      var full = Math.max(1, long ? cap / long : 1);
       return {
-        max: clamp(native, 4, 8),
-        click: clamp(native / (window.devicePixelRatio || 1), 2, 4)   // about 100% (1 photo pixel per screen pixel)
+        max: full,
+        click: Math.min(full, Math.max(2, full / (window.devicePixelRatio || 1)))   // one click / double-tap
       };
+    };
+    var zoomable = false;
+    var checkZoomable = function () {
+      zoomable = !loading() && img.naturalWidth > 1 && levels(fitted()).max > 1.05;
+      zoomBtn.hidden = !zoomable;
+      if (!zoomable) stage.classList.remove("on-photo");
     };
     var keepInFrame = function (b) {
       // a zoomed photo bigger than the frame can't be dragged past its edges; one that fits stays centred
@@ -160,73 +158,85 @@
              y >= Math.max(r.top, f.top) && y <= Math.min(r.bottom, f.bottom);
     };
 
-=======
-    var stage = dlg.querySelector(".viewer__stage");
-    var list = [], index = 0, opener = null;
-
->>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
     var text = function (fig, sel) {
       var el = fig && fig.querySelector(sel);
       return el ? el.textContent.trim() : "";
     };
-    var preload = function (i) {
-      var a = list[(i + list.length) % list.length];
-<<<<<<< HEAD
-      if (a) { var p = new Image(); p.src = a.getAttribute("data-full"); }
+    // the grid's own copy of a photo: usually downloaded already, so it can show straight away
+    var quick = function (a) {
+      var t = a && a.querySelector("img");
+      return t ? (t.currentSrc || t.getAttribute("src")) : "";
     };
+    var preload = function (i) {   // next / previous: just their quick copies (the full files are big)
+      var src = quick(list[(i + list.length) % list.length]);
+      if (src) { var p = new Image(); p.src = src; }
+    };
+    var sizeLike = function (thumb) {
+      // draw the quick copy at the size the full photo will have, so nothing jumps when it arrives
+      var f = stage.getBoundingClientRect(), cs = getComputedStyle(stage);
+      var cw = f.width - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+      var ch = f.height - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+      var w = parseFloat(thumb.getAttribute("width")), h = parseFloat(thumb.getAttribute("height"));
+      if (!(w > 0 && h > 0 && cw > 0 && ch > 0)) return;
+      var k = Math.min(cw / w, ch / h);
+      img.style.width = w * k + "px";
+      img.style.height = h * k + "px";
+    };
+    var viewSeq = 0;   // bumps on every change, so a slow download can't replace a newer photo
     var show = function (i) {
       if (!list.length) return;
       resetZoom();
-=======
-      if (a) { var p = new Image(); p.src = a.getAttribute("href"); }
-    };
-    var show = function (i) {
-      if (!list.length) return;
->>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
       index = (i + list.length) % list.length;
       var a = list[index];
       var fig = a.closest("figure");
       var thumb = a.querySelector("img");
-      img.classList.add("is-loading");
-      img.onload = img.onerror = function () { img.classList.remove("is-loading"); };
-<<<<<<< HEAD
-      img.src = a.getAttribute("data-full");
-      img.alt = thumb ? thumb.alt : "";
-=======
-      img.src = a.getAttribute("href");
-      img.alt = thumb ? thumb.alt : "";
-      titleEl.textContent = text(fig, ".shot__title");
->>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
+      var full = a.getAttribute("data-full"), small = quick(a), mine = ++viewSeq;
+      // caption and counter first: they set the bar's height, and so the space the photo gets
       metaEl.textContent = text(fig, ".shot__meta");
       var many = list.length > 1;
       countEl.textContent = many ? (index + 1) + " / " + list.length : "";
       prevBtn.hidden = nextBtn.hidden = !many;
+      zoomable = false; zoomBtn.hidden = true; stage.classList.remove("on-photo");
+      img.classList.remove("is-preview");
+      img.classList.add("is-loading");
+      img.style.width = img.style.height = "";
+      if (small && thumb) sizeLike(thumb);
+      img.onload = img.onerror = function () {
+        if (mine !== viewSeq) return;
+        if (img.getAttribute("src") === full) {   // the full photo is in: ready to zoom
+          img.classList.remove("is-loading", "is-preview");
+          img.style.width = img.style.height = "";
+          checkZoomable();
+        } else {                                   // the quick copy is up while the full photo downloads
+          img.classList.remove("is-loading");
+          img.classList.add("is-preview");
+        }
+      };
+      img.src = small || full;
+      if (small && small !== full) {
+        var big = new Image();
+        var swap = function () { if (mine === viewSeq) img.src = full; };
+        big.src = full;
+        if (big.decode) big.decode().then(swap, swap); else big.onload = big.onerror = swap;
+      }
+      img.alt = thumb ? thumb.alt : "";
       if (many) { preload(index + 1); preload(index - 1); }
     };
 
     document.addEventListener("click", function (ev) {
-<<<<<<< HEAD
       var a = ev.target.closest ? ev.target.closest(".shot__img[data-full]") : null;
       if (!a) return;
       ev.preventDefault();
       var grid = a.closest(".grid") || document;
       list = Array.prototype.slice.call(grid.querySelectorAll(".shot__img[data-full]"));
-=======
-      var a = ev.target.closest ? ev.target.closest("a.shot__img") : null;
-      if (!a || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;   // let "open in new tab" through
-      ev.preventDefault();
-      var grid = a.closest(".grid") || document;
-      list = Array.prototype.slice.call(grid.querySelectorAll("a.shot__img"));
->>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
       opener = a;
-      show(list.indexOf(a));
       root.classList.add("viewer-open");
-      dlg.showModal();
+      dlg.showModal();          // open first, so the photo can be sized to the screen
+      show(list.indexOf(a));
     });
 
     prevBtn.addEventListener("click", function () { show(index - 1); });
     nextBtn.addEventListener("click", function () { show(index + 1); });
-<<<<<<< HEAD
     zoomBtn.addEventListener("click", function () { toggleZoom(); });
     dlg.querySelector(".viewer__close").addEventListener("click", function () { dlg.close(); });
     dlg.addEventListener("keydown", function (ev) {
@@ -260,7 +270,7 @@
     stage.addEventListener("pointermove", function (ev) {
       var p = pts.get(ev.pointerId);
       if (!p) {   // just hovering: magnifier cursor over the photo
-        if (ev.pointerType !== "touch") stage.classList.toggle("on-photo", overPhoto(ev.clientX, ev.clientY));
+        if (ev.pointerType !== "touch") stage.classList.toggle("on-photo", zoomable && overPhoto(ev.clientX, ev.clientY));
         return;
       }
       var dx = ev.clientX - p.x, dy = ev.clientY - p.y;
@@ -297,7 +307,7 @@
         var now = Date.now();
         if (lastTap && now - lastTap.t < 350 && Math.hypot(ev.clientX - lastTap.x, ev.clientY - lastTap.y) < 40) {
           lastTap = null; skipClick = true;
-          if (isZoomed() || overPhoto(ev.clientX, ev.clientY)) toggleZoom(ev.clientX, ev.clientY);
+          if (isZoomed() || (zoomable && overPhoto(ev.clientX, ev.clientY))) toggleZoom(ev.clientX, ev.clientY);
         } else {
           lastTap = { t: now, x: ev.clientX, y: ev.clientY };
         }
@@ -315,8 +325,8 @@
         return;
       }
       if (ev.detail > 1) return;                               // 2nd click of a double-click: already zoomed
-      if (isZoomed() || on) toggleZoom(ev.clientX, ev.clientY);    // click the photo to zoom in, again to zoom out
-      else dlg.close();                                        // click the dark area to close
+      if (isZoomed() || (on && zoomable)) toggleZoom(ev.clientX, ev.clientY);   // click the photo to zoom in, again to zoom out
+      else if (!on) dlg.close();                               // click the dark area to close
     });
 
     // scroll wheel or trackpad pinch (it arrives as ctrl + wheel) zooms around the pointer
@@ -343,43 +353,29 @@
       });
     }
     window.addEventListener("resize", function () {
-      if (dlg.open && isZoomed()) { keepInFrame(fitted()); render(false); }
-=======
-    dlg.querySelector(".viewer__close").addEventListener("click", function () { dlg.close(); });
-    dlg.addEventListener("keydown", function (ev) {
-      if (ev.key === "ArrowLeft") { ev.preventDefault(); show(index - 1); }
-      else if (ev.key === "ArrowRight") { ev.preventDefault(); show(index + 1); }
-    });
-
-    // swipe left / right on touch screens; a tap on the dark area closes
-    var startX = null, startY = null, swiped = false;
-    stage.addEventListener("pointerdown", function (ev) { startX = ev.clientX; startY = ev.clientY; swiped = false; });
-    stage.addEventListener("pointerup", function (ev) {
-      if (startX === null) return;
-      var dx = ev.clientX - startX, dy = ev.clientY - startY;
-      startX = startY = null;
-      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) && list.length > 1) { swiped = true; show(index + (dx < 0 ? 1 : -1)); }
-    });
-    dlg.addEventListener("click", function (ev) {
-      if (swiped) { swiped = false; return; }
-      if (ev.target === dlg || ev.target === stage) dlg.close();
->>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
+      if (!dlg.open) return;
+      if (img.classList.contains("is-preview") || img.classList.contains("is-loading")) {
+        var t = list[index] && list[index].querySelector("img");
+        if (t) sizeLike(t);
+        return;
+      }
+      checkZoomable();
+      if (isZoomed()) { if (zoomable) { zoomTo(scale, null, null, false); } else { resetZoom(); } }
     });
 
     dlg.addEventListener("close", function () {
       root.classList.remove("viewer-open");
-<<<<<<< HEAD
       pts.clear(); pinch = gest = lastTap = null; gesturing = false;
       stage.classList.remove("is-panning", "on-photo");
+      viewSeq++;   // a photo still downloading won't pop back in
       resetZoom();
-=======
->>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
+      img.classList.remove("is-loading", "is-preview");
+      img.style.width = img.style.height = "";
       img.src = blank;
       if (opener) opener.focus({ preventScroll: true });
     });
   }
 
-<<<<<<< HEAD
   /* ---- Make the photos harder to save: no right-click or long-press menu, no dragging ---- */
   var PHOTO_AREAS = ".shot__img, .set-card, .hero__media, .viewer";
   document.addEventListener("contextmenu", function (ev) {
@@ -389,8 +385,6 @@
     if (ev.target.tagName === "IMG") ev.preventDefault();
   });
 
-=======
->>>>>>> 034399f7355ca514845a547c3b64e9b73fd8ad87
   /* ---- Contact form → Web3Forms ---- */
   var form = document.getElementById("contact-form");
   if (form && window.fetch) {
