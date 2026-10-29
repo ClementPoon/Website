@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Clement Poon — Photography</title>
+<meta name="description" content="Portrait, travel, and car photography by Clement Poon, based in Austin, Texas.">
+<meta name="author" content="Clement Poon">
+<link rel="canonical" href="https://clementpoon.com/photography/">
+<meta property="og:url" content="https://clementpoon.com/photography/">
+<meta property="og:image" content="https://clementpoon.com/photography/og-image.jpg">
+<meta name="twitter:image" content="https://clementpoon.com/photography/og-image.jpg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Clement Poon Photography">
+<meta property="og:title" content="Clement Poon — Photography">
+<meta property="og:description" content="Portraits, travel, and cars. Based in Austin, Texas.">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Clement Poon Photography: portraits, travel, and cars">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0b0c">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="photo.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the photos</a>
+
+<header class="site-head">
+  <div class="wrap site-head__row">
+    <a class="mark" href="#top" aria-label="Clement Poon Photography, back to top">
+      <span class="mark__name">Clement Poon</span>
+      <span class="mark__tag">Photography</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#portraits">Portraits</a>
+      <a href="#travel">Travel</a>
+      <a href="#cars">Cars</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================================ COVER ================================
+       The big photo is img/cover-1440.jpg / img/cover-2560.jpg (same photo, two sizes). Replace both to change it.
+  -->
+  <section class="hero" id="top" aria-labelledby="name">
+    <figure class="hero__media"><img draggable="false" src="img/cover-1440.jpg" srcset="img/cover-1440.jpg 1440w, img/cover-2560.jpg 2560w" sizes="100vw" width="2560" height="1691" alt="Hong Kong Island's skyline at sunset across Victoria Harbour" fetchpriority="high"></figure>
+    <div class="wrap hero__inner">
+      <p class="label hero__kicker">Photography · Austin, Texas</p>
+      <h1 id="name">Clement Poon</h1>
+      <p class="hero__tagline">Portraits, travel, and cars.</p>
+      <a class="hero__cue" href="#portraits">View the work <span aria-hidden="true"></span></a>
+    </div>
+  </section>
+
+  <!-- ============================== SET INDEX ==============================
+       Each card shows one photo from its set. object-position picks which part of the photo stays in view.
+  -->
+  <nav class="sets wrap" aria-label="Photo sets">
+    <ul class="sets__grid">
+      <li>
+        <a class="set-card" href="#portraits">
+          <img draggable="false" src="img/portraits/caven-clark-field-sm.jpg" width="1019" height="1600" alt="" loading="lazy" decoding="async" style="object-position:50% 35%">
+          <span class="set-card__text">
+            <span><span class="label set-card__n">01</span><span class="set-card__title">Portraits</span></span>
+            <span class="set-card__go">View</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="set-card" href="#travel">
+          <img draggable="false" src="img/travel/sensoji-reflection-sm.jpg" width="1038" height="1600" alt="" loading="lazy" decoding="async" style="object-position:50% 28%">
+          <span class="set-card__text">
+            <span><span class="label set-card__n">02</span><span class="set-card__title">Travel</span></span>
+            <span class="set-card__go">View</span>
+          </span>
+        </a>
+      </li>
+      <li>
+        <a class="set-card" href="#cars">
+          <img draggable="false" src="img/cars/under-the-milky-way-sm.jpg" width="1067" height="1600" alt="" loading="lazy" decoding="async" style="object-position:50% 90%">
+          <span class="set-card__text">
+            <span><span class="label set-card__n">03</span><span class="set-card__title">Cars</span></span>
+            <span class="set-card__go">View</span>
+          </span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- ============================== PORTRAITS ==============================
+       Each photo is one <figure class="shot"> block. To add one, copy this pattern:
+
+       <figure class="shot" style="--r:0.8">
+         <button class="shot__img" type="button" data-full="img/portraits/name.jpg"><img draggable="false" src="img/portraits/name-sm.jpg" width="960" height="1200" alt="Describe the photo" loading="lazy" decoding="async"></button>
+         <figcaption><span class="shot__meta">85mm · f/1.8 · 1/200 s · ISO 100</span></figcaption>
+       </figure>
+
+       --r is the photo's width ÷ height (3:2 = 1.5, 2:3 = 0.667, 4:5 = 0.8, 16:9 = 1.778).
+       data-full is the large file the viewer opens; the -sm file is what shows in the grid.
+  -->
+  <section class="set wrap" id="portraits" aria-labelledby="portraits-h">
+    <header class="set__head">
+      <p class="label set__n">01 — Set</p>
+      <h2 id="portraits-h">Portraits</h2>
+      <p class="set__note">People, and the light they're in.</p>
+    </header>
+    <div class="grid">
+      <figure class="shot" style="--r:0.637">
+        <button class="shot__img" type="button" data-full="img/portraits/caven-clark-field.jpg"><img draggable="false" src="img/portraits/caven-clark-field-sm.jpg" width="1019" height="1600" alt="Three friends making a star with their fingers under the orange Caven-Clark Field banner on campus" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">35.7mm · f/2.8 · 1/100 s · ISO 160</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.500">
+        <button class="shot__img" type="button" data-full="img/portraits/from-above.jpg"><img draggable="false" src="img/portraits/from-above-sm.jpg" width="1600" height="1067" alt="The same three friends lying head to head on green turf, joining their fingers into a star, shot from above" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">35.3mm · f/2.8 · 1/60 s · ISO 160</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.666">
+        <button class="shot__img" type="button" data-full="img/portraits/on-the-stairs.jpg"><img draggable="false" src="img/portraits/on-the-stairs-sm.jpg" width="1066" height="1600" alt="Three friends climbing outdoor stairs at dusk, one in a cream sweater in front looking down to the side" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">30.8mm · f/2.8 · 1/60 s · ISO 1250</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.667">
+        <button class="shot__img" type="button" data-full="img/portraits/light-portal.jpg"><img draggable="false" src="img/portraits/light-portal-sm.jpg" width="1067" height="1600" alt="A hooded figure standing inside a glowing orange and yellow light-painted arch on red-lit grass, under the Milky Way" loading="lazy" decoding="async"></button>
+      </figure>
+      <figure class="shot" style="--r:0.667">
+        <button class="shot__img" type="button" data-full="img/portraits/navy-suit.jpg"><img draggable="false" src="img/portraits/navy-suit-sm.jpg" width="1067" height="1600" alt="Smiling young man in a navy suit and striped tie with arms crossed, glass corridor softly blurred behind him" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">85mm · f/3.2 · 1/400 s · ISO 160</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.667">
+        <button class="shot__img" type="button" data-full="img/portraits/white-polo.jpg"><img draggable="false" src="img/portraits/white-polo-sm.jpg" width="1067" height="1600" alt="Young man with curly red hair and glasses in a white polo, arms crossed, bright corridor behind him" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">85mm · f/3.2 · 1/400 s · ISO 160</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.667">
+        <button class="shot__img" type="button" data-full="img/portraits/blue-tie.jpg"><img draggable="false" src="img/portraits/blue-tie-sm.jpg" width="1067" height="1600" alt="Smiling young man with curly hair and clear glasses in a black suit and blue tie" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">85mm · f/2.8 · 1/500 s · ISO 500</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.673">
+        <button class="shot__img" type="button" data-full="img/portraits/black-tie.jpg"><img draggable="false" src="img/portraits/black-tie-sm.jpg" width="1077" height="1600" alt="Smiling young man in a black suit and black tie with arms crossed in a modern hallway" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">85mm · f/2.5 · 1/500 s · ISO 500</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.667">
+        <button class="shot__img" type="button" data-full="img/portraits/glass-hallway.jpg"><img draggable="false" src="img/portraits/glass-hallway-sm.jpg" width="1067" height="1600" alt="Young man in glasses, a black suit and a blue patterned tie, arms crossed in a long hallway lined with windows" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">50mm · f/2.2 · 1/160 s · ISO 160</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================================ TRAVEL ================================ -->
+  <section class="set wrap" id="travel" aria-labelledby="travel-h">
+    <header class="set__head">
+      <p class="label set__n">02 — Set</p>
+      <h2 id="travel-h">Travel</h2>
+      <p class="set__note">Places, streets, and the moments in between.</p>
+    </header>
+    <div class="grid">
+      <figure class="shot" style="--r:1.514">
+        <button class="shot__img" type="button" data-full="img/travel/victoria-harbour-sunset.jpg"><img draggable="false" src="img/travel/victoria-harbour-sunset-sm.jpg" width="1600" height="1057" alt="Hong Kong Island&#x27;s skyline at sunset across Victoria Harbour, the sky glowing orange behind distant mountains" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">34mm · f/8 · 0.4 s · ISO 50</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.667">
+        <button class="shot__img" type="button" data-full="img/travel/star-ferry.jpg"><img draggable="false" src="img/travel/star-ferry-sm.jpg" width="1067" height="1600" alt="A lit-up Star Ferry crossing Victoria Harbour at night, with the Convention Centre and Central Plaza behind" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">50mm · f/1.8 · 1/100 s · ISO 640</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.758">
+        <button class="shot__img" type="button" data-full="img/travel/red-sails.jpg"><img draggable="false" src="img/travel/red-sails-sm.jpg" width="1600" height="910" alt="Junk boats with glowing red sails and a ferry crossing Victoria Harbour at night, Hong Kong Island lit up behind" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">50mm · f/1.8 · 1/250 s · ISO 1000</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.615">
+        <button class="shot__img" type="button" data-full="img/travel/victoria-peak.jpg"><img draggable="false" src="img/travel/victoria-peak-sm.jpg" width="1600" height="991" alt="Night view from Victoria Peak over Hong Kong&#x27;s towers, the harbour, and Kowloon" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">31mm · f/9 · 8 s · ISO 125</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.649">
+        <button class="shot__img" type="button" data-full="img/travel/sensoji-reflection.jpg"><img draggable="false" src="img/travel/sensoji-reflection-sm.jpg" width="1038" height="1600" alt="Sensō-ji&#x27;s red five-story pagoda at dusk, reflected upside down in a puddle in the foreground" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">50mm · f/1.8 · 1/100 s · ISO 200</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.693">
+        <button class="shot__img" type="button" data-full="img/travel/sensoji-glass.jpg"><img draggable="false" src="img/travel/sensoji-glass-sm.jpg" width="1109" height="1600" alt="Sensō-ji&#x27;s pagoda glowing in late sun, with a second reflected pagoda layered over the left side of the frame" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">50mm · f/2.2 · 1/100 s · ISO 160</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.628">
+        <button class="shot__img" type="button" data-full="img/travel/tokyo-tower-night.jpg"><img draggable="false" src="img/travel/tokyo-tower-night-sm.jpg" width="1005" height="1600" alt="Tokyo Tower lit orange and white at night above a road streaked with car light trails" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">28mm · f/8 · 30 s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.767">
+        <button class="shot__img" type="button" data-full="img/travel/tokyo-tower.jpg"><img draggable="false" src="img/travel/tokyo-tower-sm.jpg" width="1227" height="1600" alt="Tokyo Tower&#x27;s red and white lattice against a blue sky with wispy clouds, trees in the foreground" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">38mm · f/8 · 1/500 s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.691">
+        <button class="shot__img" type="button" data-full="img/travel/crosswalk.jpg"><img draggable="false" src="img/travel/crosswalk-sm.jpg" width="1106" height="1600" alt="People crossing a street under a red light in low evening sun, curved stone buildings and trees behind" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">70mm · f/5.6 · 1/160 s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.778">
+        <button class="shot__img" type="button" data-full="img/travel/rainbow-bridge.jpg"><img draggable="false" src="img/travel/rainbow-bridge-sm.jpg" width="1600" height="900" alt="Tokyo&#x27;s Rainbow Bridge lit white at night beside the city skyline, its lights reflected in still water" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">49mm · f/4 · 25 s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.796">
+        <button class="shot__img" type="button" data-full="img/travel/odaiba-boardwalk.jpg"><img draggable="false" src="img/travel/odaiba-boardwalk-sm.jpg" width="1600" height="891" alt="A wet waterfront boardwalk under a glowing street lamp at night, with the Rainbow Bridge across the water" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">24mm · f/5 · 4 s · ISO 50</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.500">
+        <button class="shot__img" type="button" data-full="img/travel/ginkgo-rows.jpg"><img draggable="false" src="img/travel/ginkgo-rows-sm.jpg" width="1600" height="1067" alt="Rows of tall, narrow ginkgo trees catching the light against a pale sky" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">70mm · f/4.5 · 1/200 s · ISO 125</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.522">
+        <button class="shot__img" type="button" data-full="img/travel/zenkoji.jpg"><img draggable="false" src="img/travel/zenkoji-sm.jpg" width="1600" height="1051" alt="The wooden main hall of Zenkō-ji with paper lanterns, gold roof details, and a stormy sky" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">24mm · f/8 · 1/200 s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.625">
+        <button class="shot__img" type="button" data-full="img/travel/pagoda.jpg"><img draggable="false" src="img/travel/pagoda-sm.jpg" width="1000" height="1600" alt="A dark wooden pagoda rising above green trees under a dramatic sky" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">50mm · f/5 · 1/320 s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.778">
+        <button class="shot__img" type="button" data-full="img/travel/volcano-trail.jpg"><img draggable="false" src="img/travel/volcano-trail-sm.jpg" width="1600" height="900" alt="Hikers with backpacks on a volcanic slope under a blue sky" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">24mm · f/7.1 · 1/500 s · ISO 160</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.732">
+        <button class="shot__img" type="button" data-full="img/travel/before-sunrise.jpg"><img draggable="false" src="img/travel/before-sunrise-sm.jpg" width="1600" height="924" alt="A dark landscape before sunrise with a red and orange glow along the horizon" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">50mm · f/1.8 · 0.6 s · ISO 3200</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.361">
+        <button class="shot__img" type="button" data-full="img/travel/waiting-for-sunrise.jpg"><img draggable="false" src="img/travel/waiting-for-sunrise-sm.jpg" width="1600" height="1176" alt="Three people outdoors in the blue light before sunrise" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">50mm · f/1.8 · 1/50 s · ISO 640</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.736">
+        <button class="shot__img" type="button" data-full="img/travel/blue-hour.jpg"><img draggable="false" src="img/travel/blue-hour-sm.jpg" width="1177" height="1600" alt="A person against a deep blue sky before sunrise" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">50mm · f/1.8 · 1/50 s · ISO 800</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.686">
+        <button class="shot__img" type="button" data-full="img/travel/first-light.jpg"><img draggable="false" src="img/travel/first-light-sm.jpg" width="1098" height="1600" alt="A hiker with a backpack in the blue light just before sunrise" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">50mm · f/1.8 · 1/50 s · ISO 320</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.508">
+        <button class="shot__img" type="button" data-full="img/travel/by-the-lake.jpg"><img draggable="false" src="img/travel/by-the-lake-sm.jpg" width="1600" height="1061" alt="A lakeside view on a bright summer afternoon" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">40mm · f/8 · 1/800 s · ISO 250</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.399">
+        <button class="shot__img" type="button" data-full="img/travel/golden-afternoon.jpg"><img draggable="false" src="img/travel/golden-afternoon-sm.jpg" width="1600" height="1144" alt="A lakeside scene in warm, golden afternoon light" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">93mm · f/6.3 · 1/200 s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.410">
+        <button class="shot__img" type="button" data-full="img/travel/bridge-at-dusk.jpg"><img draggable="false" src="img/travel/bridge-at-dusk-sm.jpg" width="1600" height="1135" alt="A suspension bridge over the water at dusk, with boats below" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">84mm · f/4.5 · 1/50 s · ISO 1000</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.500">
+        <button class="shot__img" type="button" data-full="img/travel/bridge-blue-hour.jpg"><img draggable="false" src="img/travel/bridge-blue-hour-sm.jpg" width="1600" height="1067" alt="A suspension bridge in the deep blue light after sunset" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">70mm · f/4.5 · 1/25 s · ISO 1250</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:0.667">
+        <button class="shot__img" type="button" data-full="img/travel/red-glow.jpg"><img draggable="false" src="img/travel/red-glow-sm.jpg" width="1067" height="1600" alt="A person in a night scene lit by deep red light" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">60mm · f/4 · 1/60 s · ISO 1600</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================================= CARS ================================= -->
+  <section class="set wrap" id="cars" aria-labelledby="cars-h">
+    <header class="set__head">
+      <p class="label set__n">03 — Set</p>
+      <h2 id="cars-h">Cars</h2>
+      <p class="set__note">Race cars, superbikes, and a lot of motion blur.</p>
+    </header>
+    <div class="grid grid--wide">
+      <figure class="shot" style="--r:0.667">
+        <button class="shot__img" type="button" data-full="img/cars/under-the-milky-way.jpg"><img draggable="false" src="img/cars/under-the-milky-way-sm.jpg" width="1067" height="1600" alt="A dark car parked on the grass beside a rural road at night, its red tail lights glowing and yellow light spilling across the grass, under the Milky Way" loading="lazy" decoding="async"></button>
+      </figure>
+      <figure class="shot" style="--r:1.299">
+        <button class="shot__img" type="button" data-full="img/cars/number-65.jpg"><img draggable="false" src="img/cars/number-65-sm.jpg" width="1600" height="1232" alt="Superbike number 65 in blue and orange leaning into a corner, rider tucked in, grass blurred behind" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">288mm · f/6.3 · 1/400 s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.317">
+        <button class="shot__img" type="button" data-full="img/cars/streaks.jpg"><img draggable="false" src="img/cars/streaks-sm.jpg" width="1600" height="1215" alt="A race car panning past with the track behind it blurred into streaks" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">130mm · f/6.3 · 1/160 s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.370">
+        <button class="shot__img" type="button" data-full="img/cars/the-pack.jpg"><img draggable="false" src="img/cars/the-pack-sm.jpg" width="1600" height="1168" alt="A group of race cars running close together on track" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">139mm · f/5.6 · 1/160 s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.498">
+        <button class="shot__img" type="button" data-full="img/cars/into-the-corner.jpg"><img draggable="false" src="img/cars/into-the-corner-sm.jpg" width="1600" height="1068" alt="Two superbikes, one red and one black, leaning hard into a corner beside a red and white kerb" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">300mm · f/6.3 · 1/500 s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.566">
+        <button class="shot__img" type="button" data-full="img/cars/motion-blur.jpg"><img draggable="false" src="img/cars/motion-blur-sm.jpg" width="1600" height="1022" alt="A race car at speed with the background blurred into streaks" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">68mm · f/9 · 1/50 s · ISO 50</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.449">
+        <button class="shot__img" type="button" data-full="img/cars/duel.jpg"><img draggable="false" src="img/cars/duel-sm.jpg" width="1600" height="1104" alt="Two race cars on track together" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">110mm · f/6.3 · 1/160 s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.724">
+        <button class="shot__img" type="button" data-full="img/cars/morning-pan.jpg"><img draggable="false" src="img/cars/morning-pan-sm.jpg" width="1600" height="928" alt="A race car panning past, the background blurred into horizontal streaks" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">73mm · f/9 · 1/50 s · ISO 50</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.569">
+        <button class="shot__img" type="button" data-full="img/cars/up-close.jpg"><img draggable="false" src="img/cars/up-close-sm.jpg" width="1600" height="1020" alt="A race car filling the frame as it passes, the background blurred" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">62mm · f/5 · 1/80 s · ISO 100</span></figcaption>
+      </figure>
+      <figure class="shot" style="--r:1.570">
+        <button class="shot__img" type="button" data-full="img/cars/two-seconds-later.jpg"><img draggable="false" src="img/cars/two-seconds-later-sm.jpg" width="1600" height="1019" alt="Another race car passing close, two seconds after the previous shot" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">62mm · f/5.6 · 1/80 s · ISO 100</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================================ ABOUT ================================= -->
+  <section class="about wrap" id="about" aria-labelledby="about-h">
+    <div class="about__grid">
+      <div class="about__text">
+        <h2 class="sec-title" id="about-h">About</h2>
+        <p class="about__lead">I'm Clement, a photographer based in Austin, Texas.</p>
+        <p>I shoot portraits, the places I travel to, and cars, which I spend almost as much time working on as photographing. Most of these photos start on a Sony a7R III and finish in Lightroom.</p>
+      </div>
+      <div class="kit-wrap">
+        <h3 class="visually-hidden">Camera kit</h3>
+        <dl class="kit">
+          <div><dt class="label">Camera</dt><dd>Sony a7R III</dd></div>
+          <div><dt class="label">Lenses</dt><dd><span>Sigma 24–70mm f/2.8 DG DN II Art</span><span>Sony Zeiss 24–70mm f/4</span><span>Sony 50mm f/1.8</span><span>Sony 85mm f/1.8</span><span>Tamron 70–300mm f/4.5–6.3</span></dd></div>
+          <div><dt class="label">Light</dt><dd><span>Godox V1 Pro flash</span><span>Godox TL60 RGB tube light</span><span>Softbox</span></dd></div>
+          <div><dt class="label">Edit</dt><dd>Adobe Lightroom and Photoshop</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============================== CONTACT ===============================
+       The form sends through Web3Forms to ClementP@utexas.edu (same key as before; it's meant to be public).
+  -->
+  <section class="contact wrap" id="contact" aria-labelledby="contact-h">
+    <div class="contact__grid">
+      <div>
+        <h2 class="sec-title" id="contact-h">Say hello</h2>
+        <p class="contact__lead">Shoot ideas, collaborations, or a question about a photo. I read everything.</p>
+        <a class="contact__email" href="mailto:ClementP@utexas.edu?subject=Photography">ClementP@utexas.edu</a>
+      </div>
+      <form class="form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="4c3725a1-b6ff-4b01-a8b3-9ed4b5b16d1e">
+        <input type="hidden" name="subject" value="New photography message from clementpoon.com">
+        <input type="hidden" name="from_name" value="clementpoon.com/photography">
+        <input type="checkbox" name="botcheck" hidden>
+        <div class="form__row">
+          <div class="field">
+            <label for="pf-name">Name</label>
+            <input id="pf-name" name="name" type="text" autocomplete="name" maxlength="120" required>
+          </div>
+          <div class="field">
+            <label for="pf-email">Email</label>
+            <input id="pf-email" name="email" type="email" autocomplete="email" maxlength="200" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="pf-message">Message</label>
+          <textarea id="pf-message" name="message" rows="5" maxlength="5000" required></textarea>
+        </div>
+        <div class="form__foot">
+          <button class="btn" type="submit">Send <span aria-hidden="true">→</span></button>
+          <p class="form__note">Goes straight to my inbox.</p>
+        </div>
+        <p class="form__status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap site-foot__row">
+    <p>© 2026 Clement Poon. All photos are my own; please ask before using them.</p>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<dialog class="viewer" aria-labelledby="viewer-h">
+  <h2 class="visually-hidden" id="viewer-h">Photo viewer</h2>
+  <div class="viewer__stage">
+    <img draggable="false" class="viewer__img" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="">
+  </div>
+  <div class="viewer__bar">
+    <p class="viewer__cap"><span class="viewer__meta"></span></p>
+    <div class="viewer__nav">
+      <button class="viewer__btn viewer__prev" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <p class="viewer__count"></p>
+      <button class="viewer__btn viewer__next" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
+  <button class="viewer__zoom" type="button" aria-label="Zoom in"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.25" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15.2 15.2L20 20M7.75 10.5h5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path class="viewer__zoom-plus" d="M10.5 7.75v5.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+  <button class="viewer__close" type="button" aria-label="Close photo viewer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></button>
+</dialog>
+
+<script src="photo.js" defer></script>
+</body>
+</html>
