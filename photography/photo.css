@@ -254,12 +254,6 @@ button.shot__img:hover img { transform: scale(1.025); }
   padding-top: clamp(28px, 4vw, 44px); border-top: 1px solid var(--line);
 }
 .contact__lead { max-width: 34ch; color: var(--muted); font-size: 1.02rem; }
-.contact__email {
-  display: inline-block; margin-top: 6px; padding-bottom: 4px; border-bottom: 1px solid var(--line-2);
-  font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2.2rem); line-height: 1.1; overflow-wrap: anywhere;
-  transition: border-color 0.2s, color 0.2s;
-}
-.contact__email:hover { color: var(--accent); border-color: var(--accent); }
 
 .form { display: grid; gap: 22px; }
 .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }

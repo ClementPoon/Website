@@ -12,8 +12,8 @@ Clement Poon's portfolio site. This file is for future Claude sessions; it isn't
 - `.assetsignore` keeps `.git`, `README.md`, `CLAUDE.md`, `_to_delete`, and `Claude outputs` out of the upload.
   Cloudflare allows at most **25 MiB per file**, and the `.git` pack is over 90 MB.
 - GitHub Pages is off ("None"). Leave it off, or it will fight Cloudflare for the domain.
-- Clement commits and pushes himself (`git add -A`, `git commit -m "..."`, `git push`).
-  Claude can't push: the device shell can't read the OneDrive `.git` folder, and the session has no GitHub access.
+- When Clement ends a message with "push", commit and push to `master` (`git add -A`, `git commit -m "..."`, `git push`).
+  Otherwise he commits himself. Claude Code on the desktop can run git here; cloud sessions can't (no access to the OneDrive `.git` folder or GitHub).
 - `_to_delete/` holds stray files left by an accidental `git pull` on Oct 29. It's git-ignored, so Clement can delete it.
 
 ## Working on the files
