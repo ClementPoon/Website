@@ -26,7 +26,7 @@ Clement Poon's portfolio site. This file is for future Claude sessions; it isn't
 - Datasheet-style EE portfolio, with a résumé at `assets/Clement_Poon_Resume.pdf`. The phone number was removed from it on Oct 30.
   The LaTeX source (Overleaf) still has the number.
 - Project order: Payload (rocketry), Mintality, FPGA, Vehicle, Arcade, VIPER, Earlier builds.
-- The Photography tab links to `photography/`. The photography site never links back to the main site.
+- The Photography tab links to `photography/`. The photography site links back only through the "Engineering portfolio" footer button (`../`).
 
 ## Photography site (`photography/`)
 - Sections: Portraits, Travel, Cars. There are no section labels or descriptions, and no photo titles; each photo shows only its camera settings.
