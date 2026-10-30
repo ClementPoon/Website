@@ -108,7 +108,7 @@ photography/
 linked directly. That stops casual "Save image as", but no website can stop screenshots, so add a watermark to any
 photo you're especially protective of.
 
-**Cover photos:** the big photo at the top is `img/cover-1440.jpg` / `img/cover-2560.jpg` (same photo, two sizes).
+**Cover photos:** the big photo at the top is `img/cover-1440.jpg` through `img/cover-5120.jpg` (the same photo at five widths: 1440, 1920, 2560, 3840, 5120 px).
 Each of the three cards under it uses one photo from its set; change its `<img src=…>` inside `<a class="set-card">`.
 `object-position` on that image picks which part of the photo stays in view.
 

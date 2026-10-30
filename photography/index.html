@@ -45,10 +45,10 @@
 <main id="main">
 
   <!-- ================================ COVER ================================
-       The big photo is img/cover-1440.jpg / img/cover-2560.jpg (same photo, two sizes). Replace both to change it.
+       The big photo is img/cover-1440.jpg … cover-5120.jpg (same photo, five sizes; each screen loads the one it needs).
   -->
   <section class="hero" id="top" aria-labelledby="name">
-    <figure class="hero__media"><img draggable="false" src="img/cover-1440.jpg" srcset="img/cover-1440.jpg 1440w, img/cover-2560.jpg 2560w" sizes="100vw" width="2560" height="1691" alt="Hong Kong Island's skyline at sunset across Victoria Harbour" fetchpriority="high"></figure>
+    <figure class="hero__media"><img draggable="false" src="img/cover-1440.jpg" srcset="img/cover-1440.jpg 1440w, img/cover-1920.jpg 1920w, img/cover-2560.jpg 2560w, img/cover-3840.jpg 3840w, img/cover-5120.jpg 5120w" sizes="(max-aspect-ratio: 4/3) 134vh, 100vw" width="2560" height="1691" alt="Hong Kong Island's skyline at sunset across Victoria Harbour" fetchpriority="high"></figure>
     <div class="wrap hero__inner">
       <p class="label hero__kicker">Photography · Austin, Texas</p>
       <h1 id="name">Clement Poon</h1>
@@ -64,7 +64,7 @@
     <ul class="sets__grid">
       <li>
         <a class="set-card" href="#portraits">
-          <img draggable="false" src="img/portraits/on-the-stairs-sm.jpg" width="1066" height="1600" alt="" loading="lazy" decoding="async" style="object-position:50% 42%">
+          <img draggable="false" src="img/portraits/light-portal-sm.jpg" width="1067" height="1600" alt="" loading="lazy" decoding="async" style="object-position:50% 86%">
           <span class="set-card__text">
             <span><span class="label set-card__n">01</span><span class="set-card__title">Portraits</span></span>
             <span class="set-card__go">View</span>
@@ -105,9 +105,7 @@
   -->
   <section class="set wrap" id="portraits" aria-labelledby="portraits-h">
     <header class="set__head">
-      <p class="label set__n">01 — Set</p>
       <h2 id="portraits-h">Portraits</h2>
-      <p class="set__note">People, and the light they're in.</p>
     </header>
     <div class="grid">
       <figure class="shot" style="--r:0.637">
@@ -124,6 +122,10 @@
       </figure>
       <figure class="shot" style="--r:0.667">
         <button class="shot__img" type="button" data-full="img/portraits/light-portal.jpg"><img draggable="false" src="img/portraits/light-portal-sm.jpg" width="1067" height="1600" alt="A hooded figure standing inside a glowing orange and yellow light-painted arch on red-lit grass, under the Milky Way" loading="lazy" decoding="async"></button>
+      </figure>
+      <figure class="shot" style="--r:0.529">
+        <button class="shot__img" type="button" data-full="img/portraits/stargazer.jpg"><img draggable="false" src="img/portraits/stargazer-sm.jpg" width="847" height="1600" alt="A person with a headlamp looking up at a starry night sky, red-lit juniper trees around them and thin clouds drifting overhead" loading="lazy" decoding="async"></button>
+        <figcaption><span class="shot__meta">16mm · f/1.8 · 13 s · ISO 1600</span></figcaption>
       </figure>
       <figure class="shot" style="--r:0.667">
         <button class="shot__img" type="button" data-full="img/portraits/navy-suit.jpg"><img draggable="false" src="img/portraits/navy-suit-sm.jpg" width="1067" height="1600" alt="Smiling young man in a navy suit and striped tie with arms crossed, glass corridor softly blurred behind him" loading="lazy" decoding="async"></button>
@@ -151,9 +153,7 @@
   <!-- ================================ TRAVEL ================================ -->
   <section class="set wrap" id="travel" aria-labelledby="travel-h">
     <header class="set__head">
-      <p class="label set__n">02 — Set</p>
       <h2 id="travel-h">Travel</h2>
-      <p class="set__note">Places, streets, and the moments in between.</p>
     </header>
     <div class="grid">
       <figure class="shot" style="--r:1.514">
@@ -258,9 +258,7 @@
   <!-- ================================= CARS ================================= -->
   <section class="set wrap" id="cars" aria-labelledby="cars-h">
     <header class="set__head">
-      <p class="label set__n">03 — Set</p>
       <h2 id="cars-h">Cars</h2>
-      <p class="set__note">Race cars, superbikes, and a lot of motion blur.</p>
     </header>
     <div class="grid grid--wide">
       <figure class="shot" style="--r:0.667">
