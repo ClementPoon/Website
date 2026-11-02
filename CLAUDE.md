@@ -35,6 +35,9 @@ Clement Poon's portfolio site. This file is for future Claude sessions; it isn't
     victoria-peak was re-saved at quality 98 to fit.
   - `<slug>-sm.jpg`: 1600 px on the long side, quality 92, 4:4:4. This is what the grid shows.
   - The two Milky Way shots (`cars/under-the-milky-way`, `portraits/light-portal`) are only 1334×2000 copies; the originals were never sent.
+  - Clement's exports live in `D:\Photo Dumps\<set>\<date>\` (edited JPGs at the top, ARW raws under `2026/`).
+    Cars added Nov 2 (`dirty-e30`, `cherry-blossom`, `red-weld`, `purple-spikes`, `tail-light`) came from `D:\Photo Dumps\Cars\11-1-26`.
+    Captions round focal length to whole mm.
 - Each photo is a `<figure class="shot" style="--r:W/H">` holding a `<button class="shot__img" data-full="...">` with the `-sm` image inside.
   An optional `<figcaption><span class="shot__meta">`.
 - Viewer (`photo.js`):
